@@ -1,0 +1,1524 @@
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<script language="javascript" src="/common/svrLink.asp"></script>
+<script language="javascript" src="/js/freechal.js"></script>
+<script language="javascript" src="/js/fcMsg.js"></script>
+<script language="javascript" src="/js/Nethru.js"></script>
+<script language="javascript" src="/js/freechalon/freechalon.js"></script>
+<script language="javascript" src="/js/freechalon/FcMsg.js"></script>
+ 
+
+<script language=javascript>
+
+function OpenCPAWin(strURL, strTarget) {
+
+    if(strTarget == 'W') {
+
+        window.open(strURL, 'CPAWin', 'left=' + (window.screen.availWidth/2 - 790/2) + ',top=' + (window.screen.availHeight/2 - 600/2) + ', all=no, width=790, height=600');
+
+    }
+
+    else {
+
+        window.open(strURL);
+
+    }
+
+}
+
+</script>
+
+
+
+<script Language="javascript">
+/* 추가로 접속하고 나가는 사용자를 관리하기 위한 javascript 배열 */
+	var userIDList = new Array(10);
+	var userNameList = new Array(10);
+	var lngTotalUserCnt
+	
+
+</script>
+<script language=javascript>
+function makeList(userid, username, objLayer, objCounter, classname) {
+	var i, j
+	var tempUserIDList = new Array(eval(userIDList.length+1));
+	var tempUserNameList = new Array(eval(userNameList.length+1));
+	var listString = '';
+	var listStringTemp = '';	
+	var strColor = '';
+	var strClass = '';
+
+	j = 0;
+	for (i=0;i<userIDList.length;i++) {
+		if (userIDList[i] != null && userIDList[i] != '' ) {
+			if (userNameList[i].substr(1,2) == "00") {
+				// 게스트 색상				
+				strColor='#517892';
+			}
+			else if (userNameList[i].substr(1,2) == "04") {
+				// 마스터 색상
+				strColor='#5f5f5f';
+			}
+			else {
+				// 회원 색상
+				strColor='#5f5f5f';
+			}
+
+			if (classname != '' && classname != null) {	
+				strColor = '';		
+				strClass = ' class=' + classname;				
+			}						
+			
+			if (userNameList[i].substr(0,1) =='M' ) {
+				listStringTemp = "<img src=" + g_imgsvr + "/Comservice/Activity/comtylive/bl_man.gif border=0 >";
+			}
+			else {
+				listStringTemp = "<img src=" + g_imgsvr + "/Comservice/Activity/comtylive/bl_woman.gif border=0 >";
+			}
+
+			if (userNameList[i].substr(3,1) != 'Y' ) {
+				listStringTemp = listStringTemp + "&nbsp;<span onClick=\"showOMenu('" + userid + "','" + username + "','" + userIDList[i] + "','" + userNameList[i].substring(4, userNameList[i].length) + "')\" style=cursor:hand;color:" + strColor + strClass + " >" + userNameList[i].substring(4, userNameList[i].length) + "</span><br>";
+				listString = listStringTemp + listString;
+				tempUserIDList[j] = userIDList[i];
+				tempUserNameList[j] = userNameList[i];
+				j++;
+				listStringTemp = '';			
+			}
+		}		
+	}
+	userIDList = tempUserIDList;
+	userNameList = tempUserNameList;
+
+	lngTotalUserCnt = j;
+	if (typeof(objCounter) == 'object' ) {
+/*		
+		if (lngTotalUserCnt >= 10) {
+			lngTotalUserCnt = 10;
+			objCounter.innerHTML = lngTotalUserCnt + '명 이상';
+		}
+		else {
+			objCounter.innerHTML = lngTotalUserCnt + '명';
+		}
+*/		
+		objCounter.innerHTML = lngTotalUserCnt + '명';		
+	}
+		
+	if (typeof(objLayer) == 'object' ) {		
+		objLayer.innerHTML = listString;
+	}
+}
+</script>
+
+<script language="JavaScript">
+	lngTotalUserCnt = 0;
+</script>
+<link rel="stylesheet" href="/css/community/IndexStyle.css" type="text/css" />
+<link rel="stylesheet" href="/css/community/LayoutType_2L.css" type="text/css" />
+<link rel="stylesheet" href="/css/community/SkinType_w.css" type="text/css" />
+<link rel="stylesheet" href="/css/community/BackgroundStyle/BackgroundStyle_018.css" type="text/css" />
+<link rel="stylesheet" href="/css/community/CoverStyle/white/CoverStyle_000.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/css/module/mode1.css">
+<link rel="stylesheet" type="text/css" href="/css/community/BbsStyle2/white/Board.css">
+<script language="javascript">
+function OneLineReplyLimit() {
+	
+	var g_replyyn = "Y";
+	var g_curgrpid = "845246";
+	
+	if (g_replyyn == 'N') {
+		if (g_curgrpid == 0 ) {
+			alert('한줄 답변 사용이 제한된 게시판입니다.');
+		}
+		else {
+			alert('마스터가 한줄 답변 사용을 제한하였습니다!\n자세한 내용은 커뮤니티 마스터에게\n문의하실 수 있습니다.');		
+		}
+		return false;
+
+	}
+	else {
+		return true;		
+	}
+}
+
+
+function AddMasterMsg() {
+	var commtype;
+    var trialyn;
+
+    commtype = "F";
+    trialyn = "C";
+
+	if (commtype == "E") {
+		window.open ("http://home.freechal.com/comservice/management/memberPopup.asp?free=C&grpid=845246" , ""  , "width=100 , height=100");
+	}
+	else {
+		window.open("http://community.freechal.com/Comservice/Activity/MasterMsg/MasterMsgWriteForm.asp?Grpid=845246", "mastermsg", "width=670, height=585, resizable=yes , scrollbars=yes")
+	}
+	
+}
+
+function ViewMasterMsg(lngMasterMsgSeqNo) {	
+	var commtype;
+  var trialyn;
+  
+
+  commtype = "F";
+  trialyn = "C";
+
+	if (commtype == "E") {
+    window.open ("http://home.freechal.com/comservice/management/memberPopup.asp?free=C&grpid=845246" , ""  , "width=100 , height=100");
+	}
+	else {
+		window.open("http://community.freechal.com/Comservice/Activity/MasterMsg/MasterMsgView.asp?Grpid=845246&SeqNo=" + lngMasterMsgSeqNo, "mastermsg", "width=670, height=585, resizable=yes , scrollbars=yes");
+	}
+}
+
+function AddNotice(From, DocID)
+{
+    window.open("/common/bbs/SetNoticeForm.asp?GrpID=845246&ObjID=GCOM22&ObjSeq=1&DocID=" + DocID + "&From=" + From , "SetNoticeForm" , "width=350 , height=180")
+}
+
+function DeleteNotice(From, DocID)
+{
+    window.open("/common/bbs/DeleteNotice.asp?GrpID=845246&ObjID=GCOM22&ObjSeq=1&DocID=" + DocID  + "&From=" + From, "DeleteNoticeForm" , "width=1 , height=1 , top=2000 , left = 2000")
+}
+
+
+</script>
+
+
+<!-- 게시판 내용 끝 -->
+<html>
+<head>
+<title>소리나는 어린이집 [http://home.freechal.com/sorikid]</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+
+<script language="JavaScript" type="text/javascript" src="/js/FcScript.js"></script>
+</head>
+<body >
+
+
+<link rel="stylesheet" type="text/css" href="/css/community/ck.css">
+
+
+
+
+<!-- include virtual="/include/freechalon/install.inc" -->
+
+	<style type="text/css">
+	#div_layout{
+		text-overflow:ellipsis;
+		overflow:hidden;
+		word-break:break-all;
+		width:130px;
+	}
+	</style>
+
+<script	language=javascript>
+function menu_Login() {
+
+	top.location.href = "http://bbs.freechal.com/common/FcCommonLogGate.asp?gbn=T&RedirUrl=http%3A%2F%2Fhome%2Efreechal%2Ecom%2Fetc%2Flogin%2Easp%3F" + escape(escape(top.location.href)) + "&MenuNm=LOGIN&Referer=http%3A%2F%2Fbbs%2Efreechal%2Ecom%2FComService%2FActivity%2FEstimBBS%2FCsBBSContent%2Easp";
+
+}
+</script>
+<script	language=javascript>
+
+var	_displayShown = "C";
+
+
+function rankPop() {
+	window.open("http://community.freechal.com/section/Ranking/Ranking_Info.asp?grpid=845246","rankwin","width=400,height=340,left="+ (window.screen.availWidth-425)/2+",top="+ (window.screen.availHeight-350)/2);
+}
+
+//커뮤니티 추천하기 팝업창
+function openRegComList() {
+	window.open('/common/Recommend/CsRegMain.asp?grpid=845246','recommendwin','fullscreen=no,titlebar=no,toolbar=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=500,height=270');
+}
+
+
+var	strTopSumImg, strTopComtyImg;
+
+strTopSumImg = g_imgsvr + "/common/newtop/btn_sum.gif";
+strTopComtyImg = g_imgsvr + "/common/newtop/btn_com.gif";
+
+function displayToggle() {
+	var SumTag = document.getElementById("freqsum");
+	var CommTag = document.getElementById("freqcomm");
+	//var ImgTag = document.getElementById("topimg");
+	if(_displayShown == "S") {
+		SumTag.style.display = "";
+		CommTag.style.display = "";
+		//ImgTag.src = strTopSumImg;
+		_displayShown = "C"
+	} else {
+		SumTag.style.display = "";
+		CommTag.style.display = "";
+		ImgTag.src = strTopComtyImg;
+		_displayShown = "S"
+	}
+}
+
+
+</script>
+
+
+<script	language="JavaScript" src="/js/FcMain20/AvataMenuTopBar.js"></script>
+
+<!--## GNB영역 Start ##-->
+<div id="cTop">
+	<div id="cTopL" class="fl">
+	<Script Language="JavaScript" type="text/javascript">
+	ObjFlash("http://image.freechal.com/community/common/white/fclogo.swf", 110, 40, "");
+	</Script>
+	</div>
+	<div id="cTopR">
+		<div id="cTopRTxt" class="gnb">
+			<a href="http://bbs.freechal.com/common/FcCommonLogGate.asp?gbn=T&RedirUrl=http%3A%2F%2Fnews%2Efreechal%2Ecom&MenuNm=NEWS&Referer=http%3A%2F%2Fbbs%2Efreechal%2Ecom%2FComService%2FActivity%2FEstimBBS%2FCsBBSContent%2Easp"			class="gnb" target="_top">뉴스</a> |
+			<a href="http://bbs.freechal.com/common/FcCommonLogGate.asp?gbn=T&RedirUrl=http%3A%2F%2Fcommunity%2Efreechal%2Ecom&MenuNm=COMMUNITY&Referer=http%3A%2F%2Fbbs%2Efreechal%2Ecom%2FComService%2FActivity%2FEstimBBS%2FCsBBSContent%2Easp"		class="gnb" target="_top">커뮤니티</a> |
+			<a href="http://bbs.freechal.com/common/FcCommonLogGate.asp?gbn=T&RedirUrl=http%3A%2F%2Fmail%2Efreechal%2Ecom%2Fmailhome%2Easp&MenuNm=MAIL&Referer=http%3A%2F%2Fbbs%2Efreechal%2Ecom%2FComService%2FActivity%2FEstimBBS%2FCsBBSContent%2Easp" 	class="gnb" target="_top">메일</a> |
+			<a href="http://bbs.freechal.com/common/FcCommonLogGate.asp?gbn=T&RedirUrl=http%3A%2F%2Fqtv%2Efreechal%2Ecom&MenuNm=QTV&Referer=http%3A%2F%2Fbbs%2Efreechal%2Ecom%2FComService%2FActivity%2FEstimBBS%2FCsBBSContent%2Easp"			class="gnb" target="_top">QTV</a> |
+			<a href="http://bbs.freechal.com/common/FcCommonLogGate.asp?gbn=T&RedirUrl=http%3A%2F%2Fq%2Efreechal%2Ecom&MenuNm=Q&Referer=http%3A%2F%2Fbbs%2Efreechal%2Ecom%2FComService%2FActivity%2FEstimBBS%2FCsBBSContent%2Easp"				class="gnb" target="_top">마이Q</a> |
+			<a href="http://bbs.freechal.com/common/FcCommonLogGate.asp?gbn=T&RedirUrl=http%3A%2F%2Fgame%2Efreechal%2Ecom&MenuNm=GAME&Referer=http%3A%2F%2Fbbs%2Efreechal%2Ecom%2FComService%2FActivity%2FEstimBBS%2FCsBBSContent%2Easp"			class="gnb" target="_top">게임</a> |
+			<a href="http://bbs.freechal.com/common/FcCommonLogGate.asp?gbn=T&RedirUrl=http%3A%2F%2Fwww%2Efileguri%2Ecom&MenuNm=FILEGURI&Referer=http%3A%2F%2Fbbs%2Efreechal%2Ecom%2FComService%2FActivity%2FEstimBBS%2FCsBBSContent%2Easp"			class="gnb" target="_top">파일구리</a> &nbsp;
+		</div>
+		<div id="cTopRBtn">
+			
+<script language="JavaScript">
+function freqComm_goFunc()
+{
+	var sel = document.freqComm_goFuncForm.freqComm_funcGo;
+	var gourl = sel[sel.selectedIndex].value;
+	if (gourl == "")
+		return;
+
+	if (sel.selectedIndex == sel.length - 1 ||  // 자주가는 커뮤니티
+		sel.selectedIndex == sel.length - 2 ||  //  커뮤니티 검색
+		(!IsFreechalOnInstalled() && sel.selectedIndex == sel.length - 4) ||    //  freechalOn 설치
+		sel.selectedIndex == 2)             // 내 커뮤니티
+		top.location.href = gourl;
+	else
+		
+		top.location.href = "http://home.freechal.com/Common/FcCommonLogGate.asp?gbn=T&accessgbn=freqcomm&MenuNm=FREQCOMM&Referer=http%3A%2F%2Fbbs%2Efreechal%2Ecom%2FComService%2FActivity%2FEstimBBS%2FCsBBSContent%2Easp&RedirUrl=" + escape(gourl);
+		
+}
+
+function freqComm_isNew(getDate)
+{
+
+	var lastAccessDt = new Date("March 22,2011 15:57:59");
+	var intLastAccessDt;
+	var intNow;
+	var intGetDt;
+	var intDiffHour;
+	var intTmpDiff;
+
+	intLastAccessDt = 0;//Date.parse(lastAccessDt);
+
+	intNow = Date.parse(new Date());
+
+	if (!isNaN(getDate))
+		intGetDt  = Date.parse(getDate);
+	else
+		intGetDt = 0;
+
+	if (intGetDt == 0)
+		return false;
+	if (intLastAccessDt == 0)
+		intDiffHour = 24;
+	else
+	{
+		intTmpDiff = intNow - intLastAccessDt;
+		intDiffHour = parseInt(intTmpDiff/(1000*60*60*24))*24;
+		if (intDiffHour == 0)
+			intDiffHour = 24;
+	}
+
+	intTmpDiff = intNow - intGetDt;
+	if (parseInt(intTmpDiff/(1000*60*60))<intDiffHour)
+		return true;
+
+	return false;
+}
+
+function freqComm_displaySelect()
+{
+	document.writeln("<table width='139' cellpadding=0 cellspacing=0 border=0>");
+	document.writeln("<tr>");
+	document.writeln("<td width=10>");
+	document.writeln("<form id=freqComm_goFuncForm name=freqComm_goFuncForm method=post onSubmit='return false;'>");
+	document.writeln("<td width='139' valign=middle>");
+	document.writeln("<select id='freqComm_funcGo' name='freqComm_funcGo' onChange='freqComm_goFunc();' style='width:139px; font-size:9pt; ; font-family: 돋움; '>");
+	document.writeln("<option value=''>자주가는 커뮤니티</option>");
+	document.writeln("<option value=''>-------------------</option>");
+	document.writeln("<option value='http://home.freechal.com/Common/FcCommonLogGate.asp?gbn=T&MenuNm=FREQCOMM&RedirUrl=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FBase%2FMyComty%2FMyComtyList%2Easp&Referer=http%3A%2F%2Fbbs%2Efreechal%2Ecom%2FComService%2FActivity%2FEstimBBS%2FCsBBSContent%2Easp'>내 커뮤니티 ▶▶</option>");
+
+	document.writeln("<option value=''>-------------------</option>");
+	document.writeln("<option value='http://home.freechal.com/Common/FcCommonLogGate.asp?gbn=T&MenuNm=FREQCOMM&RedirUrl=http%3A%2F%2Fcommunity%2Efreechal%2Ecom&Referer=http%3A%2F%2Fbbs%2Efreechal%2Ecom%2FComService%2FActivity%2FEstimBBS%2FCsBBSContent%2Easp'>커뮤니티 검색</option>");
+	document.writeln("<option value='http://home.freechal.com/Common/FcCommonLogGate.asp?gbn=T&MenuNm=FREQCOMM&RedirUrl=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FBase%2FMyComty%2FMyComtySet%2Easp&Referer=http%3A%2F%2Fbbs%2Efreechal%2Ecom%2FComService%2FActivity%2FEstimBBS%2FCsBBSContent%2Easp'>설정</option>");
+	document.writeln("</select>");
+	document.writeln("</td>");
+	document.writeln("</form>");
+	document.writeln("</tr>");
+	document.writeln("</table>");
+}
+
+function freqComm_insertRecomm()
+{
+	freqComm_insertOption("맘에 드는 컴티를", "", "#808080");
+	freqComm_insertOption("찾아 놀러가보세요!", "", "#808080");
+	freqComm_insertOption("-------------------", "");
+}
+
+function freqComm_insertComm(idx, itm)
+{
+	var rtn, opt;
+
+	opt = new Option(itm[1], itm[0]);
+	if (!isNaN(itm[2]) && freqComm_isNew(itm[2]))
+	{
+		opt.style.color = "#0034C5"
+		opt.style.backgroundColor = "#F2F2FF";
+		rtn = true;
+	}
+	else
+		rtn = false;
+
+	var sel = document.freqComm_goFuncForm.freqComm_funcGo;
+	sel.options.add(opt, sel.length - 3);
+
+	return rtn;
+}
+
+function freqComm_insertOption(text, value, color, bgcolor)
+{
+	var sel = document.freqComm_goFuncForm.freqComm_funcGo;
+	var opt = new Option(text, value);
+	if (color)
+		opt.style.color = color;
+	if (bgcolor)
+		opt.style.backgroundColor = bgcolor;
+	sel.options.add(opt, sel.length - 3);
+}
+
+function freqComm_resizeDiv(cnt, recomm)
+{
+}
+
+freqComm_displaySelect();
+
+
+	document.writeln('<iframe width=0 height=0 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no src="/common/FreqCommB.asp?From=top" ALLOWTRANSPARENCY="true" style="display:none"></iframe>');
+
+</script>
+
+		</div>
+		<div id="cTopRBtn">
+			&nbsp;&nbsp;<a href="http://bbs.freechal.com/common/FcCommonLogGate.asp?gbn=T&RedirUrl=https%3A%2F%2Fses%2Efreechal%2Ecom%2Fsignout%2Fdefault%2Easp&MenuNm=LOGOUT&Referer=http%3A%2F%2Fbbs%2Efreechal%2Ecom%2FComService%2FActivity%2FEstimBBS%2FCsBBSContent%2Easp" target="_top"><img src="http://image.freechal.com/community/common/white/btn_logout.gif" border="0" align="absmiddle"></a>
+		</div>
+	</div>
+</div>
+<!--## GNB영역 End ##-->
+<script lnaguage='javascript'>
+function AccCallback() {
+    if (xmlAccObject.readyState == 4) {
+        if (xmlAccObject.status == 200) {
+        } else if (xmlAccObject.status == 204){	//데이터가 존재하지 않을 경우
+        }
+    }
+}
+var xmlAccObject;
+if (window.ActiveXObject) {
+	xmlAccObject = new ActiveXObject("Microsoft.xmlHttp");
+}
+else if (window.xmlAccObjectRequest) {
+	xmlAccObject = new XMLHttpRequest();
+}
+xmlAccObject.open("post", "/common/GrpAccessLog.asp?grpid=845246", true);
+xmlAccObject.onreadystatechange = AccCallback;
+xmlAccObject.send(null);
+</script>
+<div id="RD">
+<samp id="RD1"></samp><samp id="RD2"></samp><samp id="RD3"></samp><samp id="RD4"></samp>
+<!--## 중앙영역 Start ##-->
+<div id="MainBodyContent">
+	<!--## 이미지 타이틀 영역 Start ##-->
+
+<div id="divTitleUser" style= "background: url('http://home.freechal.com/sorikid/home/sori-top.jpg')" onclick="javascript:location.href='http://home.freechal.com/sorikid/';"></div>
+	<!--## 이미지 타이틀 영역 End ##-->
+	<!--## 커뮤니티 정보 영역 Start ##-->
+
+<div id="cBlogTop">
+	<div id="cBlogTopFL">
+	<span class="b">마스터 : <a href="javascript:openHompy('kelly7513')" class="mastername">달빛요정</a></span>
+	<span class="g_C4">|</span>
+	회원수 : <span class="b">1,113</span>명
+	<span class="g_C4">|</span>
+	등급 : <span class="b"><a href="javascript:rankPop();" class="mastername">2</a></span>등급
+	</div>
+	<div class="fl" style="padding:7px 0px 0px 0;">
+	<img src="http://image.freechal.com/community/common/ranking/ico_ranking2.gif" align="absmiddle" hspace="5">
+	
+	<a href="http://home.freechal.com/ComService/Management/Mng.asp?GrpId=845246"><img src="http://image.freechal.com/community/common/white/btn_manage.gif" alt="" border="0" align="absmiddle"></a>
+	
+	</div>
+</div>
+	<!--## 커뮤니티 정보 영역 End ##-->
+	<!--## 레이아웃 영역 Start ##-->
+	<div id="FcMainArea">
+		<!-- 좌측 메뉴 영역 Start -->
+
+
+<script LANGUAGE="JavaScript">
+var g_login = true;
+var g_userid = 'geesetower';
+var g_hname = '기린';
+var g_memberGbnNm = '스탭';
+var g_grpcat = 'E03';
+var g_grpcatGbn = 'C';
+
+
+
+var g_curgrpid = '845246';
+var g_objid = 'GCOM22';
+var g_masterid = 'kelly7513';
+var g_masternm = '달빛요정';
+var g_membercnt = '1113';
+var g_createdt = '2001.06.27';
+var g_mngpermission = false;
+var g_menupos = 'L';
+var g_hidemenu = false;
+var g_menuwidth = '150';
+var g_menusaveyn = 'Y';
+var g_commtype = 'F';
+var g_menuheight = '57';
+var g_certinfo = 'NNNNN';
+var g_grpurl = 'sorikid';
+var g_curgrpnm = '소리나는 어린이집';
+var g_canapply = false;
+var g_curSelGroupid = '';
+var g_trialyn = 'C';
+var g_menuitem = 'N'; 
+var g_membersearch = 'Y';
+var g_menustyle = '0';
+var g_menudesign = '0';
+var g_freechalon = '0';
+var g_frameheight = '24';
+var g_hidecommlive = true;
+var g_chatmenu = false;
+var g_mngnew = '0';
+var g_statistics = 'N';
+var g_leftmenu = ''
+var g_allianceComm = "<div id='MPartnerTitle'><span class='b'>제휴 커뮤니티</span><span class='v10'>(0)</span></div><div id='MPartnerListNo' style='display:block'>제휴커뮤니티가 없습니다.</div>";    // 제휴 커뮤니티(2006-09-14 By SOH)
+
+var g_homeinfo = [
+	['1.asp','커뮤니티 홈 페이지']
+];
+var g_menuinfo = [
+	['GCOM49','2','default','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM01','1','알려드려요!!','0','','N','','','','color:#CC0000; font-family:; font-weight:bold; font-style:normal; text-decoration:none;','Y','Y','0','15','3145728','0'],
+	['GCOM02','7','대기자방 *^ㅡ^*','1','','N','은평구 공동육아협동조합소리나는 어린이집 에\n 관심을 가져 주셔서 감사드리며, 반갑습니다...','','','color:#1C2BFF; font-weight:bold; font-style:normal; text-decoration:none;','Y','Y','0','15','3145728','0'],
+	['GCOM02','2','소리나는은요~','0','','N','','','','color:#00CC00; font-family:; font-weight:bold; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM49','1','default','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM02','1','이야기 나누기','0','','N','','','','color:#FF9900; font-family:; font-weight:bold; font-style:normal; text-decoration:none;','Y','Y','0','15','3145728','0'],
+	['GCOM02','18','조합원/아마활동방','0','','N','','','','color:#FF9900; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','15','3145728','0'],
+	['GCOM22','1','선생님/이사회방','0','','N','','','','color:#FF9900; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM02','67','이사회 소통방','0','','N','','','','color:#FF9900; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM03','15','재인증 자료실','0','','N','','','','color:#FF6600; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM49','5','default','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM02','4','같이 읽는 날적이','0','','N','','','','color:#999900; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM03','7','교육계획/평가','0','','N','자료관리','','','color:#999900; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','15','3145728','0'],
+	['GCOM02','16','솔방울의행복밥상♨','0','','N','','','','color:#999900; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','15','3145728','0'],
+	['GCOM03','4','소식지','0','','N','소식지','','','color:#999900; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','15','3145728','0'],
+	['GCOM49','9','default','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM13','1','아이들 사진','0','','N','','','','color:#006600; font-family:; font-weight:bold; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM49','14','default','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM46','1','소리나는 동네 친구','0','','N','','http://home.freechal.com/SMTB','','color:#9999FF; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM02','14','소모임방/아나바다','0','','N','','','','color:#9999FF; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM02','5','꿈이크는 방과후','0','','N','','','','color:#9999FF; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM02','15','졸업생아이들방','0','','N','','','','color:#9999FF; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM49','20','default','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM03','1','자료실','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM58','1','프리미엄자료실','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM61','1','동영상게시판','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM04','1','방명록','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM62','1','커버스토리','0','','','','','','','Y','Y','0','0','0','0'],
+	['GCOM56','1','추카추카!','0','','','','','','','Y','Y','0','0','0','0'],
+	['GSTR','-2','우리컴티 섬','0','1','N','','','','','Y','Y','0','0','0','0'],
+	['GETC03','1','♥소리동문회♥','0','1','N','','thflehdansghl','','','Y','Y','0','0','0','0'],
+	['GEND','-2','우리컴티 섬','0','1','N','','','','','Y','Y','0','0','0','0']
+];
+var g_groupinfo = [
+	['1','1',false,'GCOM57']
+];
+var g_mngmenuinfo = [
+	['GCOM56','1','추카추카!','1','N','geesetower','',''],
+	['GCOM54','1','마스터후원하기','0','N','토토로(jockerman)','',''],
+	['GCOM19','1','자기정보관리','0','N','','',''],
+	['GCOM14','1','회원정보검색','0','N','친구(dmsgmlchl7)','',''],
+	['GCOM21','1','초대하기','0','N','','',''],
+	['GMAN00','1','커뮤니티관리','0','N','','',''],
+	['GMAN05','1','용량 관리','0','Y','','','']
+];
+var g_getc02info = [
+
+];
+var g_layername, g_layerusercnt;
+</script>
+
+
+<script LANGUAGE="JavaScript" SRC="/js/UserMenu.js"></script>
+<script LANGUAGE="JavaScript" SRC="/js/ComItem/ComMenuCommon.js"></script>
+
+<script language="javascript">
+	var strFreComl = document.body.clientWidth/2-130;
+	var strFreComt = document.body.clientHeight/2-80;
+	var strFreComUrl = g_commsvr + "/Base/MyComty/MyComtyAdd.asp?grpid=" + g_curgrpid + "&rtnURL=http%3A%2F%2Fbbs%2Efreechal%2Ecom%2FComService%2FActivity%2FEstimBBS%2FCsBBSContent%2Easp%3FGrpId%3D845246%26ObjSeq%3D1%26PageNo%3D1%26DocId%3D6656921";
+</script>
+<script language="javascript" SRC="/js/ComItem/ComMenu.js"></script>		<!-- 좌측 메뉴 영역  End -->
+<div id="IC_wrap">
+<!-- 중앙 컨텐츠 영역 Start -->
+<div id="SubTopLine"><!-- 상단 라인 --></div>
+<div id="AC_wrap">
+	<!--------------------------------------------------------------->
+	<div id="ContentsMain">
+
+<script Language="JavaScript">
+var popupWin = null;
+
+//Admin Popup창 띄우기
+function AdminPopup(flag) {
+	if (flag == "true") {
+		var winOption = 'width=370,height=500,fullscreen=no,titlebar=no,toolbar=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no';
+		var popupUrl = 'http://community.freechal.com/ComService/Admin/CsAdminPopup.asp?GrpId=845246&Objid=GCOM22&Objseq=1&objicon=&returnUrl=http://bbs.freechal.com/ComService/Activity/EstimBBS/CsBBSContent.asp';
+		popupWin = window.open(popupUrl, 'AdminSet', winOption);
+	} else {alert("Admin 팝업을 사용하실 수 없는 기능입니다.")}
+}
+</script>
+
+
+<!-- 게시판 내용 시작 -->
+<style>
+	#MyIDLayerBox {position:absolute;z-index:10;top:15px;left:16px;width:109px;background:url('http://10.1.0.26/common/layer_myidtop.gif') 0 0 no-repeat;text-align:left;}
+	#MyIDLayerBox #IDLayer 		{background:url('http://10.1.0.26/common/layer_myidbttm.gif') 0 bottom no-repeat;padding-bottom:2px;}
+	#MyIDLayerBox #IDLayer ul {background:url('http://10.1.0.26/common/layer_myidbg.gif') 0 0 repeat;margin:2px 0 0 0;padding:0 2px;}
+	#MyIDLayerBox #IDLayer ul li 		{background:url('http://10.1.0.26/common/layer_idline.gif') 0 0 repeat-x;width:105px;height:22px;padding-left:5px;padding-top:7px;}
+	#MyIDLayerBox #IDLayer ul li a 	{color:#666666;font-size:11px;}
+	#MyIDLayerBox #IDLayer ul li.first 		{background:url('http://10.1.0.26/1by1.gif') 0 0 repeat;height:19px;padding-top:4px;}
+	#MyIDLayerBox #IDLayer ul li.first a 	{color:#666666;font-size:11px;}
+</style>
+
+
+
+<script language="javascript" src="/js/freechal.js"></script>
+<script language="javascript" src="/js/editor.js"></script>
+<script language="javascript" src="/js/copyArticle.js"></script>
+<script language="javascript">
+<!--
+
+function DeleteArticle() {
+	if (confirm("삭제하시겠습니까?") == true) {
+		location.href = "CsBBSDelete.asp?GrpId=845246&ObjSeq=1&PageNo=1&DocId=6656921&Target=CsBBSList%2Easp%3FGrpId%3D845246%26ObjSeq%3D1%26PageNo%3D1"
+	}
+}
+
+
+function Save_Estim(){
+
+	if ("True" == "True" && "N" == "Y") {
+		alert("이미 추천하신 게시물입니다");
+		return;
+	}
+	else if ("True" == "False") {
+
+		alert("로그인하시기 바랍니다.")
+	}
+	else {
+		document.EstimForm.submit();
+	}
+
+}
+
+function viewUserInfo() {
+
+	window.open("http://memo.freechal.com/MoUserDetail.asp?fromid=geesetower&fromname=기린&toid=mhjeon01&toname=사과", "_blank","fullscreen=no,titlebar=no,toolbar=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=500,height=580")
+
+}
+
+function viewReplyUserInfo(strReplyUserId, strReplyUserName) {
+	window.open("http://hompy.freechal.com/hm/default.asp?Id=" + strReplyUserId, "FcHompy_"+strReplyUserId, "width=660, height=480");
+}
+
+function ReplySendMail(strEmail, strUserName) {
+	strParam = escape("\"" + strUserName + "\"<" + strEmail + ">");
+	window.open("http://mail.freechal.com/MessageCenter/Email/McSendMailForm.asp?To="+strParam, "freechal")
+}
+
+//-->
+
+
+<!--
+function writerinfo(strAction) {
+	var toid = "mhjeon01";
+	var toname = "사과";
+	var fromid = "geesetower";
+
+	var fromnm = "기린";
+
+
+	if (toid == "Guest" ) {
+		alert("작성자가 손님(guest)인 글에서는 이 메뉴를 이용할 수 없습니다.")
+		return;
+	}
+	switch (strAction) {
+		case "ava":
+			window.open("/common/FcCommonLogGate.asp?RedirUrl=http%3A%2F%2Fmall%2Efreechal%2Ecom%2FAvtMall%2FImShop%2Easp%3Fuid%3Dmhjeon01%26buycd%3DC2");
+			break;
+		case "myQ":
+			openQ(toid);
+			break;
+		case "wardrobe":
+			window.open("http://3dmall.freechal.com/AvtWorld?show=" + strAction, "3D", "");
+			break;
+		case "mall":
+			window.open("http://3dmall.freechal.com/AvtWorld?show=" + strAction, "3D", "");
+			break;
+		case "myhompy":
+			openHompy(toid);
+			break;
+		case "userinfo":
+			window.location.href="http://community.freechal.com/Comservice/Activity/onLine/CsOnLineUserInfo.asp?grpid=845246&toid=" + toid + "&toname=" + escape(toname) + "&isKick=N&isSock=N&isMute=N"
+			break;
+		case "addbuddy":
+			window.open(g_pimssvr + "/MyFreechal/pims/Address/MyAddrAddFcUser.asp?idlist=" + toid + "&orgsvr=comm", "AddBuddyWin", "fullscreen=no,titlebar=no,toolbar=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=300,height=295");
+			break;
+		case "sendmemo":
+			window.open(g_memosvr + "/MoUserInfo.asp?fromid=" + fromid + "&toid=" + toid + "&fromnm="+escape(fromnm)+"&toname="+escape(toname), "_blank", "fullscreen=no,titlebar=no,toolbar=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=500,height=300");
+			break;
+		case "sendsms":
+			Mobile_PopEmotUp(toid, "" ,"" ,0)
+			break;
+		case "sendmail":
+			window.open(g_mailsvr + "/MessageCenter/Email/McSendMailForm.asp?toid=" + toid);
+			break;
+		case "sendhp":
+			window.open(g_pimssvr + "/myfreechal/pims/gift/digital/SelectItemCatPopUp.asp?OrgSelVal1=||"+toid, "SendGiftWindow","fullscreen=no,titlebar=no,toolbar=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=606,height=340");
+			break;
+		case "telephone" :
+			window.open('http://messenger.freechal.com/Dialpad/DialpadCall.asp?phonenum=','pop','toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=500,height=280');
+		break;
+	}
+}
+
+
+function NewWin() {
+
+	window.open("/common/bbs/OpenNewView.asp?GrpId=845246&ObjSeq=1&ObjId=GCOM22&PageNo=1&DocId=6656921&url=http%3A%2F%2Fbbs%2Efreechal%2Ecom%2FComService%2FActivity%2FEstimBBS%2F&prefix=CsBBS" , "NewView","width=670, height=540")
+
+}
+
+function NewWin2() {
+	window.open("/common/bbs/ViewContentInfoFrame.asp?GrpId=845246&ObjId=GCOM22&ObjSeq=1&DocId=6656921", "NewView2", "width=640,height=650,directories=no,location=no,menubar=no,resizable=yes,status=no,toolbar=no,scrollbars=yes")
+}
+
+function AlimReply() {
+	window.open("http://pims.freechal.com/myfreechal/PowerAlim/BBSReAddPopup.asp?Grpid=845246&ObjSeq=1&Objid=GCOM22&DocID=6656921&Subject=11%BF%F9+%C1%A4%B1%E2+%C0%CC%BB%E7%C8%B8+%BA%B8%B0%ED%2811%2E2%29" , "", "width=420, height=250")
+}
+
+function MoveArticle() {
+	var i;
+	var count = 0;
+	var Movement;
+	var commtype;
+	var trialyn;
+
+	commtype = "F";
+	trialyn = "C";
+
+	if (commtype == "E") {
+		window.open ("http://home.freechal.com/comservice/management/memberPopup.asp?free=C&grpid=845246" , ""  , "width=100 , height=100");
+
+	} else {
+		Movement = window.open("", "Movement", "width=385 , height=235 ")
+		document.listform.action = "CsBBSMoveForm.asp";
+		document.listform.target = "Movement"
+		document.listform.submit();
+
+	}
+}
+
+
+
+function ShowReplyEmoticon()
+{
+	if(document.getElementById("exreply").style.display=="")
+		document.getElementById("exreply").style.disply = "none";
+	else
+	{
+		document.getElementById("exreply").style.display="";
+		document.getElementById("exreply").setCapture();
+
+		document.getElementById("exreply").style.left = event.clientX + 5 + document.body.scrollLeft - 17;
+		document.getElementById("exreply").style.top = event.clientY - 100  + document.body.scrollTop - 70;
+	}
+}
+
+function SetReplyEmoticon()
+{
+	var indx;
+	document.getElementById("exreply").releaseCapture();
+	indx = event.srcElement;
+
+	if(document.getElementById("exreply").style.display=="")
+		document.getElementById("exreply").style.display = "none";
+	else
+	{
+		document.getElementById("exreply").style.display = "";
+		document.getElementById("exreply").style.left = event.clientX + 5 + document.body.scrollLeft;
+		document.getElementById("exreply").style.top = event.clientY - 1  + document.body.scrollTop;
+	}
+	if (indx.tagName.toLowerCase() == "img" && indx.emo == 1)
+	{
+		document.getElementById("exreply_icon").src = indx.src;
+		document.getElementById("replygbn").value = indx.id;
+	}
+}
+
+function CopyURL(strURL){
+	clipboardData.setData('TEXT', strURL);
+	alert('게시물의 주소가 복사되었습니다.\n메일이나, 메신저 채팅창, 쪽지 등에\n붙여넣기(ctrl v)하세요!');
+}
+//-->
+</script>
+
+
+
+
+	<div class="BoardTitle" id="BoardTitle">
+<span id="BoardTitleImg"><img src="http://image.freechal.com/community/common/white/ico_b03.gif" align="absmiddle"></span>선생님/이사회방
+<a href="JavaScript:AdminPopup('true')"><img src="http://image.freechal.com/community/common/white/btn_board_set.gif" align="absmiddle"></a>
+	</div>
+
+	<div id="BoardSubTitle"></div>
+
+
+	<div id="BoardTdView">
+		<table class="view-title">
+			<tr>
+				<td class="td_num">294</td>
+				<td class="td_title">
+					11월 정기 이사회 보고(11.2)
+				</td>
+				<td class="td_date">2010-11-04 오전 10:53:54</td>
+			</tr>
+		</table>
+		<table class="view-info">
+			<tr>
+				<td class="td_writer">
+					<div id="WriterCT">
+					 <span onclick="ContextMenu.initMenu('geesetower','기린','mhjeon01','사과','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor:pointer;">사과</span>
+					</div>
+				</td>
+				<td class="td_nums">
+				
+					<div id="td_rcmd">추천 : <span class="num">0</span></div>
+				
+					<div id="td_scrap">스크랩 : <span class="num">0</span></div>
+				
+					<div id="td_hit">조회 : <span class="num">121</span></div>
+				</td>
+			</tr>
+		</table>
+		<div class="scroll01">
+		<table class="view-content">
+			<!-- 텍스트 컨텐츠 -->
+			<tr>
+				<td class="cont-view" id="container">
+					<div id="DocContent" style="font-size:10pt;width:100%;padding:10px;overflow:auto">
+					<!--StartFragment-->
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><STRONG><FONT face=굴림 size=3>[ 11월 정기 이사회 ] 회의록</FONT></STRONG></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp;</FONT></FONT>
+<xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" /><o:p></o:p></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>o 일지 및 장소 : 2010년 11월 3일(수) 19:30 터전</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>o 참석자 : 보자기, 반짝별, 영서아빠, 사과, 호랑이, 너구리</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN style="FONT-FAMILY: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN style="FONT-FAMILY: 바탕"><FONT face=굴림 size=3><STRONG>■ 보고</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>1. 전차회의보고(9.29)</STRONG> : 보자기 구두보고</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>2. 교사회 보고</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>o 총 32명 28가구, 교사 현원 7명</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>o 터전 교육일정 : 커뮤니티 공지 계획표 확인</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>o 아마 일정 : 김장일 논의 </FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- <STRONG>25일(목), 26일(금) 터전 김장 진행하기로 함.</STRONG> 다만 올해는 예년에 비해 일손이 더 필요한 상황이기 때문에 아마 신청을 지속적으로 독려하고, 만약 주중에 아마 수급하는 것이 어렵다는 판단이 들면 날짜를 조정하는 것으로 함</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- <STRONG>영현이 할머니께 김장을 도와주실 수 있는지 제안해보기로 함 </STRONG>: 영현이네 아마로 인정</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 김장 아마 역할 분담을 정확히 해놓아 당일 진행이 원활하게 진행되었으면 좋겠음 </FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>o 너구리 안식월 대체 교사 급여조건 확인해줄 것을 요청 : 재정이사 알려주기로</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>o 너구리 안식월 기간에 대표교사로서의 역할은 나무가 해주기로 함 : 나무 대표교사 직무수당 지급키로</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>o 탈퇴신고서 낸 아동 : 서은교, 정윤희, 조유나, 태가온, 주효민</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>o 예람이 11월 등원하지 않음 : 친가(광주)에서 지냄.</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>o 근로조건개선위원회 구성 및 활동 계획</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>&nbsp;&nbsp; - 이사회 3인(이사장, 재정이사, 운영이사), 교사회 3인으로 구성 예정</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>&nbsp;&nbsp; - 1차 근로조건개선위원회 회의 : 12.13(월)</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG></STRONG></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>3. 기타 보고</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><STRONG><FONT face=굴림 size=3></FONT></STRONG></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>*&nbsp;소리나는 어린이집 ‘방과후 방(아름방)’ 장기발전 모임 구성</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>o 취지와 목적 : 방과후 방의 안정적인 정착과 장기적인 발전 방향 모색</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>o 명칭 : 소리나는 어린이집 ‘방과후 방(아름방)’ 장기발전 모임</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>o 구성 및 운영방안</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>&nbsp;&nbsp;&nbsp; - 구성 : 아름방 1인(비행기), 덩실방 1인(인디언), 통통방 1인, 오손-도손방 1인, 교사 1인 + 보자기(이사장) </FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>&nbsp;&nbsp;&nbsp; - 통통방, 오손-도손방의 참여자는 방별 논의를 통해 결정할 수 있도록 요청</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>&nbsp;&nbsp;&nbsp; - 재정현황을 포함한 터전 운영 전반에 대한 정보를 제공하고 모임과 이사회의 유기적 연결을 위해 이사장이 참여하는 것이 좋겠음</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 운영방안 : 자체 회의로 결정</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 활동시한 : 내년 1월 정기 총회 전까지 / 활동 기간 더 연장될 수도 있음</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>o 활동계획</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>&nbsp;&nbsp; - 방과후 방 운영 전반과 활동 점검</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>&nbsp;&nbsp; - 다른 터전의 방과후 방 운영실태 파악</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>&nbsp;&nbsp;&nbsp;- 방과 후 방의 장기적인 발전방향 마련 </FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN style="FONT-FAMILY: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN style="FONT-FAMILY: 바탕"><FONT face=굴림 size=3><STRONG>■ 점검 :&nbsp;</STRONG></FONT></SPAN><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>각 소위별 활동</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>1. 시설소위(</STRONG>서면자료)</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>o 주방 싱크대 관련 사항</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 점검결과 : 10월 26일 싱크대 업체를 불러 점검한 결과 현재 싱크대 하부장도 물에 지속적으로 노출되어 가구가 주저앉은 상태임. 상판과 하부장까지 교체 할 것. 싱크볼 위치도 잘 못 되어 있어 새로 교체 할 경우 위치를 왼쪽으로 40cm정도 이동</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 대안 : ALT.1 마당에 있는 기존 스테인레스 싱크대 재활용 (약간의 설비 공사 수반 가능)하는 현실적인 방법 ==&gt; 호랑이, 솔방울과 상의하여 결정하기로 함 </FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>o 하이카본 AS요청</STRONG> : 11월 4일 또는 5일 저녁 점검 예정</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 현관, 주방, 각방 차가운 곳, 장판(특히 마루) 뜨는 부분에 대해 A/S 요청하기로 함</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>o 10월 대청소 </STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 참여인원 : 비행기, 팬더, 나뭇잎, 고슴도치 , 짱구, 사과, 고양이, 초원 7가구</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 아빠들 인력 부족으로 마당 작업을 마무리 못함</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 11월 대청소에 마당 모래 정리와 폐기물정리, 창고 정리와 조력단 점검을 받은 후 발생 할 시설 관련 작업을 대비해서 2회 대청소 참여로 하자는 의견이 있었음.</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- <STRONG>마당 모래정리가 시급함</STRONG>(교사회 요청) : 마당 전체에 펼쳐져 있는 모래로 인해 먼지가 너무 많아 환절기 아이들 감기가 걱정됨. 11월 대청소 전에 모래정리하는 것이 좋겠음. 모래 덮개도 함께 설치 ==&gt; 시설소위 논의하기로 함 </FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3></FONT></FONT>&nbsp;</P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>2) 운영 소위</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 2010년 공동육아 한마당 음식 준비 대체로 잘 진행됨 : 병아리 지원에 감사</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 10월 기준 아마 결산 자료 커뮤니티 공지 함 : 20가구 정도는 의무 회수 채우지 못한 상황 </FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 김장준비 : 고춧가루는 준비 되었음. 배추 구매 해야함</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 엄마 들살이 연내에 성사시킬 수 있도록 계획 잡아볼 예정</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; </FONT></FONT></P>
+<P class=바탕글><FONT face=굴림><FONT size=3><o:p></o:p></FONT></FONT>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>3) 교육 소위</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>o 조합원교육 실행보고 문서 작성함</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>o 공감의 대화 워크숍 추진 관련</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 각 방 의견 수렴을 한 결과 주중 저녁 시간을 내는 것에 대한 조합원 부담이 큰 상황임. </FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 자발적인 모임으로 시작하려고 했기 때문에 <STRONG>공감의 대화 워크숍 추진은 잠정 유보하기로 함 </STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- <STRONG>그러나 조합원들의 교육적 소통의 장은 꼭 필요하다고 판단됨. 11~12월 ‘교육의날’ 모임을 진행하는 것이 좋겠음. </STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><STRONG><FONT face=굴림 size=3></FONT></STRONG></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- ‘교육의 날’ 모임 명칭을 ‘차 모임’으로 변경</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- <STRONG>11월 ‘차 모임’ : 11. 20(토)에 진행하기로 함.</STRONG> 주중 저녁 시간에 대한 부담을 고려하여 토요 아마가 있는 토요일에 진행해보기로 함. 당일 토요아마와 사전에 상의하기로 함. 상세 프로그램에 대해서는 교육소위가 논의하여 조합원 공지하기로 함.</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>o 동물 인형 만들기 마무리 작업</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 동물 인형 만들기 방별 진행상황을 파악하여 마무리할 수 있도록 지원 예정</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 인형 만들기를 포함하여 터전 교구 만들기에 대한 조합원 공감대 형성이 필요 : 터전 교구 현황과 활용에 대한 조합원의 관심을 모아내는 계기가 필요할 것임.</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 공공사무국 펠트 놀잇감 만들기 교육에 민들레 참여하기로 함. 교육 참가 후 교사, 조합원 전달교육 받을 수 있는 기회 마련 예정 </FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; </FONT></FONT></P>
+<P class=바탕글><FONT face=굴림><FONT size=3><o:p></o:p></FONT></FONT>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>4) 재정소위 </STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 앞으로는 <STRONG>월별 결산 보고를 이사회에서 진행하겠음</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 12월 근로조건개선위원회 활동 관련 자료 준비하겠음 </FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; </FONT></FONT></P>
+<P class=바탕글><FONT face=굴림><FONT size=3><o:p></o:p></FONT></FONT>&nbsp;</P>
+<P class=바탕글><SPAN style="FONT-FAMILY: 바탕"><FONT face=굴림 size=3><STRONG>■ 논의사항</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN style="FONT-FAMILY: 바탕"><STRONG><FONT face=굴림 size=3></FONT></STRONG></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>1. 2010년 공동육아 한마당 평가</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 조합원 참석율이 높았고 의미있는 행사로 치룸</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>-&nbsp;공공 행사를 참여한다는 것의 의미에 대해 조합원 공감대 형성이 중요 ... 등등</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>2. 보건복지부 ‘평가인증’ 신청 여부</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><STRONG><FONT face=굴림 size=3></FONT></STRONG></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>o 평가 인증 필요성</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 평가 인증을 받지 않은 어린이집에 대해 재정적 불이익을 주는 방향으로 정책이 추진되고 있기 때문에 이러한 변화에 대한 터전의 대비가 필요</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 공공의 재인증과 연결하여 진행하는 것이 효율적임</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>o <STRONG>평가 인증 신청하기로 함</STRONG> : 지난 정기총회에서도 조합원 제안이 있었음</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>o 평가 인증 준비와 관련해서 아마들의 적극적인 참여와 도움이 필요 </FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>o 평가 인증 신청 관련 준비</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 관련 사이트 ID/비번 확인요청</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 평가 인증 신청비 : 25만원</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 자체보고서, 교육참가 등 일련의 절차에 대한 자료 공유 필요 : 호랑이 준비해주시기로 함</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3></FONT></FONT>&nbsp;</P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>3. 2011년 방구성에 대한 논의가 필요</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>-&nbsp;방별 인원의 차이가 있을 것으로 예상되고 대기자의 등원 여부를 결정해야 하므로 내년도 방구성에 대한 논의가 필요함. 또한 12월 탈퇴 가구가 있어 재정현황도 고려해야함</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>-&nbsp;<STRONG>12. 9(화) 공공 재인증 조력단 회의 이후에 내년도 방구성에 대한 논의하기로 함</STRONG> : 교사회 구성안 준비, 오손-도손방 대기자 등원 여부 확인(너구리) </FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>4. 등원시 터전 열쇠 사용 관련</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 최근 등원시 열쇠를 사용하지 않는 가구가 많은 상황 : 아이들 오전 간식(터전에서 아침 식사를 하는 아이들이 10명을 넘는 상황) 지도, 안정적인 상호작용을 위해 특히 08:30~09:00에는 터전 열쇠를 사용해서 등원해주시기를 요청</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>- 물론 등원 시 교사에게 직접 전달할 내용(아이가 아프거나...)이 있는 경우는, 조출 교사에게 요청하여 이야기 나눌 수 있도록 함</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>5. 기타</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>-&nbsp;11.9(화) 공공 재인증 조력단 방문 : 7시 이사회와 회의</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3>-&nbsp;대표교사 너구리 안식월 기간은 호랑이 월, 화, 금 주 3회 출근하기로 함</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style="mso-fareast-font-family: 바탕"><FONT face=굴림 size=3><STRONG>6. 다음 이사회 일정 : 11.30(화) </STRONG></FONT></SPAN></P>
+					</div>
+				</td>
+			</tr>
+		</table>
+		</div>
+		<table class="view-info02">	
+
+			<tr>
+				<td class="cont-info">
+					
+				</td>
+				<td rowspan="2" class="writer-info">
+
+					<!--iframe 에서 사용자 등급정보를 받아온다-->
+				
+					<iframe name="MemFrame" id="MemFrame" src="/common/bbs/MemManage.asp?grpid=845246&objid=GCOM22&objseq=1&userid=mhjeon01" width=0 height=0 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no></iframe>
+					<script>
+						function modifyMembergbn() {
+							document.changeform.submit();
+							document.getElementById("MemManage").innerHTML = "처리중 입니다...";
+						}
+					</script>
+				
+					<div id="MemberBox">
+						<div id="AvatarInfo"><div style=position:relative;left:0px;top:0px;text-align:left;width:100;height:100><div style=position:absolute;left:0px;top:0px;z-index:1><img name=aimg0 border=0 src=http://image.freechal.com/1by1.gif width=100 height=100></div><div style=position:absolute;left:0px;top:0px;z-index:2;><img border=0 src=http://avatar.freechal.com/~mhjeon01/_Avatar_/H/HImg90154.gif width=100 height=100></div><div style=position:absolute;left:0px;top:0px;z-index:3;><img name=aimg1 border=0 src=http://image.freechal.com/1by1.gif width=100 height=100></div><div style=position:absolute;left:0px;top:0px;z-index:4;><img name=aimg2 border=0 src=http://image.freechal.com/1by1.gif width=100 height=100></div><div style=position:absolute;left:0px;top:0px;z-index:5;><img name=aimg3 border=0 src=http://image.freechal.com/1by1.gif width=100 height=100></div><div style=position:absolute;left:0px;top:0px;z-index:6;cursor:hand OnClick="javascript:window.open('http://q.freechal.com/Service/default.asp?id=mhjeon01', 'FcHompy_mhjeon01' , 'width=934,height=700,resizable=yes');"><img name=aimg4 border=0 src=http://image.freechal.com/1by1.gif width=100 height=100></div><div style=position:absolute;left:0px;top:0px;z-index:7;cursor:hand OnClick="javascript:window.open('http://q.freechal.com/Service/default.asp?id=mhjeon01', 'FcHompy_mhjeon01' , 'width=934,height=700,resizable=yes');" OnMouseOver='stmDisplayex4814523694(true);' OnMouseOut='stmDisplayex4814523694(false);'><img name=aimg5 border=0 src=http://image.freechal.com/1by1.gif width=100 height=100></div><div name=stm4814523694 id=stm4814523694 style=position:absolute;left:71px;right:2px;top:3px;width=27px;height=20px;z-index:10100;display:none><script language=javascript>
+function ImgOpenex4814523694() {
+	alert("폰 배경 서비스가 중단 되었습니다.\n서비스 이용에 불편을 드려서 죄송합니다.") 
+	return; 
+}
+function stmDisplayex4814523694(blnDisp) {	var AdTop=0; 
+	if (typeof(AvatarAdDiv4814523694)=="object") {
+		AdTop = parseInt(AvatarAdDiv4814523694.style.top.substring(0, AvatarAdDiv4814523694.style.top.length - 2))
+	}
+	if (blnDisp == true) {
+		if (typeof(AvatarAdDiv4814523694) == 'object' && AdTop <= 20) {
+			stm4814523694.style.top=AdTop+23;
+		}
+		else { 
+			stm4814523694.style.top=3;
+		}
+		stm4814523694.style.display="block";
+	} 
+	else {
+       var blndisplay = true;		if (event.toElement != null) {
+           if (event.toElement.name == 'mPhoto') {blndisplay = false;}
+       } 
+       if (blndisplay) { 
+			stm4814523694.style.display="none";
+		}
+	}
+}
+function ImgOpen_delex4814523694() {
+	var ImgUrl="http://avatar.freechal.com/~mhjeon01/_Avatar_/H/HImg90154.gif";
+	var emotfilepath; var option; 
+	emotfilepath = "http://220.95.210.199/im/freechal/photual/FreePhotual.asp"; 
+	emotfilepath = emotfilepath + "?photo=xWAe1Lfsic3TfN3Vb%2FQe%2FQ%3D%3D"; 
+	emotfilepath = emotfilepath + "&imgURL=" + ImgUrl; 
+	option = "status=no, scrollbars=no, resizable=no,width=916,height=494"; 
+	window.open(emotfilepath,"Photual",option);
+}
+</script></div></div><div id=stm4814523694Help1 name=stm4814523694Help1 style='position:absolute;visibility:hidden;background-color:#FFFFCC;color:black;z-index:2;width:130px;'>핸드폰 배경화면 만들기</div></div>
+						<div id="MemberInfoBox">
+							<div class="Minfo">
+								사과님
+							</div>
+							<div id="MemManage" class="Minfo"><!--데이터 출력부분-->&nbsp;</div>
+							<div class="Minfo">
+							<a href="javascript:writerinfo('addbuddy');"><img src="http://image.freechal.com/Comservice/Activity/ComBtn/white/btn_add_addr_s.gif" alt="주소록추가" align="absmiddle"></a>
+							</div>
+						</div>
+					</div>
+
+				</td>
+			</tr>
+
+			<tr>
+				<td class="small-btn">
+				<a href="javascript:NewWin();"><img src="http://image.freechal.com/ComService/Activity/ComBtn/white/btn_print_s.gif" align="absmiddle" alt="인쇄"></a>
+<span onclick="javascript:ContextMenu.initScrap(document.SendContent,'BBS',this);"><img src="http://image.freechal.com/ComService/Activity/ComBtn/white/btn_scrap_s.gif" align="absmiddle" alt="스크랩" style="cursor:hand"></span>
+<a href="javascript:CopyURL('http://home.freechal.com/sorikid/22/1/6656921');"><img src="http://image.freechal.com/ComService/Activity/ComBtn/white/btn_url_copy_s.gif" align="absmiddle" alt="URL복사"></a>
+
+				</td>
+			</tr>
+		</table>
+	</div>
+		
+	<div id="View-btn">
+		<div id="view-list">
+		<a href="CsBBSList.asp?GrpId=845246&ObjSeq=1&PageNo=1"><img src="http://image.freechal.com/ComService/Activity/ComBtn/white/btn_list.gif" alt="목록" align="absmiddle"></a>
+<a href="/common/bbs/NextContent.asp?GrpId=845246&ObjId=GCOM22&ObjSeq=1&PageNo=1&DocId=6656921&prefix=CsBBS&url=http%3A%2F%2Fbbs%2Efreechal%2Ecom%2FComService%2FActivity%2FEstimBBS%2F"><img src="http://image.freechal.com/ComService/Activity/ComBtn/white/btn_up.gif" alt="위로" align="absmiddle"></a>
+<a href="/common/bbs/PrevContent.asp?GrpId=845246&ObjId=GCOM22&ObjSeq=1&PageNo=1&DocId=6656921&prefix=CsBBS&url=http%3A%2F%2Fbbs%2Efreechal%2Ecom%2FComService%2FActivity%2FEstimBBS%2F"><img src="http://image.freechal.com/ComService/Activity/ComBtn/white/btn_down.gif" alt="아래로" align="absmiddle"></a>
+
+		</div>
+		<div id="WriteBtn">
+			<div class="bt">
+
+					<form name=EstimForm action="CsBBSEstim.asp?MileageID=mhjeon01" method=POST>
+				
+						<input type=hidden name=Estim value="1">
+						<input type=hidden name=GrpId value="845246">
+						<input type=hidden name=ObjSeq value="1">
+						<input type=hidden name=PageNo value="1">
+						<input type=hidden name=DocId value="6656921">
+						<input type=hidden name=SrchGbn value="0">
+						<a href="javascript:Save_Estim();"><img src="http://image.freechal.com/ComService/Activity/ComBtn/white/btn_recommend.gif" alt="추천" align=absmiddle></a>
+					</form>
+	<a href="CsBBSWriteForm.asp?GrpId=845246&ObjSeq=1&PageNo=1&DocId=6656921&subject=11%BF%F9+%C1%A4%B1%E2+%C0%CC%BB%E7%C8%B8+%BA%B8%B0%ED%2811%2E2%29"><img src="http://image.freechal.com/ComService/Activity/ComBtn/white/btn_reply.gif" alt="답글" align="absmiddle"></a>
+<a href="CsBBSWriteForm.asp?GrpId=845246&ObjSeq=1&PageNo=1"><img src="http://image.freechal.com/ComService/Activity/ComBtn/white/btn_write.gif" alt="글쓰기" align="absmiddle"></a>
+
+			</div>
+			<div class="bt">
+<a href="javascript:DeleteArticle()"><img src="http://image.freechal.com/ComService/Activity/ComBtn/white/btn_del.gif" alt="삭제" align="absmiddle"></a>
+<a href="javascript:AddNotice('content', 6656921)"><img src="http://image.freechal.com/ComService/Activity/ComBtn/white/btn_notice.gif" alt="공지" align="absmiddle"></a>
+
+			</div>
+		</div>
+	</div>
+
+
+
+<Script Language="JavaScript">
+<!--
+var blnInProgress = false;
+function WriteReply() {
+
+
+	if (blnInProgress == true) {
+		alert("등록처리중입니다. 잠시만 기다려 주십시오.");
+		return;
+	}
+
+	if (OneLineReplyLimit() == false) {
+		return;
+	}
+
+
+	if (document.ReplyForm.Content.value.length == 0) {
+		alert("내용을 입력하셔야 합니다.");
+		return;
+	}
+
+	if (CheckStrLen(document.ReplyForm.Content, 255, "굴비달기")) {
+		blnInProgress = true;
+		document.ReplyForm.submit();
+	}
+
+
+}
+
+function DeleteReply(seqno, userid) {
+	if (confirm("삭제하시겠습니까?") == true) {
+		location.href = "CsBBSReplyDelete.asp?GrpId=845246&ObjSeq=1&PageNo=1&DocId=6656921&Target=CsBBSContent%2Easp%3FGrpId%3D845246%26ObjSeq%3D1%26PageNo%3D1%26DocId%3D6656921&seqno=" + seqno;
+	}
+}
+
+
+-->
+</Script>
+
+
+		<!-- 코멘트 Start -->		
+		<div id="Comment" class="Comment">	
+	
+			<!-- 코멘트 리스트 -->
+			<table class="CommentList">
+				<form name="ReplyDeleteForm" action="" method="POST">
+	<tr class="cmlist">
+					<td class="emo">
+<img src="http://image.freechal.com/community/common/emoticon/emo_01.gif" border=0 align="absmiddle">&nbsp;
+					</td>
+					<td class="nicname">
+					<span onclick="ContextMenu.initMenu('geesetower','기린','csyhappy1','반짝별','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor:pointer;"><span class="B">반짝별</span></span>
+					</td>
+					<td class="cmtxt">
+						김장배추 공급이 금요일 이전은 어렵다하여 금, 토 김장합니다. 금요일 배추 다듬기, 양념준비, 절이기, 뒤집기 팀, 토요일 버무리기 팀.........그리고 보쌈과 막걸리 먹기 팀(터전 식구 누구나^^) 많이많이 놀러오세요
+						<span class="day">2010-11-04 14:51:27</span>
+						<a href="javascript:DeleteReply(1,'csyhappy1');"><img src=http://image.freechal.com/Comservice/Activity/ComBtn/white/ico_del.gif align=absmiddle ></a>
+					</td>
+				</tr>
+	<tr class="cmlist">
+					<td class="emo">
+<img src="http://image.freechal.com/community/common/emoticon/emo_01.gif" border=0 align="absmiddle">&nbsp;
+					</td>
+					<td class="nicname">
+					<span onclick="ContextMenu.initMenu('geesetower','기린','oory02','너구리','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor:pointer;"><span class="B">너구리</span></span>
+					</td>
+					<td class="cmtxt">
+						사과~~ 감사해요~~~^^
+						<span class="day">2010-11-04 19:25:22</span>
+						<a href="javascript:DeleteReply(2,'oory02');"><img src=http://image.freechal.com/Comservice/Activity/ComBtn/white/ico_del.gif align=absmiddle ></a>
+					</td>
+				</tr>
+	<tr class="cmlist">
+					<td class="emo">
+<img src="http://image.freechal.com/community/common/emoticon/emo_01.gif" border=0 align="absmiddle">&nbsp;
+					</td>
+					<td class="nicname">
+					<span onclick="ContextMenu.initMenu('geesetower','기린','csyhappy1','반짝별','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor:pointer;"><span class="B">반짝별</span></span>
+					</td>
+					<td class="cmtxt">
+						김장에 대한 개념이 없는 반짝별....11월 아마글과도 분담내용이 다르네요-_- 효율적으로 김장을 할 수 있도록 계획 논의 중이니 끝나면 다시 글 올리겠습니다
+						<span class="day">2010-11-05 10:47:08</span>
+						<a href="javascript:DeleteReply(3,'csyhappy1');"><img src=http://image.freechal.com/Comservice/Activity/ComBtn/white/ico_del.gif align=absmiddle ></a>
+					</td>
+				</tr>
+	<tr class="cmlist">
+					<td class="emo">
+<img src="http://image.freechal.com/community/common/emoticon/emo_08.gif" border=0 align="absmiddle">&nbsp;
+					</td>
+					<td class="nicname">
+					<span onclick="ContextMenu.initMenu('geesetower','기린','archinodd','초원','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor:pointer;"><span class="B">초원</span></span>
+					</td>
+					<td class="cmtxt">
+						참석못해서 죄송...사과 수고하셨습니다...열씨미 밑줄쳐가면 읽겠습니다...
+						<span class="day">2010-11-05 17:31:58</span>
+						<a href="javascript:DeleteReply(4,'archinodd');"><img src=http://image.freechal.com/Comservice/Activity/ComBtn/white/ico_del.gif align=absmiddle ></a>
+					</td>
+				</tr>
+	<tr class="cmlist">
+					<td class="emo">
+<img src="http://image.freechal.com/community/common/emoticon/emo_01.gif" border=0 align="absmiddle">&nbsp;
+					</td>
+					<td class="nicname">
+					<span onclick="ContextMenu.initMenu('geesetower','기린','kelly7513','달빛요정','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor:pointer;"><span class="B">달빛요정</span></span>
+					</td>
+					<td class="cmtxt">
+						홍보소위는 없네요.. 저희는 홍보소위라고 하던데.. 소식지 언제나오는지도 궁금하고.. 소위에 누가 있는지도 궁금한데.. 딱히 물어볼데가 없네요.. 홍보소위는 이사회에 포함되는 소위가 아닌가.. 갸웃갸웃..
+						<span class="day">2010-11-08 19:59:07</span>
+						<a href="javascript:DeleteReply(5,'kelly7513');"><img src=http://image.freechal.com/Comservice/Activity/ComBtn/white/ico_del.gif align=absmiddle ></a>
+					</td>
+				</tr>
+	<tr class="cmlist">
+					<td class="emo">
+<img src="http://image.freechal.com/community/common/emoticon/emo_01.gif" border=0 align="absmiddle">&nbsp;
+					</td>
+					<td class="nicname">
+					<span onclick="ContextMenu.initMenu('geesetower','기린','can92','삐삐','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor:pointer;"><span class="B">삐삐</span></span>
+					</td>
+					<td class="cmtxt">
+						달빛요정~~~<br>홍보소위활동은 토토로가 하셨는데^^ 집에서 물어보면 답이 나올듯합니당!!<br><br>홍보소위 힌트: 나0, 삐0, 수0, 토00
+						<span class="day">2010-11-09 16:54:45</span>
+						<a href="javascript:DeleteReply(6,'can92');"><img src=http://image.freechal.com/Comservice/Activity/ComBtn/white/ico_del.gif align=absmiddle ></a>
+					</td>
+				</tr>
+	<tr>
+					<td class="emo">
+<img src="http://image.freechal.com/community/common/emoticon/emo_01.gif" border=0 align="absmiddle">&nbsp;
+					</td>
+					<td class="nicname">
+					<span onclick="ContextMenu.initMenu('geesetower','기린','kelly7513','달빛요정','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor:pointer;"><span class="B">달빛요정</span></span>
+					</td>
+					<td class="cmtxt">
+						호호호 보니깐 다 알겠네요 요즘 댓글놀이 하다보니 가족끼리 너무 암말도 안하는구나 느끼는 1인입니다 홍보소위 일은 저한테도 좀 알려주셔요~
+						<span class="day">2010-11-09 18:15:07</span>
+						<a href="javascript:DeleteReply(7,'kelly7513');"><img src=http://image.freechal.com/Comservice/Activity/ComBtn/white/ico_del.gif align=absmiddle ></a>
+					</td>
+				</tr>
+	
+				</form>
+			</table>
+	
+			<!-- 코멘트 작성 -->
+			<script	language="JavaScript">
+			function EmoView(){
+				fr = document.getElementById('EmoList').style.display;
+
+				if(fr == "none"){
+					document.getElementById('EmoList').style.display = "block";
+				}else{
+					document.getElementById('EmoList').style.display = "none";
+				}
+			}
+
+			function EmoSet() {
+				var indx;
+				document.all["EmoList"].releaseCapture();
+				indx = event.srcElement;
+
+				if (indx.tagName.toLowerCase() == "img") {
+					document.all["expression_icon"].src = indx.src;
+					document.ReplyForm.replygbn.value = indx.id;
+					document.getElementById('EmoList').style.display = "none";
+				}
+			}
+			</script>
+
+			<div id="CommentWrite">
+			
+				<form name=ReplyForm action="CsBBSReply.asp?GrpId=845246&ObjSeq=1&MileageID=mhjeon01&Target=CsBBSContent%2Easp%3FGrpId%3D845246%26ObjSeq%3D1%26PageNo%3D1%26DocId%3D6656921" method=POST onsubmit="WriteReply();return false;">
+			
+
+
+					<table>
+						<tr>
+							<td class="emo_sel">
+								<table cellpadding="0" cellspacing="1" class="emotableimg">
+									<tr>
+										<td class="emotd"><img src="http://image.freechal.com/community/common/emoticon/emo_01.gif" name="expression_icon"  style="cursor:hand" onclick="EmoView();"></td>
+										<td><img src="http://image.freechal.com/community/common/white/ico_emo_sel.gif" style="cursor:hand" onclick="EmoView()"></td>
+									</tr>
+								</table>
+								<div id="EmoList" onClick="EmoSet();" style="display:none" onmouseover="this.style.display = 'block';" onmouseout="this.style.display = 'none';">
+									<table cellpadding="0" cellspacing="1" border="0" class="emolist">
+										<tr>
+											<td class="emosubtdlist"><img src="http://image.freechal.com/community/common/emoticon/emo_01.gif" id="1"></td>
+											<td class="emosubtdlist"><img src="http://image.freechal.com/community/common/emoticon/emo_02.gif" id="2"></td>
+											<td class="emosubtdlist"><img src="http://image.freechal.com/community/common/emoticon/emo_03.gif" id="3"></td>
+											<td class="emosubtdlist"><img src="http://image.freechal.com/community/common/emoticon/emo_04.gif" id="4"></td>
+											<td class="emosubtdlist"><img src="http://image.freechal.com/community/common/emoticon/emo_05.gif" id="5"></td>
+											<td class="emosubtdlist"><img src="http://image.freechal.com/community/common/emoticon/emo_06.gif" id="6"></td>
+											<td class="emosubtdlist"><img src="http://image.freechal.com/community/common/emoticon/emo_07.gif" id="7"></td>
+											<td class="emosubtdlist"><img src="http://image.freechal.com/community/common/emoticon/emo_08.gif" id="8"></td>
+										</tr>
+										<tr>
+											<td class="emosubtdlist"><img src="http://image.freechal.com/community/common/emoticon/emo_09.gif" id="9"></td>
+											<td class="emosubtdlist"><img src="http://image.freechal.com/community/common/emoticon/emo_10.gif" id="a"></td>
+											<td class="emosubtdlist"><img src="http://image.freechal.com/community/common/emoticon/emo_11.gif" id="b"></td>
+											<td class="emosubtdlist"><img src="http://image.freechal.com/community/common/emoticon/emo_12.gif" id="c"></td>
+											<td class="emosubtdlist"><img src="http://image.freechal.com/community/common/emoticon/emo_13.gif" id="d"></td>
+											<td class="emosubtdlist"><img src="http://image.freechal.com/community/common/emoticon/emo_14.gif" id="e"></td>
+											<td class="emosubtdlist"><img src="http://image.freechal.com/community/common/emoticon/emo_15.gif" id="f"></td>
+											<td class="emosubtdlist"><img src="http://image.freechal.com/community/common/emoticon/emo_16.gif" id="g"></td>
+										</tr>
+									</table>
+								</div>
+							</td>
+							<td class="CmtTxt"><textarea name="Content" class="CommentTextArea" onFocus="OneLineReplyLimit()" onchange="CheckInputBox(document.ReplyForm.Content, 250, 10, '한줄답변')" onkeyup="CheckInputBox(document.ReplyForm.Content, 250, 10, '한줄답변')"></textarea></td>
+							<td class="CommentBtns">
+								<input type=hidden name="GrpId" value="845246">
+								<input type=hidden name="ObjSeq" value="1">
+								<input type=hidden name="DocId" value="6656921">
+								<input type=hidden name="replygbn" value="0">
+								<a href="javascript:WriteReply()"><img src="http://image.freechal.com/Comservice/Activity/ComBtn/white/btn_cmt_write.gif"></a>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		<!-- 코멘트 End -->
+	
+		</div>
+	<form name="listform" method="post">
+<input type=hidden name="GrpId" value="845246">
+<input type=hidden name="ObjId" value="GCOM22">
+<input type=hidden name="ObjSeq" value="1">
+<input type=hidden name="DocId" value="6656921">
+<input type=hidden name="Target" value="CsBBSList.asp?GrpId=845246&ObjSeq=1&PageNo=1">
+</form>
+<form name="SendContent" method="POST" action="/Common/bbs/copy/FcPreCopy.asp" >
+<input type=hidden name="GrpName" value="소리나는 어린이집">
+<input type=hidden name="GrpURL" value="sorikid">
+<input type=hidden name="BoardName" value="선생님/이사회방">
+<input type=hidden name="SourceURL" value="http://bbs.freechal.com/ComService/Activity/EstimBBS/CsBBSContent.asp?GrpId=845246&ObjSeq=1&PageNo=1&DocId=6656921">
+<input type=hidden name="SourceWriterId" value="mhjeon01">
+<input type=hidden name="SourceWriterName" value="사과">
+<input type=hidden name="Subject" value="11월 정기 이사회 보고(11.2)">
+<input type=hidden name="Content" value="<!--StartFragment-->
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><STRONG><FONT face=굴림 size=3>[ 11월 정기 이사회 ] 회의록</FONT></STRONG></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <?xml:namespace prefix = o ns = &quot;urn:schemas-microsoft-com:office:office&quot; /><o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>o 일지 및 장소 : 2010년 11월 3일(수) 19:30 터전</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>o 참석자 : 보자기, 반짝별, 영서아빠, 사과, 호랑이, 너구리</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN style=&quot;FONT-FAMILY: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN style=&quot;FONT-FAMILY: 바탕&quot;><FONT face=굴림 size=3><STRONG>■ 보고</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>1. 전차회의보고(9.29)</STRONG> : 보자기 구두보고</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>2. 교사회 보고</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>o 총 32명 28가구, 교사 현원 7명</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>o 터전 교육일정 : 커뮤니티 공지 계획표 확인</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>o 아마 일정 : 김장일 논의 </FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- <STRONG>25일(목), 26일(금) 터전 김장 진행하기로 함.</STRONG> 다만 올해는 예년에 비해 일손이 더 필요한 상황이기 때문에 아마 신청을 지속적으로 독려하고, 만약 주중에 아마 수급하는 것이 어렵다는 판단이 들면 날짜를 조정하는 것으로 함</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- <STRONG>영현이 할머니께 김장을 도와주실 수 있는지 제안해보기로 함 </STRONG>: 영현이네 아마로 인정</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 김장 아마 역할 분담을 정확히 해놓아 당일 진행이 원활하게 진행되었으면 좋겠음 </FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>o 너구리 안식월 대체 교사 급여조건 확인해줄 것을 요청 : 재정이사 알려주기로</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>o 너구리 안식월 기간에 대표교사로서의 역할은 나무가 해주기로 함 : 나무 대표교사 직무수당 지급키로</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>o 탈퇴신고서 낸 아동 : 서은교, 정윤희, 조유나, 태가온, 주효민</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>o 예람이 11월 등원하지 않음 : 친가(광주)에서 지냄.</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>o 근로조건개선위원회 구성 및 활동 계획</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>&nbsp;&nbsp; - 이사회 3인(이사장, 재정이사, 운영이사), 교사회 3인으로 구성 예정</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>&nbsp;&nbsp; - 1차 근로조건개선위원회 회의 : 12.13(월)</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG></STRONG></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>3. 기타 보고</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><STRONG><FONT face=굴림 size=3></FONT></STRONG></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>*&nbsp;소리나는 어린이집 ‘방과후 방(아름방)’ 장기발전 모임 구성</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>o 취지와 목적 : 방과후 방의 안정적인 정착과 장기적인 발전 방향 모색</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>o 명칭 : 소리나는 어린이집 ‘방과후 방(아름방)’ 장기발전 모임</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>o 구성 및 운영방안</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>&nbsp;&nbsp;&nbsp; - 구성 : 아름방 1인(비행기), 덩실방 1인(인디언), 통통방 1인, 오손-도손방 1인, 교사 1인 + 보자기(이사장) </FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>&nbsp;&nbsp;&nbsp; - 통통방, 오손-도손방의 참여자는 방별 논의를 통해 결정할 수 있도록 요청</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>&nbsp;&nbsp;&nbsp; - 재정현황을 포함한 터전 운영 전반에 대한 정보를 제공하고 모임과 이사회의 유기적 연결을 위해 이사장이 참여하는 것이 좋겠음</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 운영방안 : 자체 회의로 결정</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 활동시한 : 내년 1월 정기 총회 전까지 / 활동 기간 더 연장될 수도 있음</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>o 활동계획</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>&nbsp;&nbsp; - 방과후 방 운영 전반과 활동 점검</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>&nbsp;&nbsp; - 다른 터전의 방과후 방 운영실태 파악</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>&nbsp;&nbsp;&nbsp;- 방과 후 방의 장기적인 발전방향 마련 </FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN style=&quot;FONT-FAMILY: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN style=&quot;FONT-FAMILY: 바탕&quot;><FONT face=굴림 size=3><STRONG>■ 점검 :&nbsp;</STRONG></FONT></SPAN><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>각 소위별 활동</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>1. 시설소위(</STRONG>서면자료)</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>o 주방 싱크대 관련 사항</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 점검결과 : 10월 26일 싱크대 업체를 불러 점검한 결과 현재 싱크대 하부장도 물에 지속적으로 노출되어 가구가 주저앉은 상태임. 상판과 하부장까지 교체 할 것. 싱크볼 위치도 잘 못 되어 있어 새로 교체 할 경우 위치를 왼쪽으로 40cm정도 이동</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 대안 : ALT.1 마당에 있는 기존 스테인레스 싱크대 재활용 (약간의 설비 공사 수반 가능)하는 현실적인 방법 ==&gt; 호랑이, 솔방울과 상의하여 결정하기로 함 </FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>o 하이카본 AS요청</STRONG> : 11월 4일 또는 5일 저녁 점검 예정</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 현관, 주방, 각방 차가운 곳, 장판(특히 마루) 뜨는 부분에 대해 A/S 요청하기로 함</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>o 10월 대청소 </STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 참여인원 : 비행기, 팬더, 나뭇잎, 고슴도치 , 짱구, 사과, 고양이, 초원 7가구</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 아빠들 인력 부족으로 마당 작업을 마무리 못함</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 11월 대청소에 마당 모래 정리와 폐기물정리, 창고 정리와 조력단 점검을 받은 후 발생 할 시설 관련 작업을 대비해서 2회 대청소 참여로 하자는 의견이 있었음.</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- <STRONG>마당 모래정리가 시급함</STRONG>(교사회 요청) : 마당 전체에 펼쳐져 있는 모래로 인해 먼지가 너무 많아 환절기 아이들 감기가 걱정됨. 11월 대청소 전에 모래정리하는 것이 좋겠음. 모래 덮개도 함께 설치 ==&gt; 시설소위 논의하기로 함 </FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3></FONT></FONT>&nbsp;</P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>2) 운영 소위</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 2010년 공동육아 한마당 음식 준비 대체로 잘 진행됨 : 병아리 지원에 감사</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 10월 기준 아마 결산 자료 커뮤니티 공지 함 : 20가구 정도는 의무 회수 채우지 못한 상황 </FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 김장준비 : 고춧가루는 준비 되었음. 배추 구매 해야함</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 엄마 들살이 연내에 성사시킬 수 있도록 계획 잡아볼 예정</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; </FONT></FONT></P>
+<P class=바탕글><FONT face=굴림><FONT size=3><o:p></o:p></FONT></FONT>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>3) 교육 소위</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>o 조합원교육 실행보고 문서 작성함</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>o 공감의 대화 워크숍 추진 관련</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 각 방 의견 수렴을 한 결과 주중 저녁 시간을 내는 것에 대한 조합원 부담이 큰 상황임. </FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 자발적인 모임으로 시작하려고 했기 때문에 <STRONG>공감의 대화 워크숍 추진은 잠정 유보하기로 함 </STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- <STRONG>그러나 조합원들의 교육적 소통의 장은 꼭 필요하다고 판단됨. 11~12월 ‘교육의날’ 모임을 진행하는 것이 좋겠음. </STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><STRONG><FONT face=굴림 size=3></FONT></STRONG></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- ‘교육의 날’ 모임 명칭을 ‘차 모임’으로 변경</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- <STRONG>11월 ‘차 모임’ : 11. 20(토)에 진행하기로 함.</STRONG> 주중 저녁 시간에 대한 부담을 고려하여 토요 아마가 있는 토요일에 진행해보기로 함. 당일 토요아마와 사전에 상의하기로 함. 상세 프로그램에 대해서는 교육소위가 논의하여 조합원 공지하기로 함.</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>o 동물 인형 만들기 마무리 작업</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 동물 인형 만들기 방별 진행상황을 파악하여 마무리할 수 있도록 지원 예정</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 인형 만들기를 포함하여 터전 교구 만들기에 대한 조합원 공감대 형성이 필요 : 터전 교구 현황과 활용에 대한 조합원의 관심을 모아내는 계기가 필요할 것임.</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 공공사무국 펠트 놀잇감 만들기 교육에 민들레 참여하기로 함. 교육 참가 후 교사, 조합원 전달교육 받을 수 있는 기회 마련 예정 </FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; </FONT></FONT></P>
+<P class=바탕글><FONT face=굴림><FONT size=3><o:p></o:p></FONT></FONT>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>4) 재정소위 </STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 앞으로는 <STRONG>월별 결산 보고를 이사회에서 진행하겠음</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 12월 근로조건개선위원회 활동 관련 자료 준비하겠음 </FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; </FONT></FONT></P>
+<P class=바탕글><FONT face=굴림><FONT size=3><o:p></o:p></FONT></FONT>&nbsp;</P>
+<P class=바탕글><SPAN style=&quot;FONT-FAMILY: 바탕&quot;><FONT face=굴림 size=3><STRONG>■ 논의사항</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN style=&quot;FONT-FAMILY: 바탕&quot;><STRONG><FONT face=굴림 size=3></FONT></STRONG></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>1. 2010년 공동육아 한마당 평가</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 조합원 참석율이 높았고 의미있는 행사로 치룸</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>-&nbsp;공공 행사를 참여한다는 것의 의미에 대해 조합원 공감대 형성이 중요 ... 등등</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>2. 보건복지부 ‘평가인증’ 신청 여부</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><STRONG><FONT face=굴림 size=3></FONT></STRONG></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>o 평가 인증 필요성</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 평가 인증을 받지 않은 어린이집에 대해 재정적 불이익을 주는 방향으로 정책이 추진되고 있기 때문에 이러한 변화에 대한 터전의 대비가 필요</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 공공의 재인증과 연결하여 진행하는 것이 효율적임</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>o <STRONG>평가 인증 신청하기로 함</STRONG> : 지난 정기총회에서도 조합원 제안이 있었음</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>o 평가 인증 준비와 관련해서 아마들의 적극적인 참여와 도움이 필요 </FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>o 평가 인증 신청 관련 준비</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 관련 사이트 ID/비번 확인요청</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 평가 인증 신청비 : 25만원</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 자체보고서, 교육참가 등 일련의 절차에 대한 자료 공유 필요 : 호랑이 준비해주시기로 함</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3></FONT></FONT>&nbsp;</P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>3. 2011년 방구성에 대한 논의가 필요</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>-&nbsp;방별 인원의 차이가 있을 것으로 예상되고 대기자의 등원 여부를 결정해야 하므로 내년도 방구성에 대한 논의가 필요함. 또한 12월 탈퇴 가구가 있어 재정현황도 고려해야함</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>-&nbsp;<STRONG>12. 9(화) 공공 재인증 조력단 회의 이후에 내년도 방구성에 대한 논의하기로 함</STRONG> : 교사회 구성안 준비, 오손-도손방 대기자 등원 여부 확인(너구리) </FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>4. 등원시 터전 열쇠 사용 관련</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 최근 등원시 열쇠를 사용하지 않는 가구가 많은 상황 : 아이들 오전 간식(터전에서 아침 식사를 하는 아이들이 10명을 넘는 상황) 지도, 안정적인 상호작용을 위해 특히 08:30~09:00에는 터전 열쇠를 사용해서 등원해주시기를 요청</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>- 물론 등원 시 교사에게 직접 전달할 내용(아이가 아프거나...)이 있는 경우는, 조출 교사에게 요청하여 이야기 나눌 수 있도록 함</FONT></SPAN></P>
+<P class=바탕글><FONT face=굴림><FONT size=3>&nbsp; <o:p></o:p></FONT></FONT></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>5. 기타</STRONG></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>-&nbsp;11.9(화) 공공 재인증 조력단 방문 : 7시 이사회와 회의</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3>-&nbsp;대표교사 너구리 안식월 기간은 호랑이 월, 화, 금 주 3회 출근하기로 함</FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN></P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3></FONT></SPAN>&nbsp;</P>
+<P class=바탕글><SPAN lang=EN-US style=&quot;mso-fareast-font-family: 바탕&quot;><FONT face=굴림 size=3><STRONG>6. 다음 이사회 일정 : 11.30(화) </STRONG></FONT></SPAN></P>">
+<input type=hidden name="ContentType" value="html">
+<input type=hidden name="SourceSvc" value="C">
+<input type=hidden name="SourceGrpId" value="845246">
+<input type=hidden name="SourceObjId" value="GCOM22">
+<input type=hidden name="SourceObjSeq" value="1">
+<input type=hidden name="SourceDocid" value="6656921">
+<input type=hidden name="SelScope" value="">
+</form>
+
+	</div>
+</div>
+<!-- 중앙 컨텐츠 영역 End -->
+<div id="AR_wrap">
+
+<!-- 메뉴 영역 Start -->
+<!--## Today 베스트 영상 Start ##-->
+
+<!-- 메뉴 영역 End -->
+<SCRIPT LANGUAGE="Javascript1.1" SRC="http://adv.freechal.com/RealMedia/ads/adstream_jx.ads/www.freechal.com/floating_ad/sub@Bottom"></script></div>
+</div>
+	    </div>
+	</div>
+	<!--## 중앙영역 End ##-->
+    <samp id="RD4"></samp><samp id="RD3"></samp><samp id="RD2"></samp><samp id="RD1"></samp>
+</div>
+<!--## 전체 박스 영역 End ##-->
+<!--## Footer Start ##-->
+<div id="Footer">
+<p id="copyright">Copyright &copy; 2000 ~ 2011 <b>FREECHAL</b> INC, All rights reserved.</p>
+</div>
+<!--## Footer End ##-->
+
+</body>
+</html>

@@ -1,0 +1,678 @@
+/*
+----------------------------------------------------
+* 파일 이름  : Board.css
+* 버전 정보 : 1.7
+* 메뉴 : 공통
+* 작성자 : 프리챌 디자인센터 윤소정(sommi@freechal.com)
+* 작성일 : 2007.02.09
+* 설명 : 통합 게시판 스타일 타입을 지정한 스타일 - 2단 
+* 수정일 : 2007.03.29
+* 수정자 : 
+----------------------------------------------------
+*/
+
+/********************************************************/
+/* 통합 게시판 리스트 */
+
+#BoardTitle			{ clear:both; font-weight:bold;color:#222222;font-size:14px; padding-bottom:6px;}	
+#BoardTitle #BoardTitleImg { display:block;float:left; width:13px;}	
+#BoardTitle a img{vertical-align:middle !important;}/*2010-08-26 수정*/
+html>body #BoardTitle #BoardTitleImg { margin-right:3px;}	
+#BoardSubTitle  { padding-left:16px; padding-bottom:7px; color:#666666;}
+#BoardTdList		{ clear:both;width:786px;margin-bottom:7px;}		/*컬러별적용*/
+
+#BoardTdList table{
+	width:786px;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+#BoardTdList table td 					{padding:5px 0 3px 0;line-height:1.4em;}
+
+#BoardTdList table td.td_chk 		{width:17px;text-align:right;}
+#BoardTdList table td.td_chk a 	{display:block;padding-right:3px;}
+#BoardTdList table td.td_chk input {width:14px;margin:0 0 2px 0;}
+#BoardTdList table td.td_num 		{width:43px;padding:5px 0 6px 0;text-align:center;font-family:Tahoma;color:#8E8E8E;font-size:10px;}/*20070314 수정*/
+#BoardTdList table td.td_thum 		{width:50px;padding:5px 5px 5px 0;text-align:center;}	/*20070314 추가*/
+#BoardTdList table td.td_thum img {width:40px;}	/*20070314 추가*/
+#BoardTdList table td.td_title 	{padding:6px 0 3px 0;}	/*width:338px*/
+#BoardTdList table td.td_level 	{width:30px;text-align:right;}	/*20070214 추가*/
+#BoardTdList table td.td_level img {vertical-align:absmiddle;margin:0 4px 1px 0;}	/*20070314 수정*/
+#BoardTdList table td.td_writer {width:78px;color:#333;}/*20070214 수정*/
+#BoardTdList table td.td_writer span, #BoardTdList table td.td_writer {color:#333;}			/*20070403 추가*/
+#BoardTdList table td.td_date 	{width:57px;padding:5px 0 6px 0;text-align:center;font-family:Tahoma;color:#8E8E8E;font-size:10px;}/*20070314 수정*/
+#BoardTdList table td.td_hit 		{width:52px;padding:5px 0 6px 0;text-align:center;font-family:Tahoma;color:#8E8E8E;font-size:10px;}/*20070314 수정*/
+#BoardTdList table td.td_rcmd		{width:40px;padding:5px 0 6px 0;font-family:Tahoma;color:#8E8E8E;font-size:10px;}/*20070314 수정*/
+
+#BoardTdList table td.td_title span.cmt {position:relative;bottom:1px;font-family:Tahoma;color:#FF7917;font-size:10px;}
+#BoardTdList table td.td_title img.file {position:relative;top:1px}
+#BoardTdList table td.td_rcmd img  	{position:relative;top:1px;}
+
+#BoardTdList table.notice-list td 					{color:#666666;padding:4px 0 3px 0}
+#BoardTdList table.notice-list td.td_thum 		{width:50px;padding-right:5px;}	/*20070314 추가*/
+#BoardTdList table.notice-list td.td_title 	{padding:8px 0 4px 0;}
+#BoardTdList table.notice-list td.td_title a {font-weight:bold;}
+
+
+#BoardTdList table td {border-top:1px solid #EEEEEE;}
+
+/* Paging 영역 내 좌우 체크박스 및 버튼 처리*/
+#List-btn   	{clear:both;width:786px;vertical-align:top;}
+#ChkAll   		{position:relative;top:2px;left:0;font-size:11px;color:#666666;vertical-align:top;}
+#ChkAll input {float:left;width:14px;height:16px;margin:0 5px 0 3px;margin-top:0;}
+#ChkAll span.Chktxt {float:left;display:block;padding-top:2px;}*html>body #ChkAll span.Chktxt {padding-top:5px;}
+#WriteBtn {float:right;}
+#WriteBtn div.bt {float:left;padding:0 0 0 9px;}
+#WriteBtn div {margin:0 1px 0 0;}
+
+/********************************************************/
+/* 통합 게시판 보기 */
+.scroll01 {overflow-x:auto; width:100%}
+#BoardTdView		{ clear:both;margin-bottom:3px;}		/*컬러별적용*/
+#BoardTdView table {
+	/* table-layout: fixed; */
+	border-collapse: collapse;
+}
+#BoardTdView table.view-title {width:100%;}
+#BoardTdView table.view-info {width:100%;}
+#BoardTdView table.view-info02 {width:100%;}
+
+#BoardTdView table.view-title td 	{padding:5px 0 3px 0;line-height:1.4em;color:#222222;background:url(http://image.freechal.com/community/common/white/m_bl02.gif) 0 bottom repeat-x;}
+#BoardTdView table.view-title td.td_num 	{width:37px;text-align:center;font-family:Tahoma;font-size:10px;padding-top:0}
+#BoardTdView table.view-title td.td_title {padding:9px 8px;font-weight:bold;}
+#BoardTdView table.view-title td.td_date  {width:130px;padding:0 8px 0 0;font-family:Tahoma;color:#8E8E8E;font-size:10px;text-align:right;}
+html>body #BoardTdView table.view-title td.td_date {width:120px;}
+
+#BoardTdView table.view-info td {padding:5px 0 0 0;line-height:1.4em;color:#666666;}
+#BoardTdView table.view-info td.td_writer {padding:5px 0 0 8px;line-height:1.4em;}
+#BoardTdView table.view-info td.td_nums {text-align:right;padding:5px 8px 0 0;}
+#BoardTdView table.view-info td.td_nums div {float:right;padding:0 0 0 20px;}
+#BoardTdView table.view-info td.td_nums div span.num {position:relative;top:-1px;color:#8E8E8E;font-family:Tahoma;font-size:10px}
+
+#BoardTdView table.view-content {margin-bottom:30px;} 
+#BoardTdView table.view-content td.cont-img  {text-align:center;padding:20px 0 0 0;} 
+#BoardTdView table.view-content td.cont-view {padding:20px 8px 0 8px;line-height:1.6} /* 라인 간격 처리부분 */
+
+#DocContent {width:748px;} /* 20070906 */
+
+/*첨부파일 영역*/
+#BoardTdView table.view-content td.cont-attach  {padding-top:20px; } 
+#BoardTdView table.view-content td.cont-attach table.attach-box {width:84%;border-collapse:collapse;border:1px solid #DBDBDB;}  /* 20070905 */
+#BoardTdView table.view-content td.cont-attach table.attach-box td {padding:0;text-align:center;} 
+
+#BoardTdView table.view-content td.cont-attach table table.attach-tit 	 {width:100%;table-layout:fixed;border-collapse:collapse;} 
+#BoardTdView table.view-content td.cont-attach table table.attach-tit td {padding:7px 8px 4px 10px;font-weight:bold;text-align:left;}
+#BoardTdView table.view-content td.cont-attach table table.attach-tit td img {vertical-align:top;}
+
+#BoardTdView table.view-content td.cont-attach table table.attach-list	 {width:768px;border-collapse:collapse;padding:5px 7px 1px 2px;} 
+#BoardTdView table.view-content td.cont-attach table table.attach-list td {padding:5px 8px 1px 3px;border-top:1px solid #EDEDED;text-align:left;}
+#BoardTdView table.view-content td.cont-attach table table.attach-list td a 	{color:#666666;}
+#BoardTdView table.view-content td.cont-attach table table.attach-list td.ch	{width:18px;}
+#BoardTdView table.view-content td.cont-attach table table.attach-list td.txt {vertical-align:top;paddig-top:6px;}
+
+#BoardTdView table.view-content td.cont-attach table table.file-down	 {border-collapse:collapse;height:25px;background:#F5F5F5;} 
+#BoardTdView table.view-content td.cont-attach table table.file-down td {padding:4px 2px 2px 4px;font-size:11px;text-align:left;}
+#BoardTdView table.view-content td.cont-attach table table.file-down td.ch	{width:24px;padding-left:10px;}
+
+#BoardTdView table.view-info02 td {height:100%;vertical-align:bottom;padding-left:1px;} 
+#BoardTdView table.view-info02 td.cont-info {padding:0 8px;vertical-align:top;} 
+#BoardTdView table.view-info02 td.cont-info table td {padding-top:5px;font-size:11px;color:#666666;} 
+#BoardTdView table.view-info02 td.cont-info table td img {vertical-align:top;margin-top:-1px;} 
+#BoardTdView table.view-info02 td.writer-info	{width:55%;text-align:right;padding:0 3px;} /*IFRAME 사이즈 조정*/
+#BoardTdView table.view-info02 td.writer-info #MemberInfo {width:100%;height:112px}
+
+/*버튼 영역*/
+#View-btn {width:786px;vertical-align:top;margin-top:7px;}		/*컬러별적용*/
+html>body #View-btn {clear:both;float:left;}
+#View-btn div {padding:7px 0 15px 0;}
+#View-btn #view-list {float:left;padding-left:1px;}
+
+/*스폰서링크*/
+#SponsorArea	{clear:both;float:left;}
+#Sponsor {margin:-1px	 1px 14px 1px;width:783px;border-collapse:collapse;table-layout:fixed}
+#Sponsor td.tit-sponsor {width:61px;height:100%;vertical-align:top;}
+#Sponsor td.tit-sponsor table {width:53px;height:100%;table-layout:fixed;border-collapse:collapse;background:#F0F0F0 url(http://image.freechal.com/community/common/white/txt_sponsor_top.gif) 0 0 no-repeat;}
+#Sponsor td.tit-sponsor table td {height:100%;text-align:center;padding-top:3px;font-size:11px;line-height:1.4em; font-weight:bold;color:#B9B9B9;background:url(http://image.freechal.com/community/common/white/txt_sponsor_bttm.gif) 0 bottom no-repeat;}
+
+#Sponsor td.list-sponsor {width:722px;vertical-align:top;padding-top:1px;}
+#Sponsor td.list-sponsor table {
+	width:100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+#Sponsor td.list-sponsor table td {padding:3px 0 2px 0;}
+#Sponsor td.list-sponsor table td a {color:#888888;font-size:11px;text-decoration:none;}
+#Sponsor td.list-sponsor table td a span.sponsor {color:#2D406F;}
+
+/*이전글-다음글*/
+#prev-next table {
+	width:100%;
+	table-layout: fixed;
+	border-collapse: collapse;
+	margin:3px 0 0 0;
+}
+#prev-next table th, #prev-next table td {border-bottom:1px solid #E6E6E6;}
+#prev-next table th {width:56px;padding-left:10px;text-align:left;}
+#prev-next table td a {font-size:12px;font-weight:normal;color:#333333;}
+#prev-next table td span.rel {font-size:11px;color:#656565;padding-right:3px;text-decoration:none;}
+#prev-next table td.tit {padding:7px 5px 4px 5px;}
+#prev-next table td.tit img.rel {margin:0 1px 0 3px;}
+#prev-next table td.nicname {padding-top:3px;width:95px;}
+#prev-next table td.nicname img {margin-right:4px;}
+#prev-next table td.date,#prev-next table td.hit {padding:5px 0;font-family:Tahoma;font-size:10px;color:#8E8E8E;}
+#prev-next table td.date {width:55px;text-align:center;}
+#prev-next table td.hit  {width:44px;text-align:center;}
+
+/********************************************************/
+/* 통합 게시판 쓰기 */
+#BoardTdWrite		{ clear:both;float:left;margin-bottom:10px;}		/*컬러별적용*/
+#BoardTdWrite table {
+	width:786px;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+#BoardTdWrite #write-title {clear:both;float:left;padding-top:8px;padding-bottom:8px}
+#BoardTdWrite #write-title div {float:left;}
+#BoardTdWrite #write-title div.tit {clear:both;font-weight:bold;width:50px;padding:4px 0 0 5px}/*2007.03.29 수정*/
+#BoardTdWrite #write-title div.inp input {width:519px;height:20px;border:1px solid #D5D5D5;margin-right:10px;}/*2007.03.29 수정*/
+#BoardTdWrite #write-title div.sel select {width:63px;margin-right:2px;}
+#BoardTdWrite #write-title div.txt {padding-top:4px;margin-left:4px}
+#BoardTdWrite #write-title div.txt input {height:14px}
+
+/*********************************************************************************/
+/*통합에디터 부분 (추후 변경됨)*/
+#BoardTdWrite table.write-content {clear:both;float:left;border:1px solid #C8C8C8; }
+#BoardTdWrite table.write-content td.EditorControl {background:#F4F4F4;border-bottom:1px solid #C8C8C8;padding:5px;}
+#BoardTdWrite table.write-content td.EditorControl table {table-layout: fixed; border-collapse: collapse; }
+#BoardTdWrite table.write-content td.EditorControl table.bt 	 {width:100%;margin-bottom:5px;}
+#BoardTdWrite table.write-content td.EditorControl table.bt td {padding:0 1px}
+#BoardTdWrite table.write-content td.EditorControl table td.fr {text-align:right;padding-right:16px;vertical-align:bottom;}
+#BoardTdWrite table.write-content td.EditorControl table td.fr input {height:14px;margin-right:2px;}
+
+#BoardTdWrite table.write-content td.EditorControl table td.selstyle 	{width:110px; background:url(http://image.freechal.com/community/common/white/s_bar.gif) right 3px no-repeat;}
+#BoardTdWrite table.write-content td.EditorControl table td.selsize 	{width:93px;padding-left:10px; background:url(http://image.freechal.com/community/common/white/s_bar.gif) right 3px no-repeat;}
+html>body #BoardTdWrite table.write-content td.EditorControl table td.selstyle {width:106px;}
+html>body #BoardTdWrite table.write-content td.EditorControl table td.selsize {width:83px;}
+#BoardTdWrite table.write-content td.EditorControl table td.sel select.family {width:111px;}
+#BoardTdWrite table.write-content td.EditorControl table td.sel select.spec 	{width:75px}
+#BoardTdWrite table.write-content td.EditorControl table td.font 	{width:102px;text-align:center;background:url(http://image.freechal.com/community/common/white/s_bar.gif) right 3px no-repeat;}
+#BoardTdWrite table.write-content td.EditorControl table td.align {width:86px;text-align:center;background:url(http://image.freechal.com/community/common/white/s_bar.gif) right 3px no-repeat;}
+#BoardTdWrite table.write-content td.EditorControl table td.color {width:58px;text-align:center;background:url(http://image.freechal.com/community/common/white/s_bar.gif) right 3px no-repeat;}
+#BoardTdWrite table.write-content td.EditorControl table td.link 	{width:67px;text-align:center;background:url(http://image.freechal.com/community/common/white/s_bar.gif) right 3px no-repeat;}
+html>body #BoardTdWrite table.write-content td.EditorControl table td.link {width:60px;}
+
+/*폰트선택 */
+#BoardTdWrite table.write-content td.EditorControl table td.selstyle div#FontStyle {position:relative; top:0; left:0; width:190px; display:none}
+#BoardTdWrite table.write-content td.EditorControl table td.selstyle div#FontStyle table.fstyle{position:absolute; width:190px}
+#BoardTdWrite table.write-content td.EditorControl table td.selstyle div#FontStyle table.fstyle td.boxtop {background:url(../../../img/editor/white/box_style_top.gif) 0 0 no-repeat; width:190px; height:2px}
+#BoardTdWrite table.write-content td.EditorControl table td.selstyle div#FontStyle table.fstyle td.boxbg {background:url(../../../img/editor/white/box_style_bg.gif) 0 0 repeat-y; width:190px;
+}
+#BoardTdWrite table.write-content td.EditorControl table td.selstyle div#FontStyle table.fstyle td.boxbg  ul.charge {border:1px solid #F4CF89; background-color:#FFF4E0; margin:5px 5px 0; padding:5px;line-height:16px}
+#BoardTdWrite table.write-content td.EditorControl table td.selstyle div#FontStyle table.fstyle td.boxbg  ul.charge li a{color:#333333}
+#BoardTdWrite table.write-content td.EditorControl table td.selstyle div#FontStyle table.fstyle td.boxbg  ul.basic {padding:10px; line-height:16px}
+#BoardTdWrite table.write-content td.EditorControl table td.selstyle div#FontStyle table.fstyle td.boxbg  ul.basic li a{color:#333333;}
+#BoardTdWrite table.write-content td.EditorControl table td.selstyle div#FontStyle table.fstyle td.boxbg  ul.basic li a.fd{font-family:돋움;}
+#BoardTdWrite table.write-content td.EditorControl table td.selstyle div#FontStyle table.fstyle td.boxbg  ul.basic li a.fg{font-family:굴림;}
+#BoardTdWrite table.write-content td.EditorControl table td.selstyle div#FontStyle table.fstyle td.boxbg  ul.basic li a.fgs{font-family:궁서;}
+#BoardTdWrite table.write-content td.EditorControl table td.selstyle div#FontStyle table.fstyle td.boxbg  ul.basic li a.fa{font-family:arial;}
+#BoardTdWrite table.write-content td.EditorControl table td.selstyle div#FontStyle table.fstyle td.boxbg  ul.basic li a.fc{font-family:courier;}
+#BoardTdWrite table.write-content td.EditorControl table td.selstyle div#FontStyle table.fstyle td.boxbg  ul.basic li a.fv{font-family:verdanda;}
+
+#BoardTdWrite table.write-content td.EditorControl table td.selstyle div#FontStyle table.fstyle td.boxbottom {background:url(../../../img/editor/white/box_style_bottom.gif) 0 0 no-repeat; width:190px; height:2px}
+
+
+/* 크기 선택 */
+#BoardTdWrite table.write-content td.EditorControl table td.selsize div#FontSize {position:relative; top:0; left:0; width:225px; display:none;}
+#BoardTdWrite table.write-content td.EditorControl table td.selsize div#FontSize table.fsize{position:absolute; width:225px}
+#BoardTdWrite table.write-content td.EditorControl table td.selsize div#FontSize table.fsize td.boxtop {background:url(../../../img/editor/white/box_size_top.gif) 0 0 no-repeat; width:225px; height:2px;}
+#BoardTdWrite table.write-content td.EditorControl table td.selsize div#FontSize table.fsize td.boxbg {background:url(../../../img/editor/white/box_size_bg.gif) 0 0 repeat-y; width:225px;}
+#BoardTdWrite table.write-content td.EditorControl table td.selsize div#FontSize table.fsize td.boxbg ul {padding:10px}
+#BoardTdWrite table.write-content td.EditorControl table td.selsize div#FontSize table.fsize td.boxbg ul li a{color:#333333;}
+#BoardTdWrite table.write-content td.EditorControl table td.selsize div#FontSize table.fsize td.boxbg ul li a.f9{font-size:9px;}
+#BoardTdWrite table.write-content td.EditorControl table td.selsize div#FontSize table.fsize td.boxbg ul li a.f10{font-size:10px;}
+#BoardTdWrite table.write-content td.EditorControl table td.selsize div#FontSize table.fsize td.boxbg ul li a.f12{font-size:12px;}
+#BoardTdWrite table.write-content td.EditorControl table td.selsize div#FontSize table.fsize td.boxbg ul li a.f14{font-size:14px;}
+#BoardTdWrite table.write-content td.EditorControl table td.selsize div#FontSize table.fsize td.boxbg ul li a.f18{font-size:18px;}
+#BoardTdWrite table.write-content td.EditorControl table td.selsize div#FontSize table.fsize td.boxbg ul li a.f24{font-size:24px;}
+#BoardTdWrite table.write-content td.EditorControl table td.selsize div#FontSize table.fsize td.boxbg ul li a.f36{font-size:36px;}
+#BoardTdWrite table.write-content td.EditorControl table td.selsize div#FontSize table.fsize td.boxbottom {background:url(../../../img/editor/white/box_size_bottom.gif) 0 0 no-repeat;width:225px; height:2px;}
+
+/* 링크 걸기 */
+#BoardTdWrite table.write-content td.EditorControl table td.link div#LinkLy {display:none; position:relative; top:0; left:-220px; width:263px;z-index:99}
+#BoardTdWrite table.write-content td.EditorControl table td.link div#LinkLy table.linkbox {position:absolute; width:263px;}
+#BoardTdWrite table.write-content td.EditorControl table td.link div#LinkLy table.linkbox td.boxtop{background:url(../../../img/editor/white/box_link_top.gif) 0 0 no-repeat; width:263px; height:2px;}
+#BoardTdWrite table.write-content td.EditorControl table td.link div#LinkLy table.linkbox td.boxbg{background:url(../../../img/editor/white/box_link_bg.gif) 0 0 repeat-y; width:263px; padding:4px 5px}
+#BoardTdWrite table.write-content td.EditorControl table td.link div#LinkLy table.linkbox td.boxbg input {width:220px; border:1px solid #D5D5D5; padding-top:3px;}
+#BoardTdWrite table.write-content td.EditorControl table td.link div#LinkLy table.linkbox td.boxbottom{background:url(../../../img/editor/white/box_link_bottom.gif) 0 0 no-repeat; width:263px; height:2px;}
+
+
+/* 컬러선택 */
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet {position:relative; toop:0; left:-80px; z-index:99; display:none}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset{position:absolute;}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxtop {background:url(../../../img/editor/white/box_color_top.gif) 0 0 no-repeat; width:157px; height:2px}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg {background:url(../../../img/editor/white/box_color_bg.gif) 0 0 repeat-y; width:157px; padding:5px}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox {border:1px solid #000000; width:145px; height:61px}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td{border:1px solid #000000; width:11px; height:11px;}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color01 {background:#FF0000}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color02 {background:#FF4B4B}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color03 {background:#FF8888}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color04 {background:#FFC1C1}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color05 {background:#0000FF}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color06 {background:#0066FF}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color07 {background:#5F9FFF}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color08 {background:#99C2FF}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color09 {background:#006C77}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color10 {background:#09A7B7}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color11 {background:#6DB6BD}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color12 {background:#96D6DC}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color13 {background:#FF0066}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color14 {background:#FF5E7C}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color15 {background:#FF9DBE}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color16 {background:#FFBFD5}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color17 {background:#00FFFF}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color18 {background:#3EC2FF}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color19 {background:#83D5FF}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color20 {background:#B9E7FF}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color21 {background:#FF6000}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color22 {background:#FF8D48}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color23 {background:#FFB98F}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color24 {background:#FFDDC9}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color25 {background:#CC00CC}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color26 {background:#C553C5}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color27 {background:#D183D1}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color28 {background:#EAAEEA}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color29 {background:#558100}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color30 {background:#8DD700}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color31 {background:#B0D568}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color32 {background:#D3EDA0}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color33 {background:#FFFF00}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color34 {background:#FFB400}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color35 {background:#FFCF5C}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color36 {background:#FFE6A9}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color37 {background:#551A8B}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color38 {background:#6C4391}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color39 {background:#8869A4}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color40 {background:#B59FC8}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color41 {background:#006600}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color42 {background:#007E06}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color43 {background:#59915C}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color44 {background:#7BC57E}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color45 {background:#6B2600}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color46 {background:#964316}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color47 {background:#996549}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color48 {background:#BA9885}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color49 {background:#FFFFFF}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color50 {background:#EEEEEE}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color51 {background:#CCCCCC}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color52 {background:#888888}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color53 {background:#777777}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color54 {background:#666666}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color55 {background:#555555}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color56 {background:#444444}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color57 {background:#333333}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color58 {background:#222222}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color59 {background:#111111}
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbg table.colorbox td.color60 {background:#000000}
+
+#BoardTdWrite table.write-content td.EditorControl table td.color div#ColorSet table.cset td.boxbottom {background:url(../../../img/editor/white/box_color_bottom.gif) 0 0 no-repeat; width:157px; height:2px}
+
+
+/*이모티콘 선택*/
+#BoardTdWrite table.write-content td.EditorControl table td.emo 		{padding-left:4px;}
+#BoardTdWrite table.write-content td.EditorControl table td.emo div {float:left;}
+#BoardTdWrite table.write-content td.EditorControl table td.emo div table {width:37px;height:23px;}
+#BoardTdWrite table.write-content td.EditorControl table td.emo div#emo_txt img {margin:3px 6px 0 6px;}
+#BoardTdWrite table.write-content td.EditorControl table td.emo div#emo_sel {position:relative;top:0;left:0;}
+#BoardTdWrite table.write-content td.EditorControl table td.emo div#emo_sel table {position:relative;top:0;left:0;background:#C3C3C3;}
+#BoardTdWrite table.write-content td.EditorControl table td.emo div#emo_sel table.emotableimg td {width:9px;background:#FFFFFF;}
+#BoardTdWrite table.write-content td.EditorControl table td.emo div#emo_sel table.emotableimg td.emotd {width:24px;text-align:center}
+html>body #BoardTdWrite table.write-content td.EditorControl table td.emo div#emo_sel table.emotableimg td {width:9px;border:1px solid #BBBBBB;}
+html>body #BoardTdWrite table.write-content td.EditorControl table td.emo div#emo_sel table.emotableimg td.emotd {width:24px}
+#BoardTdWrite table.write-content td.EditorControl table td.emo div#emo_sel #EmoList {display:none;position:absolute;right:-17px;top:24px;}
+html>body #BoardTdWrite table.write-content td.EditorControl table td.emo div#emo_sel #EmoList {right:-15px;}
+#BoardTdWrite table.write-content td.EditorControl table td.emo div#emo_sel #EmoList td {width:25px;height:22px;padding:2px 3px;background:#FFFFFF;}
+html>body #BoardTdWrite table.write-content td.EditorControl table td.emo div#emo_sel #EmoList td {border:1px solid #BBBBBB;width:18px;}
+
+#BoardTdWrite table.write-content td.EditorBody {background:#FFFFFF;}
+#BoardTdWrite table.write-content td.EditorBody textarea {width:784px;height:360px;padding:5px;border:0;overflow:auto;}
+html>body #BoardTdWrite table.write-content td.EditorBody textarea {width:782px;overflow-y:auto;overflow-x:hidden;}
+
+/*********************************************************************************/
+
+#BoardTdWrite table.FileAdd {clear:both; float:left; border:1px solid #C8C8C8; margin-top:10px}
+#BoardTdWrite table.FileAdd td.FileAddBtn {background:#F4F4F4; height:29px; vertical-align:top;padding:3px 0 0 5px}
+#BoardTdWrite table.FileAdd td.FileAddBtn table td a.pd_r6 {padding-right:6px;}
+#BoardTdWrite table.FileAdd td.FileAddBtn table td.fr {text-align:right;padding-right:12px;font-size:11px}
+#BoardTdWrite table.FileAdd td.FileAddBtn table td.fr span.orange {color:#FF661E; font-weight:bold;}
+#BoardTdWrite table.FileAdd td.FileArea {height:81px; text-align:center; font-weight:bold; color:#666666}
+#BoardTdWrite table.FileAdd td.FileAreaFy {text-align:center; color:#666666; padding:8px 2px}
+#BoardTdWrite table.FileAdd td.FileAreaFy ul li{clear:both;padding-bottom:5px}
+#BoardTdWrite table.FileAdd td.FileAreaFy ul li.last{clear:both;}
+#BoardTdWrite table.FileAdd td.FileAreaFy ul li span.right {float:right;font-size:11px;padding-right:3px}
+
+
+#BoardTdWrite table.write-btn 		{clear:both;float:left;}
+#BoardTdWrite table.write-btn td 	{padding:7px 0;}
+#BoardTdWrite table.write-btn td.fr {text-align:right}
+
+/*통합게시판 검색*/
+#SearchTitle	{clear:both;position:relative;left:8px;top:9px;font-weight:bold;color:#222222;padding-bottom:21px;}	
+#SearchSubTxt	{clear:both;background:#F4F4F4;padding:11px 12px 8px 15px;margin-bottom:16px;}
+#SearchSubTxt	ul li {padding:3px 0 3px 10px;background:url(http://image.freechal.com/community/common/white/s_bu09.gif) 0 5px no-repeat;}
+
+/* 공지사항 쓰기 */
+#BoardTdWrite #Noticewrite-title {clear:both;float:left;padding-top:8px;padding-bottom:8px}
+#BoardTdWrite #Noticewrite-title div {float:left;}
+#BoardTdWrite #Noticewrite-title div.tit {font-weight:bold;width:50px;padding:4px 0 0 5px}/*2007.03.29 수정*/
+#BoardTdWrite #Noticewrite-title div.inp input {width:603px;height:20px;border:1px solid #BBBBBB;margin-right:10px;}/*2007.03.29 수정*/
+#BoardTdWrite #Noticewrite-title div.sel select {width:63px;margin-right:2px;}
+#BoardTdWrite #Noticewrite-title div.txt {padding-top:4px;margin-left:4px}
+#BoardTdWrite #Noticewrite-title div.txt input {height:14px}
+
+#BoardTdWrite #pop-set {clear:both;padding-bottom:5px}
+#BoardTdWrite #pop-set div.tit {font-weight:bold;width:66px;padding:2px 0 0 5px;float:left;}
+
+/* 익명 게시판 쓰기*/
+#BoardTdWrite #awrite-title {clear:both;float:left;padding-top:8px;padding-bottom:8px}
+#BoardTdWrite #awrite-title div {float:left;}
+#BoardTdWrite #awrite-title div.tit {clear:both;font-weight:bold;width:59px;padding:4px 0 0 5px}/*2007.03.29 수정*/
+#BoardTdWrite #awrite-title div.inp input {width:507px;height:20px;border:1px solid #BBBBBB;margin-right:10px;}
+#BoardTdWrite #awrite-title div.sel select {width:63px;margin-right:2px;}
+#BoardTdWrite #awrite-title div.txt {padding-top:4px;margin-left:4px}
+#BoardTdWrite #awrite-title div.txt input {height:14px}
+
+#BoardTdWrite #awrite-title div.wname {clear:both;font-weight:bold;width:59px;padding:5px 0 0 5px;}
+#BoardTdWrite #awrite-title div.wname-inp input {width:212px;height:20px;border:1px solid #BBBBBB;margin-right:10px;}
+#BoardTdWrite #awrite-title div.wpwd {font-weight:bold;width:62px;padding:5px 0 0 5px}
+#BoardTdWrite #awrite-title div.wpwd-inp input {width:222px;height:20px;border:1px solid #BBBBBB;margin-right:6px;}
+html>body #BoardTdWrite #awrite-title div.wpwd-inp input {width:217px;}
+#BoardTdWrite #awrite-title div.wpwd-ex {color:#666666;font-size:11px;padding:5px 0 0 5px}
+#BoardTdWrite #awrite-title div.wemail {clear:both;font-weight:bold;width:59px;padding:11px 0 0 5px;}
+#BoardTdWrite #awrite-title div.wemail-inp input {width:507px;height:20px;border:1px solid #BBBBBB;margin-right:10px;margin:6px 0}
+
+/********************************************************/
+/* 자료실 쓰기 */
+#BoardTdWrite #Pdswrite-title {clear:both;float:left;padding-top:8px;padding-bottom:8px}
+#BoardTdWrite #Pdswrite-title div {float:left;}
+#BoardTdWrite #Pdswrite-title div.tit {font-weight:bold;width:50px;padding:4px 0 0 5px}/*2007.03.29 수정*/
+#BoardTdWrite #Pdswrite-title div.inp input {width:600px;height:15px;border:1px solid #BBBBBB;margin-right:10px;}/*2010-08-26 수정*/
+#BoardTdWrite #Pdswrite-title div.sel select {width:63px;margin-right:2px;}
+#BoardTdWrite #Pdswrite-title div.txt {margin-left:4px}/*2010-08-26 수정*/
+#BoardTdWrite #Pdswrite-title div.txt input {height:14px}
+
+#BoardTdWrite #Pdswrite-attach {clear:both;padding-bottom:5px}
+#BoardTdWrite #Pdswrite-attach div.tit {font-weight:bold;width:140px;padding:2px 0 0 5px;float:left;}
+/*자료실 파일첨부*/
+#FileAttach {clear:both;float:left;width:786px;height:110px;margin:0 0 8px 0; }
+#FileAttachBox01 {width:100%;height:100%;background:#F2F2F2;}
+#FileAttachBox01 #FileTxtBox {
+	float:left;
+	width:658px; 
+	height:110px; 
+	border:1px solid #D5D5D5; 
+	overflow-y:scroll;
+	background-color:#FFFFFF;
+	font-size:11px;
+	color:#666666;
+	padding:2px 70px 0 110px;
+	line-height:1.3;
+}html>body #FileAttachBox01 #FileTxtBox{width:478px;}
+#FileAttachBox01 #FileTxtBox div.file-txt01			{padding:14px 0 2px 7px;background:url(http://image.freechal.com/community/common/white/s_bu07.gif) 0px 16px no-repeat;}
+#FileAttachBox01 #FileTxtBox div.file-txt02			{padding:6px 0 2px 7px;color:#8E8E8E;}
+#FileAttachBox01 #FileTxtBox div.file-txt02	span{color:#4D4D4D; font-weight:bold;}
+#FileAttachBox01 #FileTxtBox .blue5 						{color:#5D99DF;text-decoration:underline;font-weight:bold;}
+
+#FileAttachBox01 #file-box {clear:both;float:left; width:658px; height:110px; border:1px solid #D5D5D5; background-color:#ffffff;overflow-y:scroll;}
+#FileAttachBox01 #file-box ul {list-style:none;margin:9px 0;}
+#FileAttachBox01 #file-box ul li	{clear:both;padding:1px 6px 0 10px;} 
+#FileAttachBox01 #file-box ul div.ipt-chk {float:left;height:18px;}
+#FileAttachBox01 #file-box ul div.img-txt {padding-top:1px;}
+#FileAttachBox01 #file-box ul div.img-txt span {color:#666666;}
+#FileAttachBox01 #file-btn {float:left;width:105px;padding-top:8px;}
+#FileAttachBox01 #file-btn img {vertical-align:top;margin-bottom:6px;margin-left:8px;}
+
+#FileAttachBox02 {width:100%;height:100%;padding:4px;background:#F2F2F2;}
+#FileAttachBox02 #ipt_txt {clear:both;padding:2px 0 4px 0;}
+#FileAttachBox02 #ipt_txt input.ipt {border:1px solid #D5D5D5; width:404px; height:20px;}
+
+#FileAttachBox02 #file-box {clear:both;float:left; width:658px; height:73px; border:1px solid #D5D5D5; background-color:#ffffff;overflow-y:scroll;}
+#FileAttachBox02 #file-box ul {list-style:none;margin:9px 0;}
+#FileAttachBox02 #file-box ul li	{clear:both;padding:1px 6px 0 10px;} 
+#FileAttachBox02 #file-box ul div.ipt-chk {float:left;height:18px;}
+#FileAttachBox02 #file-box ul div.img-txt {padding-top:1px;}
+#FileAttachBox02 #file-box ul div.img-txt span {color:#666666;}
+#FileAttachBox02 #file-btn {float:left;width:105px;}
+#FileAttachBox02 #file-btn img {vertical-align:top;margin-bottom:6px;margin-left:8px;}
+
+/********************************************************/
+/*프리미엄 자료실 용량 박스*/
+#CapacityBox {height:62px;margin-bottom:10px;background:url(http://image.freechal.com/community/common/white/bg_capacity02.gif) 0 0 no-repeat;padding-left:160px;}
+#CapacityBox #CpTitle {color:#666666;padding:17px 0 4px 0;}
+#CapacityBox #CpContent {clear:both;padding-top:1px;}
+#CapacityBox #CpContent #CpTxt 		{float:left;font-weight:bold;width:76px}
+#CapacityBox #CpContent #CpGraph	{float:left;width:237px;height:20px;background:url(http://image.freechal.com/community/common/white/bg_cgraph.gif) 0 0 no-repeat;padding:1px;}
+#CapacityBox #CpContent #CpGraph span {float:left;margin:0;padding:0;}
+#CapacityBox #CpContent #CpValue	{float:left;color:#222222;font-size:11px;padding:1px 0 0 3px;}
+
+/********************************************************/
+/********************************************************/
+/* 앨범형(동영상) 게시판 리스트 */
+#AlbumTdList		{ width:786px; clear:both;float:left;margin-bottom:7px; padding-bottom:12px; }/*컬러별적용*/
+
+#AlbumTdList table{
+	table-layout:fixed;
+	border-collapse:collapse;
+}
+#AlbumTdList table td {padding:8px 0 2px 0}
+#AlbumTdList table td.img {width:143px}
+#AlbumTdList table td.nb23 {width:17px}
+#AlbumTdList table td.nb22 {width:18px}
+#AlbumTdList table td table.img-box {
+	table-layout:fixed;
+	border-collapse :collapse;
+	width:143px;
+	height:111px;
+}
+#AlbumTdList table td table.img-box td {vertical-align:absmiddle; padding-top:5px; text-align:center; border:1px solid #E2E2E2;}
+#AlbumTdList table td table.img-txt {
+	width:143px;
+	table-layout:fixed;
+	border-collapse: collapse;
+}
+#AlbumTdList table td table.img-txt td {padding:0 0 0 7px;}
+#AlbumTdList table td table.img-txt td.subject	{padding:6px 0 1px 6px;}
+#AlbumTdList table td table.img-txt td.subject a {color:#333333;}
+#AlbumTdList table td table.img-txt td.subject span.chk input	{width:14px;height:14px;margin:-1px 0 0 0;}
+#AlbumTdList table td table.img-txt td.subject span.cmt {font-family:Tahoma;color:#FF7917;font-size:10px;}
+#AlbumTdList table td table.img-txt td.ab_name 		{color:#8E8E8E;font-size:11px;vertcial-align:top;padding-top:1px;}
+#AlbumTdList table td table.img-txt td.ab_name img{vertical-align:top;}
+#AlbumTdList table td table.img-txt td.ab_name a	{color:#8E8E8E;font-size:11px;}
+#AlbumTdList table td table.img-txt td.ab_date 		{font-size:10px;color:#D6D6D6;margin-top:-1px;}
+#AlbumTdList table td table.img-txt td.ab_date span.date, #AlbumTdList table td table.img-txt td.ab_date span.hit 	{font-family:Tahoma;color:#8E8E8E;}
+
+/* 앨범형 (동영상)  게시판 */
+#AlbumTdList table td table.play-box td {vertical-align:top; padding-top:5px;text-align:center; border:1px solid #E2E2E2;}
+#AlbumTdList table td table.play-box td img {width:131px;height:99px;}
+
+/********************************************************/
+/* 앨범형 (동영상)  게시판 쓰기 */
+#BoardTdWrite #Abwrite-title {clear:both;float:left;padding-top:8px;padding-bottom:8px}
+#BoardTdWrite #Abwrite-title div {float:left;}
+#BoardTdWrite #Abwrite-title div.tit {font-weight:bold;width:50px;padding:4px 0 0 5px}/*2007.03.29 수정*/
+#BoardTdWrite #Abwrite-title div.inp input {width:600px;height:20px;border:1px solid #D5D5D5;margin-right:10px;}/*2010-08-23 수정*/
+#BoardTdWrite #Abwrite-title div.sel select {width:63px;margin-right:2px;}
+#BoardTdWrite #Abwrite-title div.txt {padding-top:4px;margin-left:4px}
+#BoardTdWrite #Abwrite-title div.txt input {height:14px}
+
+#BoardTdWrite #Abwrite-img {clear:both;padding-bottom:5px}
+#BoardTdWrite #Abwrite-img div.tit {font-weight:bold;width:140px;padding:2px 0 0 5px;float:left;}
+#BoardTdWrite #Abwrite-img div.ipt_txt {float:left; padding:6px 8px 7px 0;}
+#BoardTdWrite #Abwrite-img div.ipt_txt input.ipt {border:1px solid #D5D5D5; width:515px; height:20px; margin-right:5px}
+
+#BoardTdWrite #write-cate {clear:both;padding-bottom:11px}
+#BoardTdWrite #write-cate div.tit{font-weight:bold; width:62px;padding:5px 0 0 5px; float:left;}
+#BoardTdWrite #write-cate div.select {width:140px;}
+#BoardTdWrite #write-cate div input.chk {width:14px; height:14px;margin:-1px -2px 1px 6px;}
+
+#BoardTdWrite table.write-html {clear:both;text-align:right;margin:4px 0 2px 0;}
+
+/* 20070615 추가 */
+#BoardWrite table.play-write {
+             table-layout:fixed;
+             border-collapse: collapse;
+             border-top:2px solid #E0E0E0; 
+             border-bottom:2px solid #E0E0E0;
+}
+#BoardWrite table.play-write td {padding:6px 0 0 0}
+#BoardWrite table.play-write td.td_left {width:80px; font-weight:bold; padding:3px 0 0 5px}
+#BoardWrite table.play-write td.td_left02 {width:80px; font-weight:bold; padding:10px 0 0 5px; vertical-align:top}
+#BoardWrite table.play-write td.td_right {}
+#BoardWrite table.play-write td.td_right input.ipt {border:1px solid #D5D5D5; padding:2px 0 0 2px; width:580px}
+#BoardWrite table.play-write td.td_right input.ipt02 {border:1px solid #D5D5D5; padding:2px 0 0 2px; color:#ADADAD; width:580px}
+#BoardWrite table.play-write td.td_right input.chk {width:14px; height:14px}
+#BoardWrite table.play-write td.td_right a.btn {position:relative; top:3px}
+#BoardWrite table.play-write td.td_right a.q {position:relative; top:2px;}
+#BoardWrite table.play-write td.td_right textarea {width:685px; height:163px; padding:10px}
+#BoardWrite table.play-write td.td_right span {font-size:11px; color:#757575; padding:10px 0; display:block}
+#BoardWrite table.play-write td.td_right .tag_check {border:1px solid #F4F3F3; width:555px; padding:10px; color:#222;}
+#BoardWrite table.play-write td.td_right .tag_check .t5 {padding-top:5px;}
+#BoardWrite table.play-write td.td_right span.or {color:#FF840F;padding:0}
+#BoardWrite table.play-write td.td_right span.or a {color:#FF840F;}
+#BoardWrite table.play-write td.td_right p{font-size:11px; color:#757575; padding-bottom:10px}
+
+#BoardWrite #WriteBtn {float:right; margin-top:7px}
+
+/* 사진첨부 */
+#ImgFileAttach {clear:both;float:left;width:786px;height:147px;}
+#ImgFileAttachBox01 {width:786px;height:100%;background:#F2F2F2;}
+#ImgFileAttachBox01 #FileTxtBox {
+	float:left;
+	width:644px; 
+	height:147px; 
+	border:1px solid #D5D5D5; 
+	overflow-y:scroll;
+	font-size:11px;
+	background-color:#FFFFFF;
+	color:#666666;
+	padding:15px 0 0 85px;
+	line-height:1.4;
+}html>body #ImgFileAttachBox01 #FileTxtBox {width:415px;height:158px;}
+#ImgFileAttachBox01 #FileTxtBox div.file-img 				{float:left;padding:3px 0 2px 0;}
+#ImgFileAttachBox01 #FileTxtBox div.file-txt01			{float:left;padding:12px 0 2px 7px;width:40%;background:url(../../../img/common/white/s_bu07.gif) 0px 14px no-repeat;}
+#ImgFileAttachBox01 #FileTxtBox div.file-txt01 div	{padding-bottom:4px;}
+#ImgFileAttachBox01 #FileTxtBox div.file-txt02			{clear:both;float:left;padding:7px 0 2px 7px;width:75%;background:url(../../../img/common/white/s_bu08.gif) 0px 9px no-repeat;color:#8E8E8E;}
+#ImgFileAttachBox01 #FileTxtBox .blue5 							{color:#5D99DF;text-decoration:underline;font-weight:bold;}
+
+#ImgFileAttachBox01 #imgfile-box {
+	width:644px; 
+	height:147px; 
+	border:1px solid #C0C0C0; 
+	background:#ffffff; 
+	float:left;
+	overflow-y:scroll;
+	overflow-x:hidden;
+}html>body #ImgFileAttachBox01 #imgfile-box {height:172px;}
+#ImgFileAttachBox01 #imgfile-box ul#AlbumAttach {list-style:none;height:136px;margin:10px 0 0 10px;}
+#ImgFileAttachBox01 #imgfile-box ul#AlbumAttach li	{float:left; width:111px; height:118px; border:1px solid #E2E2E2;margin:0 10px 10px 0;padding:6px 6px 0 6px;} 
+html>body #ImgFileAttachBox01 #imgfile-box ul#AlbumAttach li{width:97px;height:110px}
+#ImgFileAttachBox01 #imgfile-box ul#AlbumAttach div.ipt-chk {float:left;height:20px;padding-top:2px;}
+#ImgFileAttachBox01 #imgfile-box ul#AlbumAttach div.ipt-chk input.chk {width:14px; height:14px}
+#ImgFileAttachBox01 #imgfile-box ul#AlbumAttach div.img-txt {font-size:11px; padding-top:4px;}
+#ImgFileAttachBox01 #file-btn {float:left;width:105px;padding-top:8px;}
+#ImgFileAttachBox01 #file-btn img {vertical-align:top;margin-bottom:6px;margin-left:8px;}
+
+#ImgFileAttach {clear:both;float:left;width:786px;height:176px;}
+#ImgFileAttachBox02 {width:100%;height:100%;padding:4px;background:#F2F2F2;}
+#ImgFileAttachBox02 #ipt_txt {clear:both;padding:2px 0 4px 0;}
+#ImgFileAttachBox02 #ipt_txt input.ipt {border:1px solid #D5D5D5; width:404px; height:20px;}
+
+#ImgFileAttachBox02 #imgfile-box {
+	float:left; 
+	width:644px; 
+	height:139px; 
+	border:1px solid #C0C0C0; 
+	background-color:#ffffff; 
+	overflow-y:scroll;
+	overflow-x:hidden;
+}html>body #ImgFileAttachBox02 #imgfile-box {height:138px;}
+#ImgFileAttachBox02 #imgfile-box ul#AlbumAttach {list-style:none;height:136px;margin:10px 0 0 10px;}
+#ImgFileAttachBox02 #imgfile-box ul#AlbumAttach li	{float:left; width:111px; height:118px; border:1px solid #E2E2E2;margin:0 10px 10px 0;padding:6px 6px 0 6px;} 
+html>body #ImgFileAttachBox02 #imgfile-box ul#AlbumAttach li{width:97px;height:110px}
+#ImgFileAttachBox02 #imgfile-box ul#AlbumAttach div.ipt-chk {float:left;height:20px;padding-top:2px;}
+#ImgFileAttachBox02 #imgfile-box ul#AlbumAttach div.ipt-chk input.chk {width:14px; height:14px}
+#ImgFileAttachBox02 #imgfile-box ul#AlbumAttach div.img-txt {font-size:11px; padding-top:4px;}
+#ImgFileAttachBox02 #file-btn {float:left;width:105px;}
+#ImgFileAttachBox02 #file-btn img {vertical-align:top;margin-bottom:6px;margin-left:8px;}
+
+/* 동영상 게시판 쓰기 */
+#BoardTdWrite table.ucc-tit {
+	width:786px;
+	height:32px;
+	table-layout:fixed;
+	border-collapse : collapse;
+	border:1px solid #C8C8C8;
+	background-color:#F4F4F4;
+}
+
+#BoardTdWrite table.ucc-tit tr td.ucc-name {height:31px; background-color:#F7F7F7; border-bottom:1px solid #C8C8C8;padding-left:5px;}
+#BoardTdWrite table.ucc-tit tr td.ucc-name span.txt {color:#333333; font-weight:bold;padding-left:3px;vertical-align:bottom;}
+#BoardTdWrite table.ucc-tit tr td.ucc-name span.file-name input {color:#FF702B;font-weight:bold;width:300px;height:17px;margin:1px 0 -1px 0;background-color:#F7F7F7;border:0;}
+
+#BoardTdWrite table.ucc-write {
+	width:786px;
+	table-layout:fixed;
+	border-collapse : collapse;
+	border-left:1px solid #C8C8C8;
+	border-right:1px solid #C8C8C8;
+	border-bottom:1px solid #C8C8C8;
+}
+
+#BoardTdWrite table.ucc-write tr td.txt-area {width:544px} 
+#BoardTdWrite table.ucc-write tr td.skin-area {width:240px; border-left:1px solid #C8C8C8; vertical-align:top; padding:13px} 
+html>body #BoardTdWrite table.ucc-write tr td.skin-area {width:210px;}
+#BoardTdWrite table.ucc-write tr td.skin-area div.msg{color:#757575;margin-top:5px;letter-spacing:-1px}
+#BoardTdWrite table.ucc-write tr td.skin-area select{width:213px; height:118px; margin-top:5px; margin-bottom:7px}
+#BoardTdWrite table.ucc-write tr td.skin-area div.imgbox	{border:1px solid #D3D3D3;width:86px;height:86px;float:left;margin-right:4px;}
+#BoardTdWrite table.ucc-write tr td.skin-area div.imgbox img{border:1px solid #FFFFFF}
+#BoardTdWrite table.ucc-write tr td.skin-area div.write_exp {padding-top:5px;font-size:11px;color:#666666;}
+#BoardTdWrite table.ucc-write tr td.skin-area div.pre_btn {clear:both;padding:5px 0 0 1px}
+#BoardTdWrite table.ucc-write tr td.txt-area .txtarea{width:542px;height:300px;padding:5px;border:0;}
+html>body #BoardTdWrite table.ucc-write tr td.txt-area .txtarea {width:399px}
+
+#BoardTdWrite table.chk-box {
+	width:100%;
+	table-layout:fixed;
+	border-collapse : collapse;
+	margin-top:8px
+}
+#BoardTdWrite table.chk-box td {color:#222222}
+#BoardTdWrite table.chk-box td a{color:#222222}
+#BoardTdWrite table.chk-box td.gtxt {color:#757575; font-size:11px; line-height:15px;padding:5px 0 4px 5px}
+#BoardTdWrite table.chk-box td input.chk {width:14px; height:14px}
+#BoardTdWrite table.chk-box td.line {height:2px} /*컬러별 적용 */
+
+#BoardTdWrite #write-title div.head select {width:110px;margin-right:2px;}
+#BoardTdWrite #write-title div.inp2 input {width:265px;height:20px;border:1px solid #D5D5D5;background:#FFFFFF;margin-right:10px;}
+
+/*말머리 부분 추가*/
+#BoardTdWrite div.begin-title {clear:both;padding-top:8px;padding-bottom:8px}
+#BoardTdWrite div.begin-title div {float:left;}
+#BoardTdWrite div.begin-title div.tit {clear:both;font-weight:bold;width:50px;padding:4px 0 0 5px;color:#333333;}
+#BoardTdWrite div.begin-title div.sel select {width:163px;margin-right:2px;}
+
+/********************************************************/
+/*통합에디터 부분 (추후 변경됨)*/
+#BoardTdWrite table.write-content {clear:both;float:left;border:1px solid #C8C8C8; }
+#BoardTdWrite table.write-content td.EditorControl {background:#F4F4F4;border-bottom:1px solid #C8C8C8;padding:5px;}
+#BoardTdWrite table.write-content td.EditorControl table {table-layout: fixed; border-collapse: collapse; }
+#BoardTdWrite table.write-content td.EditorControl table.bt    {width:100%;margin-bottom:5px;}
+#BoardTdWrite table.write-content td.EditorControl table.bt td {padding:0 1px}
+#BoardTdWrite table.write-content td.EditorControl table td.fr {text-align:right;padding-right:16px;vertical-align:bottom;}
+#BoardTdWrite table.write-content td.EditorControl table td.fr input {height:14px;margin-right:2px;}
+
+
+/*커뮤니티 게시글 태그 스타일 재지정*/
+div#DocContent ul{list-style:disc;padding-left:30px}
+div#DocContent ul li{list-style:disc;}
+div#DocContent ol{list-style:decimal;padding-left:30px}
+div#DocContent ol li{list-style:decimal;}

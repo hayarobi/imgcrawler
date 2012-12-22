@@ -1,0 +1,22 @@
+/*
+----------------------------------------------------
+* 파일 이름  : BackgroundStyle.css
+* 버전 정보 : 1.1
+* 메뉴 : 공통
+* 작성자 : 프리챌 디자인센터 윤소정(sommi@freechal.com)
+* 작성일 : 2006.09.18
+* 설명 : 커버스타일 이미지 스타일 
+* 수정일 : 2007.03.19
+* 수정자 : 
+----------------------------------------------------
+
+/*018*/
+body	{background:url('http://image.freechal.com/community/skin/bg/skin_pat_12.gif') 0 0 repeat;}
+
+/*========================== GNB & Footer ==================================*/
+/* 상단 */
+.gnb, .gnb:link, .gnb:visited,.gnb:hover	{ color:#0F0F0F; }
+.TopBlogSelect	{ background:#FFFFFF;color:#404040; }
+
+/* 하단 */
+#Footer, #Footer a {color:#151416; }

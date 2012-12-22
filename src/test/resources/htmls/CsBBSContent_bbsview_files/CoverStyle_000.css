@@ -1,0 +1,78 @@
+/*
+----------------------------------------------------
+* 파일 이름  : CoverStyle.css
+* 버전 정보 : 1.2
+* 메뉴 : 공통
+* 작성자 : 프리챌 디자인센터 윤소정(sommi@freechal.com)
+* 작성일 : 2006.09.01
+* 설명 : 커버스타일 칼라 타입을 지정한 스타일 
+* 수정일 : 2007.02.09
+* 수정자 : 
+----------------------------------------------------
+
+* 컬러 타입 종류 : 4 color 
+1. 기본컬러
+2. 타이틀 폰트 색
+3. 타이틀 배경색
+4. 테이블 상단 라인 컬러
+ps. 동일한 컬러값은 컬러 타입 일괄 적용처리 요함.
+*/
+
+/*================================================================================*/
+
+/* 메인 게시판 */
+.MBoardTdTitle, .MBoardTdTxt { color:#766756; }		/* 타이틀 폰트 색 */
+.MBoardTdTitle		{ background:#F6F5EA; }					/* 타이틀 배경 색 */
+.MBoardTitleBg01	{ background:#E1D9CD; }					/* 테이블 상단 라인 컬러 */
+.td_line 					{ height:2px;background:#E1D9CD; }	/* 테이블 하단 라인 컬러 */
+
+/* 메뉴 */
+#MD #MD1, #MD #MD2,#MD #MD6, #MD #MD8, #MD #MD9, #MD #MD10 { background:#CDC0AC; }	/* 기본컬러 */
+#MD samp, #MD #MD6, #MD #MD7 { border-color:#CDC0AC; }	
+#MD #MD3	{ background:#CDC0AC; border-color:#CDC0AC; }
+
+/* 관리자 메뉴 */
+#MA #MA1, #MA #MA2,#MA #MA6, #MA #MA8, #MA #MA9, #MA #MA10 { background:#CDC0AC; }
+#MA samp, #MA #MA6, #MA #MA7 { border-color:#CDC0AC; }	
+#MA #MA3	{ background:#CDC0AC; border-color:#CDC0AC; }
+
+/* 커버스토리 컬러 조정*/
+#CoverLine, #CoverLine01 , #CoverLine02 , #CoverLine04, #CoverLine05, #CoverLine06, #CoverLine07, #SubTopLine, #AdminTopLine	{ background:#CDC0AC; }
+#CoverLine03, #CoverContents	{	border-color:#CDC0AC; }
+
+/*초대하기,꾸미기,공지올리기*/
+.MainCoverTxt, .MainCoverTxt:link, .MainCoverTxt:visited, .MainCoverTxt:hover	{ color:#766756; }		
+
+/* 접속중 회원 */
+#MM samp, #MM #MM6 		{ border-color:#CDC0AC; }	
+#MM #MM1,#MM #MM2,#MM #MM4,#MM #MM5,#MM #MM7 { background-color:#CDC0AC; }
+#MM #ConnectMemberTit, #MM #MM3 { background-color:#F6F5EA; }
+#MM #MM6 { color:#766756; }
+
+/* 소모임 & 제휴커뮤니티 */
+#MC samp, #MC #MC5			{ border-color:#CDC0AC; background:#F6F5EA; }	
+#MC #MC1,#MC #MC2  	{ background-color:#CDC0AC; }
+#MC #MC3 { background:#F6F5EA; }
+#MC #MC5 { color:#766756; }
+
+/* 개인정보영역 바닥 라인 컬러 */
+/*
+#cMyInfo				{ border-bottom:#E1D9CD solid 2px; }
+#cGuestInfo			{ border-bottom:#E1D9CD solid 2px; } 
+*/
+
+/*게시판 내 컬러 적용 */
+#BoardTdList		{ border-top:1px solid #E1D9CD;border-bottom:2px solid #E1D9CD;}		
+#BoardTdList table.notice-list td 	{	border-top:1px solid #E1D9CD;}		
+#BoardTdList table tr.first-line td { border-top:1px solid #E1D9CD;}	
+#AlbumTdList		{ border-top:2px solid #CDC0AC;border-bottom:2px solid #E1D9CD;}
+
+#BoardTdView		{ border-top:2px solid #E1D9CD;}		
+#BoardTdWrite		{ border-top:2px solid #E1D9CD;}		
+#BoardTdWrite table.chk-box td.line {background-color:#E1D9CD; } 
+#BookTdView			{ border-top:2px solid #E1D9CD; }
+
+#View-btn {border-top:2px solid #E1D9CD;}		
+
+/* 페이징 Top Line */
+#List-btn02 {border-top:2px solid #E1D9CD}

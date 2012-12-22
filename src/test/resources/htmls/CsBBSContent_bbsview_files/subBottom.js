@@ -1,0 +1,1 @@
+document.write ('<A HREF="http://adv.freechal.com/RealMedia/ads/click_lx.ads/www.freechal.com/floating_ad/sub/1664548400/Bottom/default/empty.gif/64626665316665383464376531373030" target="_top"><IMG SRC="http://adv.freechal.com/RealMedia/ads/Creatives/default/empty.gif"  WIDTH=2 HEIGHT=2 ALT="" BORDER=0 BORDER="0"></A>');

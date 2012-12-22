@@ -1,0 +1,28 @@
+itemId:1241
+threadId:1241
+depth:0
+position:0
+제목:송편만드는 아이들
+작성자: 치타
+작성시각: 2008-09-16 오후 4:47:13
+조회: 54
+본문:
+<table id="view-content">
+		<tr><td class="cont-img"><img name="fc_comm_photo" alt="" border="0" src="http://album.freechal.com/ComService/Activity/Album/GetImage.asp?grpid=845246&objseq=1&file=1241%5F11DSC01276%2EJPG" onclick="javascript:ViewImgInFullScreen(0)" style="cursor:hand;" vspace="4"></td></tr>
+<script>strFileList += "1241%5F11DSC01276%2EJPG"+"%7C";</script>
+<tr><td class="cont-img"><img name="fc_comm_photo" alt="" border="0" src="http://album.freechal.com/ComService/Activity/Album/GetImage.asp?grpid=845246&objseq=1&file=1241%5F11DSC01277%2EJPG" onclick="javascript:ViewImgInFullScreen(1)" style="cursor:hand;" vspace="4"></td></tr>
+<script>strFileList += "1241%5F11DSC01277%2EJPG"+"%7C";</script>
+<tr><td class="cont-img"><img name="fc_comm_photo" alt="" border="0" src="http://album.freechal.com/ComService/Activity/Album/GetImage.asp?grpid=845246&objseq=1&file=1241%5F11DSC01272%2EJPG" onclick="javascript:ViewImgInFullScreen(2)" style="cursor:hand;" vspace="4"></td></tr>
+<script>strFileList += "1241%5F11DSC01272%2EJPG"+"%7C";</script>
+<tr><td class="cont-img"><img name="fc_comm_photo" alt="" border="0" src="http://album.freechal.com/ComService/Activity/Album/GetImage.asp?grpid=845246&objseq=1&file=1241%5F11DSC01270%2EJPG" onclick="javascript:ViewImgInFullScreen(3)" style="cursor:hand;" vspace="4"></td></tr>
+<script>strFileList += "1241%5F11DSC01270%2EJPG"+"%7C";</script>
+
+		<tr><td id="container" class="cont-view"><style>P {margin-top:2px;margin-bottom:2px;}</style>
+</td></tr>
+	</table>[[!!****!!]]
+코멘트:0
+첨부파일:4
+1241_11DSC01276.JPG
+1241_11DSC01277.JPG
+1241_11DSC01272.JPG
+1241_11DSC01270.JPG

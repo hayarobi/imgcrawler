@@ -1,0 +1,365 @@
+/*
+----------------------------------------------------
+* 파일 이름  : SkinType_W.css
+* 버전 정보 : 1.6
+* 메뉴 : 공통
+* 작성자 : 프리챌 디자인센터 윤소정(sommi@freechal.com)
+* 작성일 : 2006.07.28
+* 설명 : 스킨 타입을 지정한 스타일 - 흰색 배경
+* 수정일 : 2007.03.16
+* 수정자 : 
+----------------------------------------------------
+*/
+
+body 	{ 
+	background:#FFFFFF; 
+	scrollbar-face-color: #EEEEEE;	
+	scrollbar-highlight-color: #EEEEEE;
+	scrollbar-shadow-color: #616161;
+	scrollbar-3dlight-color: #EEEEEE;
+	scrollbar-arrow-color: #616161;
+	scrollbar-track-color: #FAFAFA;
+	scrollbar-darkshadow-color: #EEEEEE;
+}		/*전체 배경색이 바뀔 경우 */
+td, div, a, textarea {color:#333333;}/*기본컬러정의*/
+select, textarea,input {background:#FFFFFF;color:#333333;border-color:1px solid #D5D5D5;}
+#RD samp, #RD #MainBodyContent, #Category { clear:both; background:#FFFFFF; }  	/*전체 배경색이 바뀔 경우 */
+#Iframebody, #cBlogTop, #CL_wrap, #CC_wrap, #CR_wrap {background:#FFFFFF;}
+#cBlogTopFL { color:#333333; }
+#cBlogTopFR { color:#828282; }
+#cBlogTop div.fl a img{vertical-align:middle !important;}/*2010-08-26 수정*/
+#Category ul li a, #Category ul li div { color:#333333; text-decoration:none; }
+
+/* Link */
+a:link      { text-decoration:none; }
+a:visited   { text-decoration:none; }
+a:active    { text-decoration:none; }
+a:hover     { text-decoration:underline; }
+
+/* Form */
+.InputBox   { border:0px; border:1px solid #CACACA; background-color:#FFFFFF; color:#4D4D4D; height:18px; padding:1px }
+.InputBox02 { border:0px; border:1px solid #B9B9B9; background-color:#FFFFFF; color:#4D4D4D; height:18px; padding:2px 0 0 2px; }
+.TextBox  	{ border:0px; border:1px solid #CFCFCF; background-color:#FFFFFF; color:#4D4D4D; padding:5px 6px;}
+.FileBox    { font-size:12px; font-family:돋움, dotum; color:#CACACA; background-color:#FFFFFF; border:0px; }
+
+/* 메뉴 영역 관련 텍스트 */
+.main, .main:link, .main:visited, .main:hover	{ color:#333333; }						/*기본*/
+.mastername, .mastername:link, .mastername:visited, .mastername:hover	{ color:#333333; font-weight:bold; }						/*사용자명*/
+.out, .out:link, .out:visited, .out:hover	{ color:#818181; text-decoration:none; }						/*탈퇴하기*/
+.g_C4	{color:#C4C4C4;}
+
+#TotalCount 		{ color:#393939; }
+#TotalCountLine	{ height:1px;background-color:#D3D3D3; }
+#Since					{ color:#666666; }
+
+/* 커버스토리 */
+#CoverSubTitle{ color:#4D4D4D; }
+#CoverList li { color:#4D4D4D; background:url('http://image.freechal.com/community/common/white/s_bu01.gif') 0 2px no-repeat; padding:0 0 0 9px; }
+
+/*다녀간 회원*/
+#VisitList li { background:url('http://image.freechal.com/community/common/white/s_bu01.gif') 6px 5px no-repeat; padding:5px 0 1px 15px; }
+
+/* 우리 컴티 섬 */
+#MySumList li { background:url('http://image.freechal.com/community/common/white/s_bu01.gif') 6px 5px no-repeat; padding:5px 0 1px 15px; }
+
+/* 화제 Q & 섬 */
+#VisitList li a, #MySumList li a,#RF5 li a { color:#4D4D4D; }
+#VisitTitle, #MySumTitle {color:#333333; background:#EFEFEF url('http://image.freechal.com/community/common/ico_m01.gif') 6px 6px no-repeat; border-color:#E2E2E2; }
+#RF5 li 	{background:url('http://image.freechal.com/community/common/white/s_bu01.gif') 0px 5px no-repeat;padding:5px 0 1px 9px;}
+
+.TabFocus 	{ background:url('http://image.freechal.com/community/common/white/rtab_bg01.gif') 0 0 repeat-x;color:#333333;text-decoration:none;font-weight:bold;padding-top:8px;text-align:center;}
+.Focus:link, .Focus:visited, .Focus:hover	{color:#333333;text-decoration:none;font-weight:bold;}
+.TabFocuson	{ background:url('http://image.freechal.com/community/common/white/rtab_bg02.gif') 0 0 repeat-x;color:#909090;text-decoration:none;font-weight:bold;padding-top:8px;text-align:center;}
+.Focuson:link, .Focuson:visited, .Focuson:hover	{color:#909090;text-decoration:none;font-weight:bold;}
+.TabFocusLeft	{ background:url('http://image.freechal.com/community/common/white/rtab_bg01.gif') 0 0 repeat-x;color:#333333;text-decoration:none;font-weight:bold;padding-top:8px;padding-left:12px;text-align:left;}
+
+/* 소모임&커뮤니티 */
+#MC5 #MClubList, #MC5 #MPartnerList,#MC5 #MClubListNo, #MC5 #MPartnerListNo { border-color:#E7E7E7; background:#FFFFFF; }
+#MPartnerList li, #MClubList li { background:url('http://image.freechal.com/community/common/white/m_bu01.gif') 5px 5px no-repeat; margin:1px 0; padding:1px 5px 1px 12px; font-weight:normal; }
+
+/* 접속중 회원 */
+#ConnectMember li {	background:url('http://image.freechal.com/community/white/m_bu01.gif') 5px 5px no-repeat; margin:1px 0; padding:0 5px 4px 12px; font-weight:normal; }
+#ConnectMember		{ background:#FFFFFF; }
+
+/********************************************************/
+/* 전체 테두리 박스 */
+#RD samp, #RD #MainBodyContent { border:#EBEBEB; }
+#RD #RD1 { background:#EBEBEB; margin:0 5px;}
+#RD #RD2 { border-left:#EBEBEB solid 2px; border-right:#EBEBEB solid 2px; margin:0 3px; }  
+#RD #RD3, #RD #RD4, #RD #MainBodyContent { border-left:#EBEBEB solid 1px; border-right:#EBEBEB solid 1px; }  
+
+/* 다녀간 회원 박스 */
+#RV samp, #RV #RV5 {border-color:#C5C5C5; } 	/* 박스 색*/
+#RV #RV1 { background-color:#C5C5C5; }
+
+/* 2008-09-24 컨텐츠 포켓 수정 및 추가 start */
+/* 화제 동영상 박스 */
+#RN samp, #RN #RN5 {border-color:#C5C5C5; } 	/* 박스 색*/
+#RN #RN1 { background-color:#C5C5C5; }
+
+/* 우리 컴티 섬 박스 */
+#RS samp, #RS #RS5 { border-color:#C5C5C5; } 	/* 박스 색*/
+#RS #RS1 { background-color:#C5C5C5; }
+
+/* 화제Q&화제섬 박스 */
+#RFocus samp, #RFocus #RF5 { border-color:#C5C5C5;  } 	/* 박스 색*/
+#RFocus #RF1 { background-color:#C5C5C5; }
+
+/* 화제톡톡 & 화제뉴스 박스 */
+#RFocusBBS samp, #RFocusBBS #RF5 { border-color:#C5C5C5; } 	/* 박스 색*/
+#RFocusBBS #RF1 { background-color:#C5C5C5; }
+
+/* 화제톡톡 & 화제뉴스 박스 */
+#RFocusBBS02 samp, #RFocusBBS02 #RF5 { border-color:#C5C5C5; } 	/* 박스 색*/
+#RFocusBBS02 #RF1 { background-color:#C5C5C5; }
+
+/* 만화가게 * 여행 UCC */
+#TravelUcc samp, #TravelUcc #RF5 { border-color:#C5C5C5; } 	/* 박스 색*/
+#TravelUcc #RF1 { background-color:#C5C5C5; } 
+
+/********************************************************/
+/* 서브 화면 - 다녀간 회원 박스 */
+#ARV #ARV1					{ background-color:#C5C5C5;}
+#ARV samp, #ARV #ARV5	{ border-color:#C5C5C5;}
+
+/* 서브 화면 - 우리 컴티 섬 박스 */
+#ARS samp, #ARS #ARS5 { border-color:#C5C5C5; } 	/* 박스 색*/
+#ARS #ARS1 { background-color:#C5C5C5; }
+
+/* 서브 화면 -  화제Q&화제톡톡 박스 */
+#ARFocus samp, #ARFocus #ARF5 { border-color:#C5C5C5;  } 	/* 박스 색*/
+#ARFocus #ARF1 { background-color:#C5C5C5; }
+
+/* 우측 광고  */
+#ADArea 		{ margin-bottom:5px; vertical-align:top; }
+
+/********************************************************/
+/* 커버스토리 텍스트 컬러 조정*/
+#CoverTitle, .MBoardTitle	{ color:#333333; }
+#CoverContents  { color:#4D4D4D; }
+#CorverBtn,#CorverBtn02 		{ color:#848484; font-weight:bold; }	/*추가(20061018)*/
+#CorverBtn a,#CorverBtn02 a	{ color:#848484; }										/*추가(20061018)*/
+
+/* 메인 게시판 */
+#MBoardTdList tr.first-line td {border:0;}
+.td_board01 { color:#4D4D4D; padding:7px 0 4px 15px; border-style:solid; border-width:1px 0 0 0; border-color:#D5D5D5; }
+.td_board02 { color:#7A7A7A; font-family:verdana; font-size:9px; border-style:solid; border-width:1px 0 0 0; border-color:#D5D5D5;}
+.td_board03 { color:#4D4D4D; padding:7px 0 4px 5px; border-style:solid; border-width:1px 0 0 0; border-color:#D5D5D5; }
+.td_board:link, .td_board:visited, .td_board:hover	{color:#4D4D4D;}		/*게시판 링크 컬러*/
+/*
+.td_line 		{ height:2px;background:#D5D5D5; }
+*/
+/* 메인 사진첩 */
+#MPhotoList samp, #MPhotoList #MP5 { background-color:#F5F5F5; border-color:#F5F5F5; } 	/* 박스 색*/
+.td_photo:link, .td_photo:visited, .td_photo:hover	{color:#777777;}
+
+/* 서브컨텐츠 타이틀 조정*/
+#SubTitle { background:url('http://image.freechal.com/community/admin/m_bu01.gif') 0 0 no-repeat; margin:4px 0 0 0; padding:0 0 4px 17px; font-size:14px; font-weight:bold; border-bottom:#D8D8D8 solid 1px; }
+#SubTitleSub 	{ padding:0 0 17px 10px; }
+#SubTableBtn	{ position:absolute; right:155px; top:16px; }	/* 타이틀 옆에 위치하는 버튼*/
+#Commentbody	{ background:#F0F0F0; }
+
+/* 커버 스토리 */
+#Commentbody #EmoSel {position:relative;top:0;left:0;}
+#Commentbody #EmoSel #EmoList {position:absolute;display:none;top:0;left:38px;}
+#Commentbody #EmoSel table.emotable td.emotd {width:25px;height:24px;}
+#Commentbody #EmoSel #EmoList table {table-layout: fixed;	border-collapse: collapse;}
+#Commentbody #EmoSel #EmoList table td.emosubtd {width:25px;height:24px;border:1px solid #C3C3C3;background:#FFF;text-align:center;}
+
+.SubTd					{ color:#4D4D4D; }														/* 테이블 서브 타이틀*/
+.CoverComment		{ background:#F0F0F0; padding:3px; }
+.CoverComment .cmlist td { background: url('http://image.freechal.com/community/common/white/s_bl01.gif') bottom 0 repeat-x; vertical-align:top; }
+.CoverComment .nicname 	{ color:#666666; font-weight:bold; }
+.CoverComment .cmtxt	  { color:#4D4D4D; }
+.date	{ color:#909090; }
+.day	{ font-family:verdana; font-size:10px; color:#909090; }
+.CoverTable		{ border-style:solid; border-width:0 0 1px 0; border-color:#E8E8E8;}
+.emotable	{ background:#CCCCCC; }
+.emotd		{ width:25px; text-align:center; background:#FFFFFF; }
+.emolist	{ background:#C3C3C3; }
+.CommentTxtArea	{ border:#C3C3C3 solid 1px; color:#828282; }
+.CommentBtn 		{ padding:2px 0 0 5px; }
+.IFrameComment	{ clear:both; margin:0 14px; width:100%; max-width:594px; padding:0 9px; background:#F0F0F0;}
+
+/* 내 정보보기 */
+#MyinfoView		{	float:left;	}
+.myinfo				{ color:#8F692D; }
+.myinfo02			{ color:#FF6318; }
+.MyinfoTable	{ background:#FCFAF1; border-style:solid; border-width:0 0 1px 0; border-color:#EAE3D0; }
+.BoxTable			{ background:#E1E1E1; }
+.BoxTable02		{ background:#FCFAF1; border-style:solid; border-color:#EAE3D0; border-width:1px 0 1px 0; }
+.BoxTitle			{ background:#F7F7F7; color:#4A658D; font-weight:bold; padding:7px 0 5px 0; text-align:center; }
+.BoxTd01			{ background:#FFFFFF; padding:9px 10px 7px 10px; }
+.BoxTd02			{ background:#FFFFFF; padding:5px 0 5px 10px; }
+.Tdlist 			{ background:url('http://image.freechal.com/community/common/white/s_bl01.gif') bottom 0 repeat-x; vertical-align:middle; }
+
+/* Paging */
+#Page {
+	clear:both;
+	float:left;
+	position:relative;
+	width:100%; 
+	color:#CCCCCC; 
+	text-decoration:none; 
+	text-align:center; 
+	vertical-align:top; 
+	margin:7px 0 10px 0; 
+	word-spacing:0.2em;
+	height:16px;
+	padding-top:3px;
+}
+span.pgon { color:#FF6600; font-weight:bold; }
+a.pg img	{margin-top:-2px;}
+a.pg img.pg-prev {margin-left:-4px;margin-right:4px;}
+a.pg img.pg-next {margin-left:4px;margin-right:-4px;}
+a.pg:link      { color:#333333; text-decoration:none; }
+a.pg:visited   { color:#333333; text-decoration:none; }
+a.pg:active    { color:#333333; text-decoration:none; }
+a.pg:hover     { color:#FF6600; text-decoration:none; }
+
+/* 서브 화면 - Today 베스트 영상 (20061018) */
+#ARP #ARP1					{ background-color:#C5C5C5;}
+#ARP samp, #ARP #ARP5	{ border-color:#C5C5C5;}
+#PlayTitle  { letter-spacing:-1px;color:#333333; background:#EFEFEF url('http://image.freechal.com/community/common/ico_m01.gif') 6px 6px no-repeat; border-color:#E2E2E2; margin-bottom:5px;}
+#PlayList ul { width:130px; background:url('http://image.freechal.com/community/common/white/s_bl02.gif') 0 0 no-repeat; padding-top:8px;}
+#PlayList li { padding:3px 0 3px 12px;  background:url('http://image.freechal.com/community/common/white/s_bu04.gif') 4px 3px no-repeat;}
+#PlayList li a { color:#555555; }
+#PlayList li a:hover { color:#4A658D; }
+
+/* 서브 화면 - TEXT 배너 (20061018) */
+#ART #ART1					{ background-color:#C5C5C5;}
+#ART samp, #ART #ART5	{ border-color:#C5C5C5; background-color:#F1F1F1;}
+#ART #ART5 a	{ color:#4D4D4D;}
+
+/*======================================== 메뉴영역 관련 속성 ========================================*/
+#Category 					{ width:144px; max-width:139px; padding:15px 0 5px 5px; font-size:12px;}
+#Category li 				{ margin:3px 0; padding:1px 5px 3px 18px; font-weight:normal; word-break:break-all;overflow:hidden;}
+#Category li img 			{ vertical-align:top; }
+#Category li a 				{ line-height: 12px;font-size:12px;}
+#Category li a:hover 	{ text-decoration:underline; }
+#Category li.folder 	{ padding:2px 5px 3px 0; }		/* 닫힌 폴더 */
+#Category li.folderon {	padding:2px 5px 0 0; }		/* 열린 폴더 */
+#Category li.notice {	background:url('http://image.freechal.com/community/common/white/ico_b01.gif') 1px 0 no-repeat; }	 	/* 공지사항 */
+#Category li.bbs 		{	background:url('http://image.freechal.com/community/common/white/ico_b02.gif') 1px 0 no-repeat; }	/* 일반게시판 */
+#Category li.bbs2 	{	background:url('http://image.freechal.com/community/common/white/ico_b03.gif') 1px 0 no-repeat; }		/* 추천게시판 */
+#Category li.bbs3 	{	background:url('http://image.freechal.com/community/common/white/ico_b04.gif') 1px 0 no-repeat; }		/* 익명게시판 */
+#Category li.bbs4 	{	background:url('http://image.freechal.com/community/common/white/ico_b05.gif') 1px 0 no-repeat; }
+#Category li.pds 		{	background:url('http://image.freechal.com/community/common/white/ico_b06.gif') 1px 0 no-repeat; }	/* 자료실 */
+#Category li.pds2 	{	background:url('http://image.freechal.com/community/common/white/ico_b07.gif') 1px 0 no-repeat; }
+#Category li.pds3 	{	background:url('http://image.freechal.com/community/common/white/ico_b08.gif') 1px 0 no-repeat; }
+#Category li.album 	{	background:url('http://image.freechal.com/community/common/white/ico_b09.gif') 1px 0 no-repeat; }		/* 앨범 */
+#Category li.visit 	{	background:url('http://image.freechal.com/community/common/white/ico_b10.gif') 1px 0 no-repeat; }		/* 방명록 */
+#Category li.memo 	{	background:url('http://image.freechal.com/community/common/white/ico_b11.gif') 1px 0 no-repeat; }		/* 한줄 메모장 */
+#Category li.debate {	background:url('http://image.freechal.com/community/common/white/ico_b12.gif') 1px 0 no-repeat; }		/* 토론실 */
+#Category li.vote 	{	background:url('http://image.freechal.com/community/common/white/ico_b13.gif') 1px 0 no-repeat; }		/* 투표 */
+#Category li.research {	background:url('http://image.freechal.com/community/common/white/ico_b14.gif') 1px 0 no-repeat; }/* 설문조사 */
+#Category li.site 	{	background:url('http://image.freechal.com/community/common/white/ico_b15.gif') 1px 0 no-repeat; } 		/* cool 사이트 */
+#Category li.chat 	{	background:url('http://image.freechal.com/community/common/white/ico_b16.gif') 1px 0 no-repeat; } 				/* 채팅 */
+#Category li.calendar 	{	background:url('http://image.freechal.com/community/common/white/ico_b17.gif') 1px 0 no-repeat; } 		/* 일정관리 */
+#Category li.commsms { background:url('http://image.freechal.com/community/common/white/ico_b18.gif') 1px 0 no-repeat; } 			/* 폰! 문자전송 */
+#Category li.moimbbs { background:url('http://image.freechal.com/community/common/white/ico_b19.gif') 1px 0 no-repeat; } 			/* 번개정모 게시판 */
+#Category li.rmcomm  { background:url('http://image.freechal.com/community/common/white/ico_b20.gif') 1px 0 no-repeat; } 			/* 추천 커뮤니티 */
+#Category li.pay     { background:url('http://image.freechal.com/community/common/white/ico_b21.gif') 1px 0 no-repeat; } 			/* 회비관리 */
+#Category li.linkmenu {	background:url('http://image.freechal.com/community/common/white/ico_b22.gif') 1px 0 no-repeat; } 			/* 링크 메뉴 */
+#Category li.menugroup { background:url('http://image.freechal.com/community/common/white/ico_b23.gif') 1px 0 no-repeat; } 		/* 메뉴 그룹 */
+#Category li.gigapds   { background:url('http://image.freechal.com/community/common/white/ico_b24.gif') 1px 0 no-repeat; } 		/* 기가 자료실 */
+#Category li.commpage  { background:url('http://image.freechal.com/community/common/white/ico_b25.gif') 1px 0 no-repeat; } 		/* 커뮤니티 페이지 */
+#Category li.commbbs   { background:url('http://image.freechal.com/community/common/white/ico_b26.gif') 1px 0 no-repeat; } 		/* 커뮤니티 게시물 */
+#Category li.invite    { background:url('http://image.freechal.com/community/common/white/ico_b27.gif') 1px 0 no-repeat; } 		/* 초대하기 */
+#Category li.memberinfo {	background:url('http://image.freechal.com/community/common/white/ico_b28.gif') 1px 0 no-repeat; } 		/* 회원정보 */
+#Category li.commcash {	background:url('http://image.freechal.com/community/common/white/ico_b29.gif') 1px 0 no-repeat; } 			/* 커뮤니티 캐쉬 */
+#Category li.birthday {	background:url('http://image.freechal.com/community/common/white/ico_b30.gif') 1px 0 no-repeat; } 			/* 추카추카 */
+#Category li.somoim {	background:url('http://image.freechal.com/community/common/white/ico_somoim.gif') 1px 0 no-repeat; } 	/* 소모임 */
+
+#Category li.categoryLine {	background:url('http://image.freechal.com/community/common/white/menu_bl01.gif') 0px 3px repeat-x; line-height:50%; margin:0 5px 0 0; padding:2px 0px 7px 0; font-size:2px; }	/*점선 라인*/
+#Category li.categoryBGLine { background:#E3E3E3; height:2px; max-height:0; margin:1px 5px 6px 0; font-size:2px; }/*카테고리 그룹 라인*/
+#Category li.catetitle a:hover { font-weight:normal; text-decoration:underline; }																	/*메뉴 그룹명*/
+#Category li.active a,  li.active a:hover, li.active a:active, li.active a:visited { text-decoration:underline; }	/* 현재 메뉴 활성화 상태 */
+#Category li.brLine 		{	line-height:0; margin:1px; font-size:0; }							/* 관리자 메뉴 그룹 구븐*/
+#Category li.catetitle 	{	background:url('http://image.freechal.com/community/common/white/m_bu01.gif') 11px 5px no-repeat; margin:1px 0; padding:0 5px 4px 18px; font-weight:normal; }	/*관리자 및 서브 메뉴 명*/
+#Category li.admintitle { margin:3px 0; padding:4px; font-weight:bold; }				/*관리자 그룹 타이틀*/
+#Category li ul.foldercate { margin:0; padding:6px 0 0 0; font-weight:normal;}	/*서브 메뉴 그룹*/
+#Category li ul.foldercate li.subcate	{	background:url('http://image.freechal.com/community/common/white/ico_d01.gif') 3px 1px no-repeat; margin:1px 0; padding:0 5px 4px 18px; font-weight:normal; }	/*서브 메뉴 명*/
+
+.divLine   { clear:both; background:url('http://image.freechal.com/community/common/menu_bl01.gif') 0px 5px repeat-x; line-height:50%; margin:0; padding:3px 0px; font-size:2px; }
+.divLine02 { clear:both; line-height:50%; margin:0; padding:3px 0px; font-size:2px; }
+.divLine03 { clear:both; float:left; height:1px; background-color:#D3D3D3; }
+
+#TotalCount { color:#393939; font-family:Verdana; font-size:9px; word-spacing:2px; padding:3px 0 4px 5px; }
+#TotalCountLine	{ height:1px;background-color:#D3D3D3; }
+#Since			{ color:#666666; font-family:Verdana; font-size:9px; padding:0 0 8px 5px; }
+
+/********************************************************/
+/* 메인 게시판 */
+.Background 			{ background-color:#FFFFFF; }
+
+/* 메인 사진첩*/
+#MphotoBoxS {
+	width:104px;
+	height:104px;
+	table-layout:fixed;
+	border-collapse:collapse;
+	border:#D5D5D5 1px solid;
+}
+#MphotoBoxS td {padding:6px;background:#FFFFFF;text-align:center;}
+
+/* 리스트 검색 */
+#Search { clear:both; float:left; position:relative; width:100%; color:#666666; text-decoration:none; text-align:center; margin:7px 0; font-size:11px;vertical-align:middle;}/*2010-08-26 수정*/
+#Search input.search { width:147px; height:20px; color:#666666; background:#FFFFFF; border:1px solid #ACACAC;vertical-align:top;}
+#Search input.srch { width:14px; margin:1px 0 0 5px; vertical-align:top;}html>body #Search input.srch {margin-top:3px;}
+
+/* 상세 검색 */
+#SearchDetail 			{background-color:#F4F4F4;padding:7px 0 4px 16px;}html>body #SearchDetail {clear:both;}
+#SearchDetail ul li {background:url('http://image.freechal.com/community/common/white/s_bu05.gif') 0 7px no-repeat;padding:5px 12px;color:#666666;}
+#SearchDetail ul li input 		{margin:-3px 0 0 0;}
+#SearchDetail ul li span 			{padding-right:6px;}
+#SearchDetail ul li span.bar	{padding:0;margin:0 -5px;color:#D5D5D5;}
+#SearchDetail ul li .writer 	{width:118px;border:1px solid #D5D5D5;}
+#SearchDetail ul li .writer02 {width:71px;border:1px solid #D5D5D5;}
+#SearchDetail ul li .period 	{width:46px;border:1px solid #D5D5D5;}
+
+/*글쓴이 정보 */
+#MemberBox {height:112px;position:relative;}
+#MemberInfoBox, #AvatarInfo {float:right;}
+#MemberBox #MemberInfoBox {position:absolute;bottom:0;right:123px;text-align:right;}html>body #MemberBox #MemberInfoBox {bottom:1px}
+#MemberBox #MemberInfoBox div.Minfo {padding-top:6px;color:#666666;font-size:11px;white-space:nowrap;text-align:right;}
+#MemberBox #MemberInfoBox div.Minfo a {color:#222222;font-weight:bold;font-size:12px;}
+#MemberBox #MemberInfoBox div.Minfo select {width:130px;vertical-align:middle;}
+#MemberBox #AvatarInfo {width:110px;height:110px;border:1px solid #CFCFCF;padding:5px;background:#FFFFFF;}html>body #MemberBox #AvatarInfo {width:100px;height:100px;}
+#MemberBox #AvatarInfo img {width:100px;height:100px;vertical-align:top;}
+.chg	{position:relative;top:2px;vertical-align:top;}html>body .chg {top:1px;}
+
+/*덧글 게시판*/
+#Comment			{border:1px solid #CDCDCD; }
+#CommentWrite {background:#F0F0F0;}/*덧글부분 박스*/
+#Comment table tr.cmlist 	{ background:url('http://image.freechal.com/community/common/white/s_bl03.gif') 0 bottom repeat-x; vertical-align:top; }
+#Comment table td { color:#333333; }
+#Comment table td.nicname a { color:#333333; font-weight:bold; }
+.CommentTextArea	{ border:#C3C3C3 solid 1px; color:#333333; }html>body .CommentTextArea {margin-top:2px}
+.emotableimg			{ background:#BBBBBB; }
+html>body #CommentWrite table table.emotableimg td {width:9px;border:1px solid #BBBBBB}
+html>body #CommentWrite table table.emotableimg td.emotd {width:24px}
+#CommentWrite td.emo_sel #EmoList table td.emosubtdlist	{ background:#FFFFFF; }/*덧글게시글-이모티콘*/
+html>body #CommentWrite td.emo_sel #EmoList table td.emosubtdlist	{border:1px solid #BBBBBB;width:18px;}/*덧글게시글-이모티콘*/
+
+/*익명게시판 덧글*/
+#CommentWrite table.anonym-box {position:relative;table-layout: fixed; border-collapse: collapse;margin:2px 0 0 5px;bottom:-4px;}
+#CommentWrite table.anonym-box td input	{border:1px solid #BBBBBB;}
+#CommentWrite table.anonym-box td.aname {width:49px;text-align:right;padding:5px 5px 0 0;}
+#CommentWrite table.anonym-box td.aemail{width:38px;text-align:right;padding:5px 5px 0 0;}
+#CommentWrite table.anonym-box td.apwd 	{width:57px;text-align:right;padding:5px 5px 0 0;}
+#CommentWrite table.anonym-box td.aname-inp 	{width:93px;}
+#CommentWrite table.anonym-box td.aname-inp input, #CommentWrite table.anonym-box td.apwd-inp input {padding:0 5px;width:83px;}
+#CommentWrite table.anonym-box td.aemail-inp {width:200px;}
+#CommentWrite table.anonym-box td.aemail-inp input {padding:0 5px;width:190px;}
+
+/* 탭메뉴 */
+#TabMenu 		{ height:26px; background:url('http://image.freechal.com/community/common/white/tab_back.gif') 0 0 repeat-x; }
+#TabMenu table	{ border-collapse:collapse; }
+.MTabFocus 	{ background:url('http://image.freechal.com/community/common/white/tab_bg01.gif') 0 0 repeat-x;color:#A4A4A4;text-decoration:none;font-weight:bold;padding:8px 22px 0 22px;}
+.MFocus:link, .MFocus:visited, .MFocus:hover	{color:#A4A4A4;text-decoration:none;font-weight:bold;}
+.MTabFocuson	{ background:url('http://image.freechal.com/community/common/white/tab_bg02.gif') 0 0 repeat-x;color:#FF661E;text-decoration:none;font-weight:bold;padding:8px 22px 0 22px;}
+.MFocuson:link, .MFocuson:visited, .MFocuson:hover	{color:#FF661E;text-decoration:none;font-weight:bold;}
+
+/*텍스트 박스 스타일 추가*/
+textarea { border:1px solid #CFCFCF; background-color:#FFFFFF; color:#4D4D4D; padding:5px 2px;}

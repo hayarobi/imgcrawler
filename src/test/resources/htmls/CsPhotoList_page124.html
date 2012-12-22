@@ -1,0 +1,1342 @@
+<html><head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<script language="javascript" src="CsPhotoList_page19_files/svrLink.html"></script>
+<script language="javascript" src="CsPhotoList_page19_files/freechal.js"></script>
+<script language="javascript" src="CsPhotoList_page19_files/fcMsg.js"></script>
+<script language="javascript" src="CsPhotoList_page19_files/Nethru.js"></script>
+<script language="javascript" src="CsPhotoList_page19_files/freechalon.js"></script>
+<script language="javascript" src="CsPhotoList_page19_files/FcMsg.js"></script>
+ 
+
+<script language="javascript">
+
+function OpenCPAWin(strURL, strTarget) {
+
+    if(strTarget == 'W') {
+
+        window.open(strURL, 'CPAWin', 'left=' + (window.screen.availWidth/2 - 790/2) + ',top=' + (window.screen.availHeight/2 - 600/2) + ', all=no, width=790, height=600');
+
+    }
+
+    else {
+
+        window.open(strURL);
+
+    }
+
+}
+
+</script>
+
+
+
+<script language="javascript">
+/* 추가로 접속하고 나가는 사용자를 관리하기 위한 javascript 배열 */
+	var userIDList = new Array(10);
+	var userNameList = new Array(10);
+	var lngTotalUserCnt
+	
+
+</script>
+<script language="javascript">
+function makeList(userid, username, objLayer, objCounter, classname) {
+	var i, j
+	var tempUserIDList = new Array(eval(userIDList.length+1));
+	var tempUserNameList = new Array(eval(userNameList.length+1));
+	var listString = '';
+	var listStringTemp = '';	
+	var strColor = '';
+	var strClass = '';
+
+	j = 0;
+	for (i=0;i<userIDList.length;i++) {
+		if (userIDList[i] != null && userIDList[i] != '' ) {
+			if (userNameList[i].substr(1,2) == "00") {
+				// 게스트 색상				
+				strColor='#517892';
+			}
+			else if (userNameList[i].substr(1,2) == "04") {
+				// 마스터 색상
+				strColor='#5f5f5f';
+			}
+			else {
+				// 회원 색상
+				strColor='#5f5f5f';
+			}
+
+			if (classname != '' && classname != null) {	
+				strColor = '';		
+				strClass = ' class=' + classname;				
+			}						
+			
+			if (userNameList[i].substr(0,1) =='M' ) {
+				listStringTemp = "<img src=" + g_imgsvr + "/Comservice/Activity/comtylive/bl_man.gif border=0 >";
+			}
+			else {
+				listStringTemp = "<img src=" + g_imgsvr + "/Comservice/Activity/comtylive/bl_woman.gif border=0 >";
+			}
+
+			if (userNameList[i].substr(3,1) != 'Y' ) {
+				listStringTemp = listStringTemp + "&nbsp;<span onClick=\"showOMenu('" + userid + "','" + username + "','" + userIDList[i] + "','" + userNameList[i].substring(4, userNameList[i].length) + "')\" style=cursor:hand;color:" + strColor + strClass + " >" + userNameList[i].substring(4, userNameList[i].length) + "</span><br>";
+				listString = listStringTemp + listString;
+				tempUserIDList[j] = userIDList[i];
+				tempUserNameList[j] = userNameList[i];
+				j++;
+				listStringTemp = '';			
+			}
+		}		
+	}
+	userIDList = tempUserIDList;
+	userNameList = tempUserNameList;
+
+	lngTotalUserCnt = j;
+	if (typeof(objCounter) == 'object' ) {
+/*		
+		if (lngTotalUserCnt >= 10) {
+			lngTotalUserCnt = 10;
+			objCounter.innerHTML = lngTotalUserCnt + '명 이상';
+		}
+		else {
+			objCounter.innerHTML = lngTotalUserCnt + '명';
+		}
+*/		
+		objCounter.innerHTML = lngTotalUserCnt + '명';		
+	}
+		
+	if (typeof(objLayer) == 'object' ) {		
+		objLayer.innerHTML = listString;
+	}
+}
+</script>
+
+<script language="JavaScript">
+	lngTotalUserCnt = 0;
+</script>
+<link rel="stylesheet" href="CsPhotoList_page19_files/IndexStyle.css" type="text/css">
+<link rel="stylesheet" href="CsPhotoList_page19_files/LayoutType_2L.css" type="text/css">
+<link rel="stylesheet" href="CsPhotoList_page19_files/SkinType_w.css" type="text/css">
+<link rel="stylesheet" href="CsPhotoList_page19_files/BackgroundStyle_018.css" type="text/css">
+<link rel="stylesheet" href="CsPhotoList_page19_files/CoverStyle_000.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="CsPhotoList_page19_files/mode1.css">
+<link rel="stylesheet" type="text/css" href="CsPhotoList_page19_files/Board.css">
+
+
+
+<title>소리나는 어린이집 [http://home.freechal.com/sorikid]</title>
+
+<script language="javascript" src="CsPhotoList_page19_files/fcMsg.js"></script>
+<script language="javascript">
+openQsNormalMsg('geesetower','기린');
+
+</script>
+
+	<script language="JavaScript" type="text/javascript" src="CsPhotoList_page19_files/FcScript.js"></script>
+</head><body>
+
+<link rel="stylesheet" type="text/css" href="CsPhotoList_page19_files/ck.css">
+
+
+
+
+<!-- include virtual="/include/freechalon/install.inc" -->
+
+	<style type="text/css">
+	#div_layout{
+		text-overflow:ellipsis;
+		overflow:hidden;
+		word-break:break-all;
+		width:130px;
+	}
+	</style>
+
+<script language="javascript">
+function menu_Login() {
+
+	top.location.href = "http://community.freechal.com/common/FcCommonLogGate.asp?gbn=T&RedirUrl=http%3A%2F%2Fhome%2Efreechal%2Ecom%2Fetc%2Flogin%2Easp%3F" + escape(escape(top.location.href)) + "&MenuNm=LOGIN&Referer=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FComService%2FActivity%2FAlbum%2FCsPhotoList%2Easp";
+
+}
+</script>
+<script language="javascript">
+
+var	_displayShown = "C";
+
+
+function rankPop() {
+	window.open("http://community.freechal.com/section/Ranking/Ranking_Info.asp?grpid=845246","rankwin","width=400,height=340,left="+ (window.screen.availWidth-425)/2+",top="+ (window.screen.availHeight-350)/2);
+}
+
+//커뮤니티 추천하기 팝업창
+function openRegComList() {
+	window.open('/common/Recommend/CsRegMain.asp?grpid=845246','recommendwin','fullscreen=no,titlebar=no,toolbar=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=500,height=270');
+}
+
+
+var	strTopSumImg, strTopComtyImg;
+
+strTopSumImg = g_imgsvr + "/common/newtop/btn_sum.gif";
+strTopComtyImg = g_imgsvr + "/common/newtop/btn_com.gif";
+
+function displayToggle() {
+	var SumTag = document.getElementById("freqsum");
+	var CommTag = document.getElementById("freqcomm");
+	//var ImgTag = document.getElementById("topimg");
+	if(_displayShown == "S") {
+		SumTag.style.display = "";
+		CommTag.style.display = "";
+		//ImgTag.src = strTopSumImg;
+		_displayShown = "C"
+	} else {
+		SumTag.style.display = "";
+		CommTag.style.display = "";
+		ImgTag.src = strTopComtyImg;
+		_displayShown = "S"
+	}
+}
+
+
+</script>
+
+
+<script language="JavaScript" src="CsPhotoList_page19_files/AvataMenuTopBar.js"></script><div id="AvataMenuSub" onmouseover="javascript:showSubMenuLayer()" onmouseout="javascript:hideSubMenuLayer()" style="position: absolute; display: none; z-index: 99;"><table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr><td height="9"><img src="CsPhotoList_page19_files/itemmall01.gif"></td></tr>
+<tr id="AvataMenuSub_0" bgcolor="#e6e6e6" height="16" valign="bottom"><td><a href="http://mall.freechal.com/avtmall/AMMain.asp" target="_top"><img src="CsPhotoList_page19_files/itemmall02.gif" border="0"></a></td></tr>
+<tr id="AvataMenuSub_1" bgcolor="#e6e6e6" height="16" valign="bottom"><td><a href="http://mall.freechal.com/avtmall/itemshop/IMPyCCShop.asp" target="_top"><img src="CsPhotoList_page19_files/itemmall03.gif" border="0"></a></td></tr>
+<tr id="AvataMenuSub_2" bgcolor="#e6e6e6" height="16" valign="bottom"><td><a href="http://mall.freechal.com/avtmall/itemshop/AMItemshop.asp" target="_top"><img src="CsPhotoList_page19_files/itemmall04.gif" border="0"></a></td></tr>
+<tr><td height="5"><img src="CsPhotoList_page19_files/itemmall05.gif"></td></tr>
+</tbody></table></div>
+<div id="GameMenuSub" onmouseover="javascript:showGameMenuLayer()" onmouseout="javascript:hideGameMenuLayer()" style="position: absolute; display: none; z-index: 99;"><table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr><td height="9"><img src="CsPhotoList_page19_files/game01_2.gif"></td></tr>
+<tr id="GameMenuSub_0" bgcolor="#e6e6e6" height="16" valign="bottom"><td><a href="http://community.freechal.com/common/FcCommonLogGate.asp?gbn=T&amp;RedirUrl=http%3A//game.freechal.com/_gametown/default.asp%3Ftssn%3D9&amp;MenuNm=GAME&amp;Referer=http%3A//community.freechal.com/comservice/activity/album/csphotolist.asp" target="_top"><img src="CsPhotoList_page19_files/game_sub01.gif" border="0"></a></td></tr>
+<tr id="GameMenuSub_1" bgcolor="#e6e6e6" height="16" valign="bottom"><td><a href="http://community.freechal.com/common/FcCommonLogGate.asp?gbn=T&amp;RedirUrl=http%3A//game.freechal.com/_gametown/default_cardgame.asp%3Ftssn%3D4&amp;MenuNm=GAME&amp;Referer=http%3A//community.freechal.com/comservice/activity/album/csphotolist.asp" target="_top"><img src="CsPhotoList_page19_files/game_sub02.gif" border="0"></a></td></tr>
+<tr id="GameMenuSub_2" bgcolor="#e6e6e6" height="16" valign="bottom"><td><a href="http://community.freechal.com/common/FcCommonLogGate.asp?gbn=T&amp;RedirUrl=http%3A//game.freechal.com/_gametown/default_card.asp%3Ftssn%3D5&amp;MenuNm=GAME&amp;Referer=http%3A//community.freechal.com/comservice/activity/album/csphotolist.asp" target="_top"><img src="CsPhotoList_page19_files/game_sub03.gif" border="0"></a></td></tr>
+<tr><td height="5"><img src="CsPhotoList_page19_files/game07_2.gif"></td></tr>
+</tbody></table></div>
+<div id="ShopMenuSub" onmouseover="javascript:showShopMenuLayer()" onmouseout="javascript:hideShopMenuLayer()" style="position: absolute; display: none; z-index: 99;"><table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr><td height="9"><img src="CsPhotoList_page19_files/shopping01.gif"></td></tr>
+<tr id="ShopMenuSub_0" bgcolor="#e6e6e6" height="16" valign="bottom"><td><a href="http://community.freechal.com/common/FcCommonLogGate.asp?gbn=T&amp;RedirUrl=http%3A//shop.freechal.com&amp;MenuNm=SHOPPING&amp;Referer=http%3A//community.freechal.com/comservice/activity/album/csphotolist.asp" target="_top"><img src="CsPhotoList_page19_files/gmarket.gif" border="0"></a></td></tr>
+<tr id="ShopMenuSub_1" bgcolor="#e6e6e6" height="16" valign="bottom"><td><a href="http://community.freechal.com/common/FcCommonLogGate.asp?gbn=T&amp;RedirUrl=http%3A//mall.freechal.com/avtmall/itemmall.asp&amp;MenuNm=ITEMMALL&amp;Referer=http%3A//community.freechal.com/comservice/activity/album/csphotolist.asp" target="_top"><img src="CsPhotoList_page19_files/shopping06.gif" border="0"></a></td></tr>
+<tr><td height="5"><img src="CsPhotoList_page19_files/shopping07.gif"></td></tr>
+</tbody></table></div>
+
+
+<!--## GNB영역 Start ##-->
+<div id="cTop">
+	<div id="cTopL" class="fl">
+	<script language="JavaScript" type="text/javascript">
+	ObjFlash("http://image.freechal.com/community/common/white/fclogo.swf", 110, 40, "");
+	</script><div role="button" tabindex="0" title="http://image.freechal.com/community/common/white/fclogo.swf" style="background: url(&quot;chrome://flashblock/content/flash.png&quot;) no-repeat scroll center center transparent ! important; min-width: 32px ! important; min-height: 32px ! important; width: 110px; height: 40px; border: 1px solid rgb(223, 223, 223); cursor: pointer; overflow: hidden; display: inline-block; visibility: visible ! important; -moz-box-sizing: border-box;" bgactive="url(chrome://flashblock/content/flashplay.png) no-repeat center" bginactive="url(chrome://flashblock/content/flash.png) no-repeat center"></div>
+
+	</div>
+	<div id="cTopR">
+		<div id="cTopRTxt" class="gnb">
+			<a href="http://community.freechal.com/common/FcCommonLogGate.asp?gbn=T&amp;RedirUrl=http%3A%2F%2Fnews%2Efreechal%2Ecom&amp;MenuNm=NEWS&amp;Referer=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FComService%2FActivity%2FAlbum%2FCsPhotoList%2Easp" class="gnb" target="_top">뉴스</a> |
+			<a href="http://community.freechal.com/common/FcCommonLogGate.asp?gbn=T&amp;RedirUrl=http%3A%2F%2Fcommunity%2Efreechal%2Ecom&amp;MenuNm=COMMUNITY&amp;Referer=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FComService%2FActivity%2FAlbum%2FCsPhotoList%2Easp" class="gnb" target="_top">커뮤니티</a> |
+			<a href="http://community.freechal.com/common/FcCommonLogGate.asp?gbn=T&amp;RedirUrl=http%3A%2F%2Fmail%2Efreechal%2Ecom%2Fmailhome%2Easp&amp;MenuNm=MAIL&amp;Referer=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FComService%2FActivity%2FAlbum%2FCsPhotoList%2Easp" class="gnb" target="_top">메일</a> |
+			<a href="http://community.freechal.com/common/FcCommonLogGate.asp?gbn=T&amp;RedirUrl=http%3A%2F%2Fqtv%2Efreechal%2Ecom&amp;MenuNm=QTV&amp;Referer=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FComService%2FActivity%2FAlbum%2FCsPhotoList%2Easp" class="gnb" target="_top">QTV</a> |
+			<a href="http://community.freechal.com/common/FcCommonLogGate.asp?gbn=T&amp;RedirUrl=http%3A%2F%2Fq%2Efreechal%2Ecom&amp;MenuNm=Q&amp;Referer=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FComService%2FActivity%2FAlbum%2FCsPhotoList%2Easp" class="gnb" target="_top">마이Q</a> |
+			<a href="http://community.freechal.com/common/FcCommonLogGate.asp?gbn=T&amp;RedirUrl=http%3A%2F%2Fgame%2Efreechal%2Ecom&amp;MenuNm=GAME&amp;Referer=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FComService%2FActivity%2FAlbum%2FCsPhotoList%2Easp" class="gnb" target="_top">게임</a> |
+			<a href="http://community.freechal.com/common/FcCommonLogGate.asp?gbn=T&amp;RedirUrl=http%3A%2F%2Fwww%2Efileguri%2Ecom&amp;MenuNm=FILEGURI&amp;Referer=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FComService%2FActivity%2FAlbum%2FCsPhotoList%2Easp" class="gnb" target="_top">파일구리</a> &nbsp;
+		</div>
+		<div id="cTopRBtn">
+			
+<script language="JavaScript">
+function freqComm_goFunc()
+{
+	var sel = document.freqComm_goFuncForm.freqComm_funcGo;
+	var gourl = sel[sel.selectedIndex].value;
+	if (gourl == "")
+		return;
+
+	if (sel.selectedIndex == sel.length - 1 ||  // 자주가는 커뮤니티
+		sel.selectedIndex == sel.length - 2 ||  //  커뮤니티 검색
+		(!IsFreechalOnInstalled() && sel.selectedIndex == sel.length - 4) ||    //  freechalOn 설치
+		sel.selectedIndex == 2)             // 내 커뮤니티
+		top.location.href = gourl;
+	else
+		
+		top.location.href = "http://home.freechal.com/Common/FcCommonLogGate.asp?gbn=T&accessgbn=freqcomm&MenuNm=FREQCOMM&Referer=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FComService%2FActivity%2FAlbum%2FCsPhotoList%2Easp&RedirUrl=" + escape(gourl);
+		
+}
+
+function freqComm_isNew(getDate)
+{
+
+	var lastAccessDt = new Date("March 17,2011 0:42:0");
+	var intLastAccessDt;
+	var intNow;
+	var intGetDt;
+	var intDiffHour;
+	var intTmpDiff;
+
+	intLastAccessDt = 0;//Date.parse(lastAccessDt);
+
+	intNow = Date.parse(new Date());
+
+	if (!isNaN(getDate))
+		intGetDt  = Date.parse(getDate);
+	else
+		intGetDt = 0;
+
+	if (intGetDt == 0)
+		return false;
+	if (intLastAccessDt == 0)
+		intDiffHour = 24;
+	else
+	{
+		intTmpDiff = intNow - intLastAccessDt;
+		intDiffHour = parseInt(intTmpDiff/(1000*60*60*24))*24;
+		if (intDiffHour == 0)
+			intDiffHour = 24;
+	}
+
+	intTmpDiff = intNow - intGetDt;
+	if (parseInt(intTmpDiff/(1000*60*60))<intDiffHour)
+		return true;
+
+	return false;
+}
+
+function freqComm_displaySelect()
+{
+	document.writeln("<table width='139' cellpadding=0 cellspacing=0 border=0>");
+	document.writeln("<tr>");
+	document.writeln("<td width=10>");
+	document.writeln("<form id=freqComm_goFuncForm name=freqComm_goFuncForm method=post onSubmit='return false;'>");
+	document.writeln("<td width='139' valign=middle>");
+	document.writeln("<select id='freqComm_funcGo' name='freqComm_funcGo' onChange='freqComm_goFunc();' style='width:139px; font-size:9pt; ; font-family: 돋움; '>");
+	document.writeln("<option value=''>자주가는 커뮤니티</option>");
+	document.writeln("<option value=''>-------------------</option>");
+	document.writeln("<option value='http://home.freechal.com/Common/FcCommonLogGate.asp?gbn=T&MenuNm=FREQCOMM&RedirUrl=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FBase%2FMyComty%2FMyComtyList%2Easp&Referer=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FComService%2FActivity%2FAlbum%2FCsPhotoList%2Easp'>내 커뮤니티 ▶▶</option>");
+
+	document.writeln("<option value=''>-------------------</option>");
+	document.writeln("<option value='http://home.freechal.com/Common/FcCommonLogGate.asp?gbn=T&MenuNm=FREQCOMM&RedirUrl=http%3A%2F%2Fcommunity%2Efreechal%2Ecom&Referer=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FComService%2FActivity%2FAlbum%2FCsPhotoList%2Easp'>커뮤니티 검색</option>");
+	document.writeln("<option value='http://home.freechal.com/Common/FcCommonLogGate.asp?gbn=T&MenuNm=FREQCOMM&RedirUrl=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FBase%2FMyComty%2FMyComtySet%2Easp&Referer=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FComService%2FActivity%2FAlbum%2FCsPhotoList%2Easp'>설정</option>");
+	document.writeln("</select>");
+	document.writeln("</td>");
+	document.writeln("</form>");
+	document.writeln("</tr>");
+	document.writeln("</table>");
+}
+
+function freqComm_insertRecomm()
+{
+	freqComm_insertOption("맘에 드는 컴티를", "", "#808080");
+	freqComm_insertOption("찾아 놀러가보세요!", "", "#808080");
+	freqComm_insertOption("-------------------", "");
+}
+
+function freqComm_insertComm(idx, itm)
+{
+	var rtn, opt;
+
+	opt = new Option(itm[1], itm[0]);
+	if (!isNaN(itm[2]) && freqComm_isNew(itm[2]))
+	{
+		opt.style.color = "#0034C5"
+		opt.style.backgroundColor = "#F2F2FF";
+		rtn = true;
+	}
+	else
+		rtn = false;
+
+	var sel = document.freqComm_goFuncForm.freqComm_funcGo;
+	sel.options.add(opt, sel.length - 3);
+
+	return rtn;
+}
+
+function freqComm_insertOption(text, value, color, bgcolor)
+{
+	var sel = document.freqComm_goFuncForm.freqComm_funcGo;
+	var opt = new Option(text, value);
+	if (color)
+		opt.style.color = color;
+	if (bgcolor)
+		opt.style.backgroundColor = bgcolor;
+	sel.options.add(opt, sel.length - 3);
+}
+
+function freqComm_resizeDiv(cnt, recomm)
+{
+}
+
+freqComm_displaySelect();
+
+
+	document.writeln('<iframe width=0 height=0 marginwidth=0 marginheight=0 hspace=0 vspace=0 frameborder=0 scrolling=no src="/common/FreqCommB.asp?From=top" ALLOWTRANSPARENCY="true" style="display:none"></iframe>');
+
+</script><table border="0" cellpadding="0" cellspacing="0" width="139">
+<tbody><tr>
+<td width="10">
+<form id="freqComm_goFuncForm" name="freqComm_goFuncForm" method="post" onsubmit="return false;">
+</form></td><td valign="middle" width="139">
+<select id="freqComm_funcGo" name="freqComm_funcGo" onchange="freqComm_goFunc();" style="width: 139px; font-size: 9pt; font-family: 돋움;">
+<option selected="selected" value="">자주가는 커뮤니티</option>
+<option value="">-------------------</option>
+<option value="http://home.freechal.com/Common/FcCommonLogGate.asp?gbn=T&amp;MenuNm=FREQCOMM&amp;RedirUrl=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FBase%2FMyComty%2FMyComtyList%2Easp&amp;Referer=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FComService%2FActivity%2FAlbum%2FCsPhotoList%2Easp">내 커뮤니티 ▶▶</option>
+<option value="http://home.freechal.com/sorikid/">소리나는 어린이집</option><option value="">-------------------</option>
+<option value="http://home.freechal.com/Common/FcCommonLogGate.asp?gbn=T&amp;MenuNm=FREQCOMM&amp;RedirUrl=http%3A%2F%2Fcommunity%2Efreechal%2Ecom&amp;Referer=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FComService%2FActivity%2FAlbum%2FCsPhotoList%2Easp">커뮤니티 검색</option>
+<option value="http://home.freechal.com/Common/FcCommonLogGate.asp?gbn=T&amp;MenuNm=FREQCOMM&amp;RedirUrl=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FBase%2FMyComty%2FMyComtySet%2Easp&amp;Referer=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FComService%2FActivity%2FAlbum%2FCsPhotoList%2Easp">설정</option>
+</select>
+</td>
+
+</tr>
+</tbody></table>
+<iframe marginwidth="0" marginheight="0" hspace="0" vspace="0" src="CsPhotoList_page19_files/FreqCommB.html" allowtransparency="true" style="display: none;" frameborder="0" height="0" scrolling="no" width="0"></iframe>
+
+
+		</div>
+		<div id="cTopRBtn">
+			&nbsp;&nbsp;<a href="http://community.freechal.com/common/FcCommonLogGate.asp?gbn=T&amp;RedirUrl=https%3A%2F%2Fses%2Efreechal%2Ecom%2Fsignout%2Fdefault%2Easp&amp;MenuNm=LOGOUT&amp;Referer=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FComService%2FActivity%2FAlbum%2FCsPhotoList%2Easp" target="_top"><img src="CsPhotoList_page19_files/btn_logout.gif" border="0" align="absmiddle"></a>
+		</div>
+	</div>
+</div>
+<!--## GNB영역 End ##-->
+<script lnaguage="javascript">
+function AccCallback() {
+    if (xmlAccObject.readyState == 4) {
+        if (xmlAccObject.status == 200) {
+        } else if (xmlAccObject.status == 204){	//데이터가 존재하지 않을 경우
+        }
+    }
+}
+var xmlAccObject;
+if (window.ActiveXObject) {
+	xmlAccObject = new ActiveXObject("Microsoft.xmlHttp");
+}
+else if (window.xmlAccObjectRequest) {
+	xmlAccObject = new XMLHttpRequest();
+}
+xmlAccObject.open("post", "/common/GrpAccessLog.asp?grpid=845246", true);
+xmlAccObject.onreadystatechange = AccCallback;
+xmlAccObject.send(null);
+</script>
+<div id="RD">
+<samp id="RD1"></samp><samp id="RD2"></samp><samp id="RD3"></samp><samp id="RD4"></samp>
+<!--## 중앙영역 Start ##-->
+<div id="MainBodyContent">
+	<!--## 이미지 타이틀 영역 Start ##-->
+
+<div id="divTitleUser" style="background: url(&quot;http://home.freechal.com/sorikid/home/sori-top.jpg&quot;) repeat scroll 0% 0% transparent;" onclick="javascript:location.href='http://home.freechal.com/sorikid/';"></div>
+	<!--## 이미지 타이틀 영역 End ##-->
+	<!--## 커뮤니티 정보 영역 Start ##-->
+
+<div id="cBlogTop">
+	<div id="cBlogTopFL">
+	<span class="b">마스터 : <a href="javascript:openHompy('kelly7513')" class="mastername">달빛요정</a></span>
+	<span class="g_C4">|</span>
+	회원수 : <span class="b">1,113</span>명
+	<span class="g_C4">|</span>
+	등급 : <span class="b"><a href="javascript:rankPop();" class="mastername">2</a></span>등급
+	</div>
+	<div class="fl" style="padding: 7px 0px 0px 0pt;">
+	<img src="CsPhotoList_page19_files/ico_ranking2.gif" hspace="5" align="absmiddle">
+	
+	<a href="http://home.freechal.com/ComService/Management/Mng.asp?GrpId=845246"><img src="CsPhotoList_page19_files/btn_manage.gif" alt="" border="0" align="absmiddle"></a>
+	
+	</div>
+</div>
+	<!--## 커뮤니티 정보 영역 End ##-->
+	<!--## 레이아웃 영역 Start ##-->
+	<div id="FcMainArea">
+		<!-- 좌측 메뉴 영역 Start -->
+
+
+<script language="JavaScript">
+var g_login = true;
+var g_userid = 'geesetower';
+var g_hname = '기린';
+var g_memberGbnNm = '스탭';
+var g_grpcat = 'E03';
+var g_grpcatGbn = 'C';
+
+
+
+var g_curgrpid = '845246';
+var g_objid = 'GCOM13';
+var g_masterid = 'kelly7513';
+var g_masternm = '달빛요정';
+var g_membercnt = '1113';
+var g_createdt = '2001.06.27';
+var g_mngpermission = false;
+var g_menupos = 'L';
+var g_hidemenu = false;
+var g_menuwidth = '150';
+var g_menusaveyn = 'Y';
+var g_commtype = 'F';
+var g_menuheight = '57';
+var g_certinfo = 'NNNNN';
+var g_grpurl = 'sorikid';
+var g_curgrpnm = '소리나는 어린이집';
+var g_canapply = false;
+var g_curSelGroupid = '';
+var g_trialyn = 'C';
+var g_menuitem = 'N'; 
+var g_membersearch = 'Y';
+var g_menustyle = '0';
+var g_menudesign = '0';
+var g_freechalon = '0';
+var g_frameheight = '24';
+var g_hidecommlive = true;
+var g_chatmenu = false;
+var g_mngnew = '1';
+var g_statistics = 'N';
+var g_leftmenu = ''
+var g_allianceComm = "<div id='MPartnerTitle'><span class='b'>제휴 커뮤니티</span><span class='v10'>(0)</span></div><div id='MPartnerListNo' style='display:block'>제휴커뮤니티가 없습니다.</div>";    // 제휴 커뮤니티(2006-09-14 By SOH)
+
+var g_homeinfo = [
+	['1.asp','커뮤니티 홈 페이지']
+];
+var g_menuinfo = [
+	['GCOM49','2','default','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM01','1','알려드려요!!','0','','N','','','','color:#CC0000; font-family:; font-weight:bold; font-style:normal; text-decoration:none;','Y','Y','0','15','3145728','0'],
+	['GCOM02','7','대기자방 *^ㅡ^*','0','','N','은평구 공동육아협동조합소리나는 어린이집 에\n 관심을 가져 주셔서 감사드리며, 반갑습니다...','','','color:#1C2BFF; font-weight:bold; font-style:normal; text-decoration:none;','Y','Y','0','15','3145728','0'],
+	['GCOM02','2','소리나는은요~','0','','N','','','','color:#00CC00; font-family:; font-weight:bold; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM49','1','default','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM02','1','이야기 나누기','0','','N','','','','color:#FF9900; font-family:; font-weight:bold; font-style:normal; text-decoration:none;','Y','Y','0','15','3145728','0'],
+	['GCOM02','18','조합원/아마활동방','0','','N','','','','color:#FF9900; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','15','3145728','0'],
+	['GCOM22','1','선생님/이사회방','0','','N','','','','color:#FF9900; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM02','67','이사회 소통방','0','','N','','','','color:#FF9900; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM03','15','재인증 자료실','0','','N','','','','color:#FF6600; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM49','5','default','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM02','4','같이 읽는 날적이','0','','N','','','','color:#999900; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM03','7','교육계획/평가','0','','N','자료관리','','','color:#999900; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','15','3145728','0'],
+	['GCOM02','16','솔방울의행복밥상♨','0','','N','','','','color:#999900; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','15','3145728','0'],
+	['GCOM03','4','소식지','0','','N','소식지','','','color:#999900; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','15','3145728','0'],
+	['GCOM49','9','default','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM13','1','아이들 사진','0','','N','','','','color:#006600; font-family:; font-weight:bold; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM49','14','default','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM46','1','소리나는 동네 친구','0','','N','','http://home.freechal.com/SMTB','','color:#9999FF; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM02','14','소모임방/아나바다','0','','N','','','','color:#9999FF; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM02','5','꿈이크는 방과후','0','','N','','','','color:#9999FF; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM02','15','졸업생아이들방','0','','N','','','','color:#9999FF; font-family:; font-weight:normal; font-style:normal; text-decoration:none;','Y','Y','0','0','0','0'],
+	['GCOM49','20','default','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM03','1','자료실','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM58','1','프리미엄자료실','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM61','1','동영상게시판','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM04','1','방명록','0','','N','','','','','Y','Y','0','0','0','0'],
+	['GCOM62','1','커버스토리','0','','','','','','','Y','Y','0','0','0','0'],
+	['GCOM56','1','추카추카!','0','','','','','','','Y','Y','0','0','0','0'],
+	['GSTR','-2','우리컴티 섬','0','1','N','','','','','Y','Y','0','0','0','0'],
+	['GETC03','1','♥소리동문회♥','0','1','N','','thflehdansghl','','','Y','Y','0','0','0','0'],
+	['GEND','-2','우리컴티 섬','0','1','N','','','','','Y','Y','0','0','0','0']
+];
+var g_groupinfo = [
+	['1','1',false,'GCOM57']
+];
+var g_mngmenuinfo = [
+	['GCOM56','1','추카추카!','1','N','geesetower','',''],
+	['GCOM54','1','마스터후원하기','0','N','토토로(jockerman)','',''],
+	['GCOM19','1','자기정보관리','0','N','','',''],
+	['GCOM14','1','회원정보검색','0','N','친구(dmsgmlchl7)','',''],
+	['GCOM21','1','초대하기','0','N','','',''],
+	['GMAN00','1','커뮤니티관리','0','N','','',''],
+	['GMAN05','1','용량 관리','0','Y','','','']
+];
+var g_getc02info = [
+
+];
+var g_layername, g_layerusercnt;
+</script>
+
+
+<script language="JavaScript" src="CsPhotoList_page19_files/UserMenu.js"></script>
+<script language="JavaScript" src="CsPhotoList_page19_files/ComMenuCommon.js"></script>
+
+<script language="javascript">
+	var strFreComl = document.body.clientWidth/2-130;
+	var strFreComt = document.body.clientHeight/2-80;
+	var strFreComUrl = g_commsvr + "/Base/MyComty/MyComtyAdd.asp?grpid=" + g_curgrpid + "&rtnURL=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FComService%2FActivity%2FAlbum%2FCsPhotoList%2Easp%3FGrpId%3D845246%26ObjSeq%3D1%26PageNo%3D124";
+</script>
+<script language="javascript" src="CsPhotoList_page19_files/ComMenu.js"></script><!-- 좌측 메뉴 영역 Start -->
+<div id="CL_wrap">
+<div id="MD">
+<samp id="MD1"></samp><samp id="MD2"></samp><samp id="MD3"></samp>
+	<div id="MD6">
+        <div id="cMyInfo">
+        	<div class="b p12" style="text-align: center;">기린</div>
+	  	<div class="cl" style="padding-top: 3px;">[스탭]</div>
+        </div>
+        <div id="cCommBt">
+        	<a href="http://home.freechal.com/ComService/Activity/MyData/CsActNfoModify.asp?GrpId=845246"><img src="CsPhotoList_page19_files/btn_myinfo.gif" align="absmiddle"></a>
+    		<a href="" onclick="javascript:window.open('http://community.freechal.com/Base/MyComty/MyComtyAdd.asp?grpid=845246&amp;rtnURL=http%3A%2F%2Fcommunity%2Efreechal%2Ecom%2FComService%2FActivity%2FAlbum%2FCsPhotoList%2Easp%3FGrpId%3D845246%26ObjSeq%3D1%26PageNo%3D124', 'pop_favorite', 'fullscreen=no,titlebar=no,toolbar=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=yes,left='+strFreComl+',top='+strFreComt+',width=260,height=170'); return false;"><img src="CsPhotoList_page19_files/btn_favorite.gif" align="absmiddle"></a>
+	  </div>
+		<div style="height: 5px;"><!-- 공백 --></div>
+		<div id="Category">
+			<ul>
+<li class="categoryLine"><!--  --></li>
+<li class="notice"><a href="http://community.freechal.com/ComService/Activity/Notice/CsNoticeList.asp?GrpId=845246&amp;ObjSeq=1" class="mlink" style="color: rgb(204, 0, 0); font-weight: bold; font-style: normal; text-decoration: none;"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.color='#CC0000'; this.style.fontFamily=''; this.style.fontWeight='bold'; this.style.fontStyle='normal'; this.style.textDecoration='none'; ">알려드려요!!</span></a></li>
+<li class="bbs"><a href="http://bbs.freechal.com/ComService/Activity/BBS/CsBBSList.asp?GrpId=845246&amp;ObjSeq=7" class="mlink" style="color: rgb(28, 43, 255); font-weight: bold; font-style: normal; text-decoration: none;"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.color='#1C2BFF'; this.style.fontWeight='bold'; this.style.fontStyle='normal'; this.style.textDecoration='none'; ">대기자방 *^ㅡ^*</span></a></li>
+<li class="bbs"><a href="http://bbs.freechal.com/ComService/Activity/BBS/CsBBSList.asp?GrpId=845246&amp;ObjSeq=2" class="mlink" style="color: rgb(0, 204, 0); font-weight: bold; font-style: normal; text-decoration: none;"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.color='#00CC00'; this.style.fontFamily=''; this.style.fontWeight='bold'; this.style.fontStyle='normal'; this.style.textDecoration='none'; ">소리나는은요~</span></a></li>
+<li class="categoryLine"><!--  --></li>
+<li class="bbs"><a href="http://bbs.freechal.com/ComService/Activity/BBS/CsBBSList.asp?GrpId=845246&amp;ObjSeq=1" class="mlink" style="color: rgb(255, 153, 0); font-weight: bold; font-style: normal; text-decoration: none;"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.color='#FF9900'; this.style.fontFamily=''; this.style.fontWeight='bold'; this.style.fontStyle='normal'; this.style.textDecoration='none'; ">이야기 나누기</span></a></li>
+<li class="bbs"><a href="http://bbs.freechal.com/ComService/Activity/BBS/CsBBSList.asp?GrpId=845246&amp;ObjSeq=18" class="mlink" style="color: rgb(255, 153, 0); font-weight: normal; font-style: normal; text-decoration: none;"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.color='#FF9900'; this.style.fontWeight='normal'; this.style.fontStyle='normal'; this.style.textDecoration='none'; ">조합원/아마활동방</span></a></li>
+<li class="rmcomm"><a href="http://bbs.freechal.com/ComService/Activity/EstimBBS/CsBBSList.asp?GrpId=845246&amp;ObjSeq=1" class="mlink" style="color: rgb(255, 153, 0); font-weight: normal; font-style: normal; text-decoration: none;"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.color='#FF9900'; this.style.fontFamily=''; this.style.fontWeight='normal'; this.style.fontStyle='normal'; this.style.textDecoration='none'; ">선생님/이사회방</span></a></li>
+<li class="bbs"><a href="http://bbs.freechal.com/ComService/Activity/BBS/CsBBSList.asp?GrpId=845246&amp;ObjSeq=67" class="mlink" style="color: rgb(255, 153, 0); font-weight: normal; font-style: normal; text-decoration: none;"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.color='#FF9900'; this.style.fontFamily=''; this.style.fontWeight='normal'; this.style.fontStyle='normal'; this.style.textDecoration='none'; ">이사회 소통방</span></a></li>
+<li class="pds"><a href="http://community.freechal.com/ComService/Activity/PDS/CsPDSList.asp?GrpId=845246&amp;ObjSeq=15" class="mlink" style="color: rgb(255, 102, 0); font-weight: normal; font-style: normal; text-decoration: none;"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.color='#FF6600'; this.style.fontFamily=''; this.style.fontWeight='normal'; this.style.fontStyle='normal'; this.style.textDecoration='none'; ">재인증 자료실</span></a></li>
+<li class="categoryLine"><!--  --></li>
+<li class="bbs"><a href="http://bbs.freechal.com/ComService/Activity/BBS/CsBBSList.asp?GrpId=845246&amp;ObjSeq=4" class="mlink" style="color: rgb(153, 153, 0); font-weight: normal; font-style: normal; text-decoration: none;"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.color='#999900'; this.style.fontFamily=''; this.style.fontWeight='normal'; this.style.fontStyle='normal'; this.style.textDecoration='none'; ">같이 읽는 날적이</span></a></li>
+<li class="pds"><a href="http://community.freechal.com/ComService/Activity/PDS/CsPDSList.asp?GrpId=845246&amp;ObjSeq=7" class="mlink" style="color: rgb(153, 153, 0); font-weight: normal; font-style: normal; text-decoration: none;"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.color='#999900'; this.style.fontFamily=''; this.style.fontWeight='normal'; this.style.fontStyle='normal'; this.style.textDecoration='none'; ">교육계획/평가</span></a></li>
+<li class="bbs"><a href="http://bbs.freechal.com/ComService/Activity/BBS/CsBBSList.asp?GrpId=845246&amp;ObjSeq=16" class="mlink" style="color: rgb(153, 153, 0); font-weight: normal; font-style: normal; text-decoration: none;"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.color='#999900'; this.style.fontFamily=''; this.style.fontWeight='normal'; this.style.fontStyle='normal'; this.style.textDecoration='none'; ">솔방울의행복밥상♨</span></a></li>
+<li class="pds"><a href="http://community.freechal.com/ComService/Activity/PDS/CsPDSList.asp?GrpId=845246&amp;ObjSeq=4" class="mlink" style="color: rgb(153, 153, 0); font-weight: normal; font-style: normal; text-decoration: none;"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.color='#999900'; this.style.fontFamily=''; this.style.fontWeight='normal'; this.style.fontStyle='normal'; this.style.textDecoration='none'; ">소식지</span></a></li>
+<li class="categoryLine"><!--  --></li>
+<li class="album"><a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoList.asp?GrpId=845246&amp;ObjSeq=1&amp;grpurl=sorikid" class="mlink" style="color: rgb(0, 102, 0); font-weight: bold; font-style: normal; text-decoration: none;"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.color='#006600'; this.style.fontFamily=''; this.style.fontWeight='bold'; this.style.fontStyle='normal'; this.style.textDecoration='none'; ">아이들 사진</span></a></li>
+<li class="categoryLine"><!--  --></li>
+<li class="linkmenu"><a href="http://home.freechal.com/SMTB" target="_new" class="mlink" style="color: rgb(153, 153, 255); font-weight: normal; font-style: normal; text-decoration: none;"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.color='#9999FF'; this.style.fontFamily=''; this.style.fontWeight='normal'; this.style.fontStyle='normal'; this.style.textDecoration='none'; ">소리나는 동네 친구</span></a></li>
+<li class="bbs"><a href="http://bbs.freechal.com/ComService/Activity/BBS/CsBBSList.asp?GrpId=845246&amp;ObjSeq=14" class="mlink" style="color: rgb(153, 153, 255); font-weight: normal; font-style: normal; text-decoration: none;"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.color='#9999FF'; this.style.fontFamily=''; this.style.fontWeight='normal'; this.style.fontStyle='normal'; this.style.textDecoration='none'; ">소모임방/아나바다</span></a></li>
+<li class="bbs"><a href="http://bbs.freechal.com/ComService/Activity/BBS/CsBBSList.asp?GrpId=845246&amp;ObjSeq=5" class="mlink" style="color: rgb(153, 153, 255); font-weight: normal; font-style: normal; text-decoration: none;"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.color='#9999FF'; this.style.fontFamily=''; this.style.fontWeight='normal'; this.style.fontStyle='normal'; this.style.textDecoration='none'; ">꿈이크는 방과후</span></a></li>
+<li class="bbs"><a href="http://bbs.freechal.com/ComService/Activity/BBS/CsBBSList.asp?GrpId=845246&amp;ObjSeq=15" class="mlink" style="color: rgb(153, 153, 255); font-weight: normal; font-style: normal; text-decoration: none;"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.color='#9999FF'; this.style.fontFamily=''; this.style.fontWeight='normal'; this.style.fontStyle='normal'; this.style.textDecoration='none'; ">졸업생아이들방</span></a></li>
+<li class="categoryLine"><!--  --></li>
+<li class="pds"><a href="http://community.freechal.com/ComService/Activity/PDS/CsPDSList.asp?GrpId=845246&amp;ObjSeq=1" class="mlink"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none';">자료실</span></a></li>
+<li class="pds2"><a href="http://community.freechal.com/ComService/Activity/VPDS/CsMPDSList.asp?GrpId=845246&amp;ObjSeq=1" class="mlink"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none';">프리미엄자료실</span></a></li>
+<li class="bbs4"><a href="http://community.freechal.com/ComService/Activity/XBBS/CsBBSList.asp?GrpId=845246&amp;ObjSeq=1" class="mlink"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none';">동영상게시판</span></a></li>
+<li class="visit"><a href="http://community.freechal.com/ComService/Activity/GuestBook/CsGuestBookList.asp?GrpId=845246&amp;ObjSeq=1" class="mlink"><span onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none';">방명록</span></a></li>
+			<li class="categoryLine"><!--  --></li>
+<li class="birthday"><a href="http://community.freechal.com/ComService/Activity/birthzone/CsBirthZone.asp?grpid=845246" class="mlink" style="" align="texttop">추카추카!</a>&nbsp;<img src="CsPhotoList_page19_files/birth_ico_b.gif" border="0" height="11" width="11" align="texttop"></li><li class="commcash"><a href="http://home.freechal.com/ComService/Management/Manage/CommunityHP/Support/GetPointMaster.asp?grpid=845246">커뮤니티 캐쉬</a>&nbsp;<img src="CsPhotoList_page19_files/ico_n.gif" border="0" align="texttop"></li>
+<li class="memberinfo"><a href="http://community.freechal.com/ComService/Activity/Address/CsAddrAll.asp?grpid=845246" class="mlink" style="" align="texttop">회원정보</a></li><li class="invite"><a href="http://community.freechal.com/ComService/CommTextAD/FreeADLogCheck.asp?grpurl=sorikid&amp;logurl=http://home.freechal.com/ComService/Activity/Invite/CsInviteMailForm.asp?GrpId=845246">초대하기</a></li>
+			</ul>
+		</div>
+	</div>
+<samp id="MD7"></samp><samp id="MD10"></samp><samp id="MD8"></samp><samp id="MD9"></samp>
+</div>
+<div class="cl h5"><!-- 공백 --></div>
+<!--## 소모임 & 제휴커뮤니티 Start ##-->
+<div id="MC">
+<samp id="MC1"></samp><samp id="MC3"></samp>
+	<div id="MC5">
+<div id="MPartnerTitle"><span class="b">제휴 커뮤니티</span><span class="v10">(0)</span></div><div id="MPartnerListNo" style="display: block;">제휴커뮤니티가 없습니다.</div>
+		<div class="cl fl"><!-- 공백 --></div>
+	</div>
+<samp id="MC3"></samp><samp id="MC1"></samp>
+</div>
+<!--## 소모임 & 제휴커뮤니티 End ##-->
+<div class="cl h5"><!-- 공백 --></div>
+<!--## Count ##-->
+<div id="TotalCount">
+	today&nbsp;<span id="accessdcnt" class="num orange"></span>
+	<span class="g_C4">|</span>
+	total&nbsp;<span id="accesscnt" class="num"></span>
+</div>
+<!--## Count End##-->
+<div id="Since">since 2001.06.27</div>
+<!--## Count End##-->
+<!--## 탈퇴하기 Start ##-->
+<div id="TotalCountLine"><!--  --></div>
+<div style="padding: 7px 6px; font-size: 11px; vertical-align: top;">
+	<a href="http://home.freechal.com/Comservice/Activity/Out/CsActOutForm.asp?grpid=845246" class="out">커뮤니티 탈퇴하기 <span style="font-size: 8px; vertical-align: top;">▶</span></a>
+</div>
+<!--## 탈퇴하기 End ##-->
+</div>
+<!-- 좌측 메뉴 영역  End -->
+		<!-- 좌측 메뉴 영역  End -->
+<div id="IC_wrap">
+<!-- 중앙 컨텐츠 영역 Start -->
+<div id="SubTopLine"><!-- 상단 라인 --></div>
+<div id="AC_wrap">
+	<!--------------------------------------------------------------->
+
+	<div id="ContentsMain">
+		
+<script language="JavaScript">
+var popupWin = null;
+
+//Admin Popup창 띄우기
+function AdminPopup(flag) {
+	if (flag == "true") {
+		var winOption = 'width=370,height=500,fullscreen=no,titlebar=no,toolbar=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no';
+		var popupUrl = 'http://community.freechal.com/ComService/Admin/CsAdminPopup.asp?GrpId=845246&Objid=GCOM13&Objseq=1&objicon=&returnUrl=http://community.freechal.com/ComService/Activity/Album/CsPhotoList.asp';
+		popupWin = window.open(popupUrl, 'AdminSet', winOption);
+	} else {alert("Admin 팝업을 사용하실 수 없는 기능입니다.")}
+}
+</script>
+
+
+<script language="javascript">
+function adjustImage(target_img)
+{
+	var newHeight, newWidth;
+	var newImg;
+
+	var maxWidth = 100;
+	var maxHeight = 100;
+
+
+	newImg = new Image();
+	newImg.src = target_img.src;
+	imgw = newImg.width;
+	imgh = newImg.height;
+
+	if (imgw > maxWidth || imgh > maxHeight) {
+		if(imgw > imgh) {
+			if(imgw > maxWidth)
+				newWidth = maxWidth;
+			else
+				newWidth = imgw;
+			newHeight = Math.round((imgh*newWidth)/imgw);
+		} else {
+			if(imgh > maxHeight)
+				newHeight = maxHeight;
+			else
+				newHeight = imgh;
+			newWidth = Math.round((imgw*newHeight)/imgh);
+		}
+	} else {
+		newWidth = imgw;
+		newHeight = imgh;
+	}
+
+	if (newWidth > 0 && newHeight > 0) {
+		target_img.width = newWidth;
+		target_img.height = newHeight;
+	}
+}
+
+function SearchList(){
+	if (CheckStrLen(document.SearchForm.Search, 1,"") == false)
+		window.location.href = "CsPhotoSchList.asp?GrpId=845246&ObjSeq=1&search=" + escape(document.SearchForm.Search.value);
+	else
+		alert("검색어는 영문2자 혹은 한글1자를 넘어야 합니다.");
+}
+
+function OpenNew(){
+	window.open("http://pims.freechal.com/myfreechal/PowerAlim/BBSAddOnePopup.asp?Grpid=845246&ObjSeq=1&Objid=GCOM13", "", "fullscreen=no,titlebar=no,toolbar=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=420,height=250")
+}
+
+function ReplyList(lngSeqNo, lngImgNo, strWriterId) {
+	window.open("CsPhotoReplyList.asp?GrpId=845246&ObjSeq=1&SeqNo="+lngSeqNo+"&ImgNo="+lngImgNo+"&PageNo=124&WriterId="+strWriterId, "ReplyListWin2", "width=640, height=650");
+}
+
+function MoveArticle() {
+	var strSeqNo = "";
+
+	if (document.ListForm.SeqNo != null) {
+		if (document.ListForm.SeqNo.length == null && document.ListForm.SeqNo.checked) {
+			strSeqNo = "," + document.ListForm.SeqNo.value;
+		} else {
+			for (i = document.ListForm.SeqNo.length - 1; i >= 0; i--) {
+				if (document.ListForm.SeqNo[i].checked) strSeqNo = strSeqNo + "," + document.ListForm.SeqNo[i].value;
+			}
+		}
+		strSeqNo = strSeqNo.substring(1, strSeqNo.length);
+	}
+
+	if (strSeqNo == "") {
+		alert('복사할 게시물을 선택해주세요.');
+		return;
+	}
+
+	window.open("CsPhotoMoveFrame.asp?GrpId=845246&ObjSeq=1&SeqNo=" + escape(strSeqNo), "MoveWin", "width=380,height=215");
+}
+
+function DeleteArticle() {
+	var strSeqNo = "";
+
+	if (document.ListForm.SeqNo != null) {
+		if (document.ListForm.SeqNo.length == null && document.ListForm.SeqNo.checked) {
+			strSeqNo = "," + document.ListForm.SeqNo.value;
+		} else {
+			for (i = document.ListForm.SeqNo.length - 1; i >= 0; i--) {
+				if (document.ListForm.SeqNo[i].checked) strSeqNo = strSeqNo + "," + document.ListForm.SeqNo[i].value;
+			}
+		}
+		strSeqNo = strSeqNo.substring(1, strSeqNo.length);
+	}
+
+	if (strSeqNo == "") {
+		alert('삭제할 게시물을 선택해주세요.');
+		return;
+	}
+
+	if (confirm("삭제하시겠습니까?")) {
+		self.location.href = "CsPhotoDeleteScript.asp?GrpId=845246&ObjSeq=1&SeqNo=" + strSeqNo + "&PageNo=124&retURL=" + escape(self.location.href);
+	}
+}
+
+var	blnSelAll = false;
+
+function SelectArticleAll() {
+	blnSelAll = !blnSelAll;
+
+	if (document.ListForm.SeqNo != null) {
+		if (document.ListForm.SeqNo.length == null) {
+			document.ListForm.SeqNo.checked = blnSelAll;
+		} else {
+			for (i = 0; i < document.ListForm.SeqNo.length; i++) {
+				document.ListForm.SeqNo[i].checked = blnSelAll;
+			}
+		}
+	}
+}
+
+function SearchArticle() {
+	var strKeyword;
+	var strKeyField;
+	var strCond;
+	var objText
+
+	objText = document.SchForm.Keyword;
+	strKeyword = objText.value;
+	strKeyField = document.SchForm.SchType[document.SchForm.SchType.selectedIndex].value;
+
+	if (strKeyword.length == 0) {
+		alert("검색어를 입력하여 주십시오.");
+		objText.focus();
+		return;
+	} else if (strKeyField == "Title") {
+		if (strKeyword.length < 2) {
+			alert("검색어는 두 글자 이상이어야 합니다.");
+			objText.focus();
+			return;
+		} else {
+			strCond = "&Title=" + escape(strKeyword);
+		}
+	} else if (strKeyField == "Id") {
+		if (strKeyword.length < 4) {
+			alert("ID는 네 글자 이상이어야 합니다.");
+			objText.focus();
+			return;
+		} else {
+			strCond = "&Id=" + escape(strKeyword);
+		}
+	} else if (strKeyField == "Name") {
+		if (strKeyword.length < 2) {
+			alert("이름은 두 글자 이상이어야 합니다.");
+			objText.focus();
+			return;
+		} else {
+			strCond = "&Name=" + escape(strKeyword);
+		}
+	} else if (strKeyField == "Date") {
+		if (checkDate(strKeyword) == false) {
+			alert("날짜가 잘못되었습니다.\n예) 2002/9/26");
+			objText.focus();
+			return;
+		} else {
+			strCond = "&FromDate=" + escape(strKeyword) + "&ToDate=" + escape(strKeyword);
+		}
+	} else {
+		strCond = "&FromNo=" + escape(strKeyword) + "&ToNo=" + escape(strKeyword);
+	}
+
+	document.location.href = "CsPhotoSchList.asp?GrpId=845246&ObjSeq=1" + strCond;
+}
+
+function CheckKeyCode() {
+	if (event.keyCode == 13) {
+		SearchArticle();
+	}
+}
+
+function OpenSrchWindow() {
+	winChild = window.open("CsPhotoSrchForm.asp?GrpId=845246&ObjSeq=1", "SrchWin", "left=" + ((window.screen.availWidth - 400) / 2) + ",top=" + ((window.screen.availHeight - 272) / 2) + ",width=400,height=272,directories=no,toolbar=no,status=no,resizable=no,scrollbars=no");
+}
+
+function OpenSlideShow() {
+
+	winChild = window.open("http://community.freechal.com/ComService/Activity/Album/CsPhotoSlideShow.asp?GrpId=845246&ObjSeq=1&SeqNo=295", "SlideWin", "left=" + ((window.screen.availWidth - 800) / 2) + ",top=" + ((window.screen.availHeight - 600) / 2) + ",width=800,height=670,directories=no,toolbar=no,status=no,resizable=yes,scrollbars=no");
+
+}
+
+function OpenStampWindow() {
+	window.open("http://community.freechal.com/ComService/Activity/album/CsPhotoStampForm.asp?GrpId=845246&ObjSeq=1", "StampWin", "location=no, menubar=no, status=no, toolbar=no, width=640, height=300");
+}
+
+</script>
+<!-- Title Bar -->
+
+
+<!-- 서브 컨텐츠 내용 -->
+<div class="BoardTitle" id="BoardTitle">
+	<span id="BoardTitleImg"><img src="CsPhotoList_page19_files/ico_b09.gif" align="absmiddle"></span>아이들 사진
+<a href="javascript:AdminPopup('true')"><img src="CsPhotoList_page19_files/btn_board_set.gif" align="absmiddle"></a></div>
+
+
+<!-- Image List -->
+<div id="AlbumTdList">
+	<table>
+<form name="ListForm"></form>
+<input name="GrpId" value="845246" type="hidden">
+<input name="ObjSeq" value="1" type="hidden">
+		<tbody><tr>
+			<td class="img">
+
+	<table class="img-box">
+		<tbody><tr><td><a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=295&amp;PageNo=124"><img alt="남산-7" src="CsPhotoList_page19_files/GetImage_005.jpeg" border="0"></a></td></tr>
+	</tbody></table>
+	<table class="img-txt">
+		<tbody><tr><td class="subject"><span class="chk"><input name="SeqNo" value="295" type="checkbox"></span>&nbsp;<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=295&amp;PageNo=124">남산-7</a></td></tr>
+		<tr><td class="ab_name">
+<span onclick="ContextMenu.initMenu('geesetower','기린','yeochee','여미현','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor: pointer;">여미현</span>
+		</td></tr>
+		<tr><td class="ab_date"><span class="date">2003-04-20</span> | <span class="hit">43</span></td></tr>
+	</tbody></table>
+			</td>
+			<td class="nb22"></td>
+			<td class="img">
+
+	<table class="img-box">
+		<tbody><tr><td><a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=294&amp;PageNo=124"><img alt="남산 -6" src="CsPhotoList_page19_files/GetImage_013.jpeg" border="0"></a></td></tr>
+	</tbody></table>
+	<table class="img-txt">
+		<tbody><tr><td class="subject"><span class="chk"><input name="SeqNo" value="294" type="checkbox"></span>&nbsp;<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=294&amp;PageNo=124">남산 -6</a></td></tr>
+		<tr><td class="ab_name">
+<span onclick="ContextMenu.initMenu('geesetower','기린','yeochee','여미현','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor: pointer;">여미현</span>
+		</td></tr>
+		<tr><td class="ab_date"><span class="date">2003-04-20</span> | <span class="hit">34</span></td></tr>
+	</tbody></table>
+			</td>
+			<td class="nb22"></td>
+			<td class="img">
+
+	<table class="img-box">
+		<tbody><tr><td><a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=293&amp;PageNo=124"><img alt="남산 -5" src="CsPhotoList_page19_files/GetImage_009.jpeg" border="0"></a></td></tr>
+	</tbody></table>
+	<table class="img-txt">
+		<tbody><tr><td class="subject"><span class="chk"><input name="SeqNo" value="293" type="checkbox"></span>&nbsp;<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=293&amp;PageNo=124">남산 -5</a></td></tr>
+		<tr><td class="ab_name">
+<span onclick="ContextMenu.initMenu('geesetower','기린','yeochee','여미현','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor: pointer;">여미현</span>
+		</td></tr>
+		<tr><td class="ab_date"><span class="date">2003-04-20</span> | <span class="hit">76</span></td></tr>
+	</tbody></table>
+			</td>
+			<td class="nb22"></td>
+			<td class="img">
+
+	<table class="img-box">
+		<tbody><tr><td><a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=292&amp;PageNo=124"><img alt="남산-4" src="CsPhotoList_page19_files/GetImage.jpeg" border="0"></a></td></tr>
+	</tbody></table>
+	<table class="img-txt">
+		<tbody><tr><td class="subject"><span class="chk"><input name="SeqNo" value="292" type="checkbox"></span>&nbsp;<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=292&amp;PageNo=124">남산-4</a><span class="cmt">[1]</span></td></tr>
+		<tr><td class="ab_name">
+<span onclick="ContextMenu.initMenu('geesetower','기린','yeochee','여미현','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor: pointer;">여미현</span>
+		</td></tr>
+		<tr><td class="ab_date"><span class="date">2003-04-20</span> | <span class="hit">49</span></td></tr>
+	</tbody></table>
+			</td>
+			<td class="nb22"></td>
+			<td class="img">
+
+	<table class="img-box">
+		<tbody><tr><td><a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=291&amp;PageNo=124"><img alt="남산 -3" src="CsPhotoList_page19_files/GetImage_008.jpeg" border="0"></a></td></tr>
+	</tbody></table>
+	<table class="img-txt">
+		<tbody><tr><td class="subject"><span class="chk"><input name="SeqNo" value="291" type="checkbox"></span>&nbsp;<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=291&amp;PageNo=124">남산 -3</a><span class="cmt">[1]</span></td></tr>
+		<tr><td class="ab_name">
+<span onclick="ContextMenu.initMenu('geesetower','기린','yeochee','여미현','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor: pointer;">여미현</span>
+		</td></tr>
+		<tr><td class="ab_date"><span class="date">2003-04-20</span> | <span class="hit">55</span></td></tr>
+	</tbody></table>
+			</td>
+		</tr>
+		<tr>
+			<td class="img">
+
+	<table class="img-box">
+		<tbody><tr><td><a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=290&amp;PageNo=124"><img alt="남산-2" src="CsPhotoList_page19_files/GetImage_010.jpeg" border="0"></a></td></tr>
+	</tbody></table>
+	<table class="img-txt">
+		<tbody><tr><td class="subject"><span class="chk"><input name="SeqNo" value="290" type="checkbox"></span>&nbsp;<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=290&amp;PageNo=124">남산-2</a></td></tr>
+		<tr><td class="ab_name">
+<span onclick="ContextMenu.initMenu('geesetower','기린','yeochee','여미현','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor: pointer;">여미현</span>
+		</td></tr>
+		<tr><td class="ab_date"><span class="date">2003-04-20</span> | <span class="hit">34</span></td></tr>
+	</tbody></table>
+			</td>
+			<td class="nb22"></td>
+			<td class="img">
+
+	<table class="img-box">
+		<tbody><tr><td><a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=289&amp;PageNo=124"><img alt="드디어 남산 가…" src="CsPhotoList_page19_files/GetImage_011.jpeg" border="0"></a></td></tr>
+	</tbody></table>
+	<table class="img-txt">
+		<tbody><tr><td class="subject"><span class="chk"><input name="SeqNo" value="289" type="checkbox"></span>&nbsp;<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=289&amp;PageNo=124">드디어 남산 가…</a><span class="cmt">[2]</span></td></tr>
+		<tr><td class="ab_name">
+<span onclick="ContextMenu.initMenu('geesetower','기린','yeochee','여미현','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor: pointer;">여미현</span>
+		</td></tr>
+		<tr><td class="ab_date"><span class="date">2003-04-19</span> | <span class="hit">43</span></td></tr>
+	</tbody></table>
+			</td>
+			<td class="nb22"></td>
+			<td class="img">
+
+	<table class="img-box">
+		<tbody><tr><td><a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=288&amp;PageNo=124"><img alt="너무나 귀여븐 …" src="CsPhotoList_page19_files/GetImage_015.jpeg" border="0"></a></td></tr>
+	</tbody></table>
+	<table class="img-txt">
+		<tbody><tr><td class="subject"><span class="chk"><input name="SeqNo" value="288" type="checkbox"></span>&nbsp;<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=288&amp;PageNo=124">너무나 귀여븐 …</a></td></tr>
+		<tr><td class="ab_name">
+<span onclick="ContextMenu.initMenu('geesetower','기린','yeochee','여미현','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor: pointer;">여미현</span>
+		</td></tr>
+		<tr><td class="ab_date"><span class="date">2003-04-19</span> | <span class="hit">64</span></td></tr>
+	</tbody></table>
+			</td>
+			<td class="nb22"></td>
+			<td class="img">
+
+	<table class="img-box">
+		<tbody><tr><td><a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=287&amp;PageNo=124"><img alt="돌아 오는 전우…" src="CsPhotoList_page19_files/GetImage_014.jpeg" border="0"></a></td></tr>
+	</tbody></table>
+	<table class="img-txt">
+		<tbody><tr><td class="subject"><span class="chk"><input name="SeqNo" value="287" type="checkbox"></span>&nbsp;<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=287&amp;PageNo=124">돌아 오는 전우…</a></td></tr>
+		<tr><td class="ab_name">
+<span onclick="ContextMenu.initMenu('geesetower','기린','yeochee','여미현','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor: pointer;">여미현</span>
+		</td></tr>
+		<tr><td class="ab_date"><span class="date">2003-04-19</span> | <span class="hit">51</span></td></tr>
+	</tbody></table>
+			</td>
+			<td class="nb22"></td>
+			<td class="img">
+
+	<table class="img-box">
+		<tbody><tr><td><a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=286&amp;PageNo=124"><img alt="통통이!!!" src="CsPhotoList_page19_files/GetImage_006.jpeg" border="0"></a></td></tr>
+	</tbody></table>
+	<table class="img-txt">
+		<tbody><tr><td class="subject"><span class="chk"><input name="SeqNo" value="286" type="checkbox"></span>&nbsp;<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=286&amp;PageNo=124">통통이!!!</a><span class="cmt">[1]</span></td></tr>
+		<tr><td class="ab_name">
+<span onclick="ContextMenu.initMenu('geesetower','기린','yeochee','여미현','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor: pointer;">여미현</span>
+		</td></tr>
+		<tr><td class="ab_date"><span class="date">2003-04-19</span> | <span class="hit">51</span></td></tr>
+	</tbody></table>
+			</td>
+		</tr>
+		<tr>
+			<td class="img">
+
+	<table class="img-box">
+		<tbody><tr><td><a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=285&amp;PageNo=124"><img alt="베스트 드라이…" src="CsPhotoList_page19_files/GetImage_004.jpeg" border="0"></a></td></tr>
+	</tbody></table>
+	<table class="img-txt">
+		<tbody><tr><td class="subject"><span class="chk"><input name="SeqNo" value="285" type="checkbox"></span>&nbsp;<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=285&amp;PageNo=124">베스트 드라이…</a><span class="cmt">[1]</span></td></tr>
+		<tr><td class="ab_name">
+<span onclick="ContextMenu.initMenu('geesetower','기린','yeochee','여미현','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor: pointer;">여미현</span>
+		</td></tr>
+		<tr><td class="ab_date"><span class="date">2003-04-19</span> | <span class="hit">47</span></td></tr>
+	</tbody></table>
+			</td>
+			<td class="nb22"></td>
+			<td class="img">
+
+	<table class="img-box">
+		<tbody><tr><td><a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=284&amp;PageNo=124"><img alt="동생들!!!" src="CsPhotoList_page19_files/GetImage_002.jpeg" border="0"></a></td></tr>
+	</tbody></table>
+	<table class="img-txt">
+		<tbody><tr><td class="subject"><span class="chk"><input name="SeqNo" value="284" type="checkbox"></span>&nbsp;<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=284&amp;PageNo=124">동생들!!!</a></td></tr>
+		<tr><td class="ab_name">
+<span onclick="ContextMenu.initMenu('geesetower','기린','yeochee','여미현','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor: pointer;">여미현</span>
+		</td></tr>
+		<tr><td class="ab_date"><span class="date">2003-04-19</span> | <span class="hit">48</span></td></tr>
+	</tbody></table>
+			</td>
+			<td class="nb22"></td>
+			<td class="img">
+
+	<table class="img-box">
+		<tbody><tr><td><a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=283&amp;PageNo=124"><img alt="실내 놀이터 에…" src="CsPhotoList_page19_files/GetImage_003.jpeg" border="0"></a></td></tr>
+	</tbody></table>
+	<table class="img-txt">
+		<tbody><tr><td class="subject"><span class="chk"><input name="SeqNo" value="283" type="checkbox"></span>&nbsp;<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=283&amp;PageNo=124">실내 놀이터 에…</a><span class="cmt">[1]</span></td></tr>
+		<tr><td class="ab_name">
+<span onclick="ContextMenu.initMenu('geesetower','기린','yeochee','여미현','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor: pointer;">여미현</span>
+		</td></tr>
+		<tr><td class="ab_date"><span class="date">2003-04-19</span> | <span class="hit">55</span></td></tr>
+	</tbody></table>
+			</td>
+			<td class="nb22"></td>
+			<td class="img">
+
+	<table class="img-box">
+		<tbody><tr><td><a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=282&amp;PageNo=124"><img alt="비오는 날 나들이" src="CsPhotoList_page19_files/GetImage_007.jpeg" border="0"></a></td></tr>
+	</tbody></table>
+	<table class="img-txt">
+		<tbody><tr><td class="subject"><span class="chk"><input name="SeqNo" value="282" type="checkbox"></span>&nbsp;<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=282&amp;PageNo=124">비오는 날 나들이</a><span class="cmt">[1]</span></td></tr>
+		<tr><td class="ab_name">
+<span onclick="ContextMenu.initMenu('geesetower','기린','yeochee','여미현','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor: pointer;">여미현</span>
+		</td></tr>
+		<tr><td class="ab_date"><span class="date">2003-04-19</span> | <span class="hit">79</span></td></tr>
+	</tbody></table>
+			</td>
+			<td class="nb22"></td>
+			<td class="img">
+
+	<table class="img-box">
+		<tbody><tr><td><a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=281&amp;PageNo=124"><img alt="큰티방 도배 하…" src="CsPhotoList_page19_files/GetImage_012.jpeg" border="0"></a></td></tr>
+	</tbody></table>
+	<table class="img-txt">
+		<tbody><tr><td class="subject"><span class="chk"><input name="SeqNo" value="281" type="checkbox"></span>&nbsp;<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoView.asp?GrpId=845246&amp;ObjSeq=1&amp;SeqNo=281&amp;PageNo=124">큰티방 도배 하…</a><span class="cmt">[2]</span></td></tr>
+		<tr><td class="ab_name">
+<span onclick="ContextMenu.initMenu('geesetower','기린','yeochee','여미현','S',this);setHpAccessLog('HpLog_DropDown');" style="cursor: pointer;">여미현</span>
+		</td></tr>
+		<tr><td class="ab_date"><span class="date">2003-04-19</span> | <span class="hit">50</span></td></tr>
+	</tbody></table>
+			</td>
+		</tr>
+
+
+	</tbody></table>
+</div><!--/AlbumTdList-->
+<div id="List-btn">
+	<div id="ChkAll"><input name="checkAll" onclick="javascript:SelectArticleAll()" type="Checkbox"><span class="Chktxt">전체선택</span></div>
+	<div id="WriteBtn">
+		<div class="bt">
+		<a href="javascript:OpenSlideShow()"><img src="CsPhotoList_page19_files/btn_sshow.gif" alt="슬라이드쇼" align="absmiddle"></a>			<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoWriteForm.asp?GrpId=845246&amp;ObjSeq=1"><img src="CsPhotoList_page19_files/btn_write_photo.gif" alt="사진올리기" align="absmiddle"></a> 		</div>
+		<div class="bt">
+			<a href="javascript:DeleteArticle();"><img src="CsPhotoList_page19_files/btn_del.gif" alt="삭제" align="absmiddle"></a>		</div>
+	</div>
+</div>
+<div id="Page">
+<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoList.asp?GrpId=845246&amp;ObjSeq=1&amp;PageNo=111" class="pg"><img src="CsPhotoList_page19_files/pg_prev02.gif" border="0" align="absmiddle"></a>&nbsp;<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoList.asp?GrpId=845246&amp;ObjSeq=1&amp;PageNo=123" class="pg"><img src="CsPhotoList_page19_files/pg_prev.gif" align="absmiddle"> </a><a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoList.asp?GrpId=845246&amp;ObjSeq=1&amp;PageNo=121" class="pg">121</a>
+	I
+<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoList.asp?GrpId=845246&amp;ObjSeq=1&amp;PageNo=122" class="pg">122</a>
+	I
+<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoList.asp?GrpId=845246&amp;ObjSeq=1&amp;PageNo=123" class="pg">123</a>
+	I
+<span class="pgon">124</span>
+	I
+<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoList.asp?GrpId=845246&amp;ObjSeq=1&amp;PageNo=125" class="pg">125</a>
+	I
+<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoList.asp?GrpId=845246&amp;ObjSeq=1&amp;PageNo=126" class="pg">126</a>
+<a href="http://community.freechal.com/ComService/Activity/Album/CsPhotoList.asp?GrpId=845246&amp;ObjSeq=1&amp;PageNo=125" class="pg"><img src="CsPhotoList_page19_files/pg_next.gif" align="absmiddle"></a>&nbsp;
+</div>
+<!-- Paging End -->
+
+
+<script language="javascript">
+var	objid = "cimg";
+function DisplaySearchDetail()
+{
+	if (srchform.exsch.checked)
+	{
+			document.all.SearchDetail.style.display = 'block';
+	}
+	else
+	{
+			document.all.SearchDetail.style.display = 'none';
+	}
+}
+
+function ChangeSearchDetail()
+{
+	if ( srchform.exsch.checked )
+	{
+		if (document.getElementById("range").selectedIndex == 3){
+			document.getElementById("userid").disabled = true;
+			document.getElementById("username").disabled = false;
+		}else if (document.getElementById("range").selectedIndex == 4) {
+			document.getElementById("username").disabled = true;
+			document.getElementById("userid").disabled = false;
+		}else{
+			document.getElementById("userid").disabled = false;
+			document.getElementById("username").disabled = false;
+		}
+	}
+}
+
+function NewSearch()
+{
+	var strCond;
+	var strDate;
+	var intYear;
+	var intMonth;
+	var intDay;
+	var i, imax;
+	var before180 = new Date("2010" + "/" + "9" + "/" + "18");
+	var from;
+
+	var sf =document.srchform;
+
+	strCond = "grpid=845246&objseq=1";
+	strCond = strCond + "&objid=GCOM13";
+
+	if (sf.elements["key"].value.length < 2) {
+		alert("검색어는 두 글자 이상이어야 합니다.");
+		return;
+	}
+
+	if(845246 == 0 ){
+	    strCond = strCond + "&Keyword=" + escape(sf.elements["key"].value);
+
+        if("1" == "139" || "1" == "133") {
+            document.location.href = "CsPhotoSrchList.asp?" + strCond;
+        }
+		else document.location.href = "CsBBSSrchList.asp?" + strCond;
+
+	}
+	else {
+        strCond = strCond + "&key=" + escape(sf.elements["key"].value);
+        strCond = strCond + "&type=cimg";
+        strCond = strCond + "&boardseq=1"
+        strCond = strCond + "&range=" + escape(sf.elements["range"].value);
+
+        if (document.all.SearchDetail.style.display == 'block')
+        {
+            strCond = strCond + "&userid=" + escape(sf.elements["userid"].value);
+            strCond = strCond + "&username=" + escape(sf.elements["username"].value);
+            strCond = strCond + "&fromseq=" + sf.elements["fromseq"].value;
+            strCond = strCond + "&toseq=" + sf.elements["toseq"].value;
+
+            for (i = 0; i < sf.elements["term"].length; i++) {
+                if (sf.elements["term"][i].checked == true) {
+                    strCond = strCond + "&term=" + sf.elements["term"][i].value;
+                }
+            }
+        }
+
+		document.location.href = "http://community.freechal.com/Comservice/Activity/Search/CsSearch.asp?" + strCond ;
+	}
+
+
+}
+
+function openSrch()
+{
+	var shwin;
+	var sf = document.srchform;
+	var i;
+	var width = 400 ;
+	var height = 270
+	if (document.srchform.term2.checked){
+		sf.key.disabled = true;
+		sf.userid.disabled = true;
+		sf.username.disabled = true;
+		sf.fromseq.disabled = true;
+		sf.toseq.disabled = true;
+		for(i=0; i<sf.range.length; i++){
+			sf.range[i].disabled = true;
+		}
+		for(i=0; i<sf.term.length; i++){
+			sf.term[i].disabled = true;
+		}
+		shwin = window.open('CsPhotoSrchForm.asp?GrpId=845246&ObjSeq=1', 'shbox', "left=" + ((window.screen.availWidth - 400) / 2) + ",top=" + ((window.screen.availHeight - 280) / 2) + ",width=400 ,height=280 ,directories=no,toolbar=no,status=no,resizable=no,scrollbars=no");
+	}else{
+		sf.key.disabled = false;
+		sf.userid.disabled = false;
+		sf.username.disabled = false;
+		sf.fromseq.disabled = false;
+		sf.toseq.disabled = false;
+		for(i=0; i<sf.range.length; i++){
+			sf.range[i].disabled = false;
+		}
+		for(i=0; i<sf.term.length; i++){
+			sf.term[i].disabled = false;
+		}
+	}
+}
+function SetFocus()
+{
+	 document.srchform.key.focus();
+}
+function showDate()
+{
+	 if (document.srchform.term[5].checked == true)
+	 {
+			document.all.ftDate.style.display = '';
+	 }
+	 else
+	 {
+			document.all.ftDate.style.display = 'none';
+	 }
+}
+
+function handleKeydown() {
+	if (event.keyCode == 13) {
+		NewSearch();
+	}
+	return false;
+}
+</script>
+<style>
+.ns
+{
+	color: #4D4D4D;
+}
+</style>
+
+	<form name="srchform" onsubmit="NewSearch(this);return false" method="get">
+	
+		<div id="Search">
+
+			<select name="range" onchange="ChangeSearchDetail()">
+			<option selected="selected" value="sc">제목 + 본문
+</option><option value="s">제목
+</option><option value="c">본문
+</option><option value="i">작성자 ID
+</option><option value="u">작성자 이름
+
+			</option></select>
+			<input name="key" class="search" onkeydown="javascript:handleKeydown();" type="text">
+			<a href="javascript:NewSearch(this);"><img src="CsPhotoList_page19_files/btn_search.gif" alt="검색" align="absmiddle"></a>
+			<input name="exsch" onclick="DisplaySearchDetail();" class="srch" type="checkbox"> 상세검색
+		</div><!--/p>
+		<br-->
+		<p></p><div id="SearchDetail" style="display: none;">
+			<ul>
+				<li>
+				검색범위설정 : 
+		
+				<span id="WriterID">작성자 ID :<input name="userid" class="writer" type="text"></span>&nbsp;
+			
+				<span id="WriterName">
+				작성자 이름 :
+				<input name="username" class="writer02" type="text">
+				</span>
+		
+				글번호 :
+				<input name="fromseq" class="period" type="text">
+				<span class="bar">－</span>
+				<input name="toseq" class="period" type="text">
+				</li>
+				<li>
+				검색기간설정 : 
+				<input name="term" value="-1" checked="checked" type="radio">1년
+				<input name="term" value="180" type="radio">6개월
+				<input name="term" value="30" type="radio">1개월
+				<input name="term" value="7" type="radio">1주일
+				<input name="term" value="3" type="radio">3일
+				<input name="term" value="0" type="radio">오늘
+			
+				<input name="term2" value="-1" onclick="openSrch();" type="checkbox">전체(일년이전 게시물 검색)
+			
+				</li>
+			</ul>
+			<div id="SearchBound"></div>
+			<div id="SearchPeriod"></div>
+		</div><p></p>
+	</form>
+
+
+<script>
+  function hidePumpTip()
+  {
+	document.cookie = "pumpTipShow=no;path=/";
+	document.location.href = document.location.href;
+  }
+</script>
+
+		
+<!-- 내용 끝-->
+		<!--------------------------------------------------------------->
+	</div><!--id="ContentsMain"-->
+</div><!--id="AC_wrap"-->
+<!-- 중앙 컨텐츠 영역 End -->
+<div id="AR_wrap">
+
+<!-- 메뉴 영역 Start -->
+<!--## Today 베스트 영상 Start ##-->
+
+<!-- 메뉴 영역 End -->
+<script language="Javascript1.1" src="CsPhotoList_page19_files/subBottom.js"></script></div>
+</div>
+	    </div>
+	</div>
+	<!--## 중앙영역 End ##-->
+    <samp id="RD4"></samp><samp id="RD3"></samp><samp id="RD2"></samp><samp id="RD1"></samp>
+</div>
+<!--## 전체 박스 영역 End ##-->
+<!--## Footer Start ##-->
+<div id="Footer">
+<p id="copyright">Copyright &#169; 2000 ~ 2011 <b>FREECHAL</b> INC, All rights reserved.</p>
+</div>
+<!--## Footer End ##-->
+
+</body></html>
