@@ -27,8 +27,8 @@ import net.hayarobi.imgcrawler.saver.BBSStorageManager;
 import net.hayarobi.imgcrawler.saver.FilePageSaver;
 import net.hayarobi.imgcrawler.saver.PageSaver;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -39,7 +39,7 @@ import org.apache.http.message.BasicHeader;
 public abstract class BBSCrawler {
 	private static final int VIEW_PAGE_RETRY_COUNT = 10;
 	private static final int LIST_PAGE_RETRY_COUNT = 20;
-	private static Log log = LogFactory.getLog(BBSCrawler.class);
+	private static Logger log = LoggerFactory.getLogger(BBSCrawler.class);
 	protected DefaultHttpClient hc;
 	
 	protected BBSMetaInfo meta;

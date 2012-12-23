@@ -5,8 +5,8 @@ import java.net.URLDecoder;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 앨범 게시판의 이미지 url에서 파일명을 추출하는 객체.
@@ -14,7 +14,7 @@ import org.apache.commons.logging.LogFactory;
  *
  */
 public class AlbumImageFilenameUtil extends AttachImageFilenameUtil {
-	private static Log log = LogFactory.getLog(AlbumImageFilenameUtil.class);
+	private static Logger log = LoggerFactory.getLogger(AlbumImageFilenameUtil.class);
 
 	private static AlbumImageFilenameUtil instance = new AlbumImageFilenameUtil();
 	public static AlbumImageFilenameUtil get() {

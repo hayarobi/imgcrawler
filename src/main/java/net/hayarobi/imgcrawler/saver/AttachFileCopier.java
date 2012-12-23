@@ -16,8 +16,8 @@ import net.hayarobi.imgcrawler.domain.SavingViewInfo;
 import net.hayarobi.imgcrawler.file.CrawlerPathManager;
 import net.hayarobi.imgcrawler.util.StringUtil;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 첨부파일들 새 게시판 구조에 맞게 복사한다. 
@@ -28,7 +28,7 @@ import org.apache.commons.logging.LogFactory;
  *
  */
 public class AttachFileCopier {
-	private static Log log = LogFactory.getLog(AttachFileCopier.class);
+	private static Logger log = LoggerFactory.getLogger(AttachFileCopier.class);
 	
 	/**
 	 * 이전 게시판의 파일명과 새로 저장된 파일 정보의 매핑

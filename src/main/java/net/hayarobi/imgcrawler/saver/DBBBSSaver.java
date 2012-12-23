@@ -40,8 +40,8 @@ import net.hayarobi.imgcrawler.util.AlbumImageFilenameUtil;
 import net.hayarobi.imgcrawler.util.AttachImageFilenameUtil;
 import net.hayarobi.imgcrawler.util.StringUtil;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 게시판을 저장하는 클래스.
@@ -50,7 +50,7 @@ import org.apache.commons.logging.LogFactory;
  *
  */
 public class DBBBSSaver {
-	private static Log log =  LogFactory.getLog(DBBBSSaver.class); 
+	private static Logger log =  LoggerFactory.getLogger(DBBBSSaver.class); 
 	
 	private String newBBSId;
 	

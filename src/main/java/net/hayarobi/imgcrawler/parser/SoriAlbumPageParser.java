@@ -13,8 +13,8 @@ import net.htmlparser.jericho.Source;
  * @author hayarobi 앨범 게시판의 개별 앨범 페이지의 정보를 추출한다. 기본 정보와 첨부된 사진 정보를 담는다.인자로 넘어온
  *         PageView객체에 정보를 주입한다. 쓰레드세이프 객체다.
  */
-public class AlbumPageParser extends PageParser {
-	public AlbumPageParser(PageView pageView) {
+public class SoriAlbumPageParser extends PageParser {
+	public SoriAlbumPageParser(PageView pageView) {
 		super(pageView);
 	}
 	

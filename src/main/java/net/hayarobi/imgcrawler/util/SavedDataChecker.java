@@ -37,8 +37,8 @@ import net.hayarobi.imgcrawler.worker.BBSCrawler;
 import net.hayarobi.imgcrawler.worker.ViewSkipChecker;
 import net.hayarobi.imgcrawler.worker.ViewSkipCheckerFactory;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
@@ -49,7 +49,7 @@ import org.apache.http.params.HttpParams;
  * 
  */
 public class SavedDataChecker {
-	private static Log log = LogFactory.getLog("Main.class");
+	private static Logger log = LoggerFactory.getLogger("Main.class");
 
 	public static void main(String[] args) {
 		// 1. 설정 파일을 읽어들이고

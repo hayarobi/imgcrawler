@@ -15,7 +15,11 @@ public enum BBSType {
 	
 	
 	// 우왕 여기서 부터 김주현 코딩. 
-	noti(NotiBBSCrawler.class
+	soriImg(PlainBBSCrawler.class
+			, "http://cafe.gongdong.or.kr/cafe.php?p1=%s&sort=%s&page=%d&startpage=1"
+			, "http://cafe.gongdong.or.kr/cafe.php?p1=%s&sort=%s&page=%d&startpage=1&mode=view"
+			)
+	, noti(NotiBBSCrawler.class
 			, "http://community.freechal.com/ComService/Activity/Notice/CsNoticeList.asp?GrpId=%s&ObjSeq=%s&PageNo=%d"
 			, "http://community.freechal.com/ComService/Activity/Notice/CsNoticeContent.asp?GrpId=%s&ObjSeq=%s&DocId=%s&PageNo=%d")	
 	,bbs(PlainBBSCrawler.class

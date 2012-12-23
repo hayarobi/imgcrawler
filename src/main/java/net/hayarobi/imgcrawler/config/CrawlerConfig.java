@@ -16,10 +16,11 @@ import java.util.Properties;
  *
  */
 public class CrawlerConfig {
-	private static final String CONFIG_PROPERTIES = "config.properties";
+	private static final String CONFIG_PROPERTIES = "config.yaml";
 
 	public static enum ConfigItemName {
-		userid, password, communityId, reloadListCache, reloadContent, reloadAttach
+		userid, password, communityId, bbsId, crawlStartNumber, crawlEndNumber
+		, reloadListCache, reloadContent, reloadAttach
 		, crawlOutput, savingOutput // 일단 임시로 하드코딩 값이 들어감.
 		, configDir // configDir만은 설정파일이 아닌 곳에서 가져온다.
 	};

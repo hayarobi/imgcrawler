@@ -14,8 +14,8 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import net.hayarobi.imgcrawler.domain.AttachFileInfo;
@@ -58,7 +58,7 @@ public class FilePageSaver extends PageSaver {
 
 	}
 
-	private static Log log = LogFactory.getLog(FilePageSaver.class);
+	private static Logger log = LoggerFactory.getLogger(FilePageSaver.class);
 
 	/**********************************************
 	 * 여기서부터는 상수

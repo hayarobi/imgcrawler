@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.hayarobi.imgcrawler.domain.AttachFileInfo;
 import net.hayarobi.imgcrawler.domain.AttachFileInfo.AttachType;
@@ -26,7 +26,7 @@ import net.htmlparser.jericho.Source;
  *
  */
 public abstract class PageParser {
-	private static Log log = LogFactory.getLog(PageParser.class);
+	private static Logger log = LoggerFactory.getLogger(PageParser.class);
 	
 	protected String ATTACHFILE_URL_PREFIX = "http://vdown.freechal.com/ComService/Activity/PDS/CsPDSDownload.asp?";
 	protected InputStream viewHtmlStream;

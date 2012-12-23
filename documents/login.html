@@ -1,0 +1,866 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>로그인 - 공동육아와 공동체교육</title>
+
+	<link href="/css/v2_2008/base.css" rel="stylesheet" type="text/css">
+	<link href="/css/v2_2008/sub.css" rel="stylesheet" type="text/css">
+
+<script src="/js/flash.js" type="text/javascript"></script>
+<script src="/js/flashObj.js" type="text/javascript"></script>
+<script src="/js/jquery-1.7.2.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15901951-4']);
+  _gaq.push(['_setDomainName', '.gongdong.or.kr']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+</head>
+
+
+<body topmargin=0 leftmargin=0>
+	
+
+  
+<div id="wrapper">
+ 
+
+<div style="position:relative;">
+
+		<script>
+
+		// 오른쪽 배너창
+		function moveLayerTo()
+		{
+			var yOffset;
+			var startYFromPreview = parseInt(document.getElementById("previewLayer").style.top);
+			var moveYTo = document.body.scrollTop + 188; // 처음 y좌표
+			var intervalTime = 3;
+
+			if(Math.abs(startYFromPreview - moveYTo) > 5)
+			{
+				yOffset = Math.ceil(Math.abs( moveYTo - startYFromPreview ) / 10);
+				if(moveYTo < startYFromPreview)
+					yOffset = -yOffset;
+				document.getElementById("previewLayer").style.top = parseInt(document.getElementById("previewLayer").style.top) + yOffset;
+			}
+			else
+			{
+				document.getElementById("previewLayer").style.top = moveYTo;
+			}
+
+			setTimeout("moveLayerTo()", intervalTime);
+			return false;
+		}
+
+		function moveLayer()
+		{
+			document.getElementById("previewLayer").style.top = 60;
+			moveLayerTo();
+			return false;
+		}
+
+		function init()
+		{	
+			moveLayer();
+			return false;
+		}
+
+	</script>
+
+    <!-- 퀵배너 위치 -->
+	<div id='previewLayer' style='position:absolute; top:*px; left:955px; display:block;'><script>flash('images/swf/quick.swf','90','375')</script></div>
+    <!-- 퀵배너 위치 끝-->
+
+	<script>setTimeout('init()',0)</script>
+
+</div>
+
+
+<div id="header">
+</div>
+
+<div id="middle"><div>
+<hr />
+
+<div id="main-left">
+
+	<h2 class="hide" >왼쪽</h2>
+	  
+ 	<hr  />
+ 	
+	
+	<div><a href="http://www.gongdong.or.kr/" target="_top"><img src="images/main/logo.jpg" border="0"></a></div>
+	
+	
+	<div><a href="index.php?code=gongdong"><img src="images/main/banner01.jpg" border="0"><a/></div>
+
+	<div style="height:10px;"></div>
+	
+	
+
+<hr />
+	
+	
+	
+
+	<body onLoad="load_cook();">
+	
+	<div id="login-box">
+	
+		<div style="padding:6px;">
+		
+		<h3 class=hide>로그인</h3>
+				
+		<script language="JavaScript" src="cookie.js"></script>		
+		
+		
+
+		
+		<form action="/index.php?code=login" method="post" name="login" >
+			<input type="hidden" name="mode" value="login" />	
+		
+		
+				<!-- 로그인 -->
+				 
+		
+					<table border="0" align="center" cellpadding="0" cellspacing="0" width="170">
+		                  <tr>
+		                    <td width="110" height="18"><input class="ed" type="text" name="id" id="id" tabindex="1"  value='' style="font-weight:normal; font-size:8pt; color:#8893B4; font-family:Tahoma,돋움; letter-spacing:0pt; padding:0px 0px 0px 5px; border-width:1; border-color:rgb(204,204,204); border-style:solid; width:100px; height:18px;">                            </td>
+		                    
+		                    <td align="center"><input type="checkbox" name="user_cook"  onclick="cook_proc();"  id="cook-id" title="아이디저장"  tabindex='3' />
+		                        <img src="images/main/auto.gif" align="absmiddle" width="18" height="7" border="0"> </td>
+		                  </tr>
+		                  <tr>
+		                    <td  ><input type="password" name="pwd" id="pwd" tabindex="2"   style="font-weight:normal; font-size:8pt; color:#8893B4; font-family:Tahoma,돋움; letter-spacing:0pt; padding:0px 0px 0px 5px; border-width:1; border-color:rgb(204,204,204); border-style:solid; width:100px; height:18px;"   value='' size="16" maxlength="20" > </td>
+		                    <td  ><input type="image" src="images/space.gif" width="1" height="1" ><a href="#1"  onclick="javascript:submitOK();" tabindex='4'><img src='images/main/btn_login.gif' width="52" height="17" border="0"></a></td>
+		                  </tr>
+		              </table>
+				
+					<table width="170" border="0" cellspacing="0" cellpadding="0"> 
+				            <tr>
+				              <td width="170" height="7"></td>
+				            </tr>
+				            <tr>
+				              <td width="170" height="1" bgcolor="#E4E4E4"></td>
+				            </tr>
+				            <tr>
+				              <td width="170" height="4"></td>
+				            </tr>
+					</table>
+				
+				
+				
+					<table border="0" align="center" cellpadding="0" cellspacing="0" width="170">
+		                  <tr>
+		                    <td width="59" height="18" align="center" valign="bottom"><a href="/index.php?code=member_regist"><span style="font-weight:bold; font-size:8pt; color:#FF7F01; font-family:돋움; letter-spacing:-1pt;">회원가입</span></a></td>
+		                    <td width="1" height="18" bgcolor="#E4E4E4"></td>
+		                    <td width="110" height="18" align="center" valign="bottom"><a href="/index.php?code=find_id_pw"><span style="font-weight:normal; font-size:8pt; color:#868686; font-family:돋움; letter-spacing:-1pt;">아이디·패스워드 찾기</span></a></td>
+		                  </tr>
+		              </table> 
+				 
+		 		 			
+		</form>
+		
+  		
+		</div>
+		
+	</div>
+	
+	
+
+ 	
+<!-- 왼쪽부분 -->
+
+							
+
+ 
+ 
+						<!-- /왼쪽부분 -->
+ 	
+ 	
+<hr />
+
+
+ 	   
+ <!-- 왼쪽메뉴 -->
+              
+            <table width="180" border="0" cellspacing="0" cellpadding="0">  
+              <tr>
+                <td height="40"><img src="/media/images/css/v2_2008/sub_menu_title_5.gif"  border="0"></td>
+              </tr>
+			 <tr>
+                <td height="150" align="center" valign="top" >
+
+
+				<table width="180" border="0" cellpadding="0" cellspacing="0" background="/media/images/css/v2_2008/sub_bg.jpg">
+				
+				
+
+											
+																
+				                <tr>
+				                  <td height="28" width="9">&nbsp;</td>
+				                  <td width="9"><img src="/media/images/css/v2_2008/sub_icon.jpg" width="9" height="9"></td>
+				                  <td width="162" class="sub_list">&nbsp; <a href="index.php?option=page&code=login"  class="sub-menu-li"><strong><font color='#FF6600'>회원 로그인</font></strong></a></td>
+				                </tr> 
+
+
+
+
+																
+								 
+					                <tr>
+					                  <td colspan="3"><img src="/media/images/css/v2_2008/sub_line.jpg" width="180" height="1"></td>
+					                </tr>
+																
+				                <tr>
+				                  <td height="28" width="9">&nbsp;</td>
+				                  <td width="9"><img src="/media/images/css/v2_2008/sub_icon.jpg" width="9" height="9"></td>
+				                  <td width="162" class="sub_list">&nbsp; <a href="index.php?option=page&code=mypage"  class="sub-menu-li">마이페이지</a></td>
+				                </tr> 
+
+
+
+
+																
+								 
+					                <tr>
+					                  <td colspan="3"><img src="/media/images/css/v2_2008/sub_line.jpg" width="180" height="1"></td>
+					                </tr>
+																
+				                <tr>
+				                  <td height="28" width="9">&nbsp;</td>
+				                  <td width="9"><img src="/media/images/css/v2_2008/sub_icon.jpg" width="9" height="9"></td>
+				                  <td width="162" class="sub_list">&nbsp; <a href="index.php?option=page&code=mycal"  class="sub-menu-li">마이 캘린더</a></td>
+				                </tr> 
+
+
+
+
+																
+								 
+					                <tr>
+					                  <td colspan="3"><img src="/media/images/css/v2_2008/sub_line.jpg" width="180" height="1"></td>
+					                </tr>
+																
+				                <tr>
+				                  <td height="28" width="9">&nbsp;</td>
+				                  <td width="9"><img src="/media/images/css/v2_2008/sub_icon.jpg" width="9" height="9"></td>
+				                  <td width="162" class="sub_list">&nbsp; <a href="index.php?option=page&code=edit_mypage"  class="sub-menu-li">마이페이지 수정</a></td>
+				                </tr> 
+
+
+
+
+																
+								 
+					                <tr>
+					                  <td colspan="3"><img src="/media/images/css/v2_2008/sub_line.jpg" width="180" height="1"></td>
+					                </tr>
+																
+				                <tr>
+				                  <td height="28" width="9">&nbsp;</td>
+				                  <td width="9"><img src="/media/images/css/v2_2008/sub_icon.jpg" width="9" height="9"></td>
+				                  <td width="162" class="sub_list">&nbsp; <a href="index.php?option=page&code=member_regist"  class="sub-menu-li">회원 가입</a></td>
+				                </tr> 
+
+
+
+
+																
+								 
+					                <tr>
+					                  <td colspan="3"><img src="/media/images/css/v2_2008/sub_line.jpg" width="180" height="1"></td>
+					                </tr>
+																
+				                <tr>
+				                  <td height="28" width="9">&nbsp;</td>
+				                  <td width="9"><img src="/media/images/css/v2_2008/sub_icon.jpg" width="9" height="9"></td>
+				                  <td width="162" class="sub_list">&nbsp; <a href="index.php?option=page&code=find_id_pw"  class="sub-menu-li">비밀번호, 아이디 찾기</a></td>
+				                </tr> 
+
+
+
+
+																
+								 
+					                <tr>
+					                  <td colspan="3"><img src="/media/images/css/v2_2008/sub_line.jpg" width="180" height="1"></td>
+					                </tr>
+																
+				                <tr>
+				                  <td height="28" width="9">&nbsp;</td>
+				                  <td width="9"><img src="/media/images/css/v2_2008/sub_icon.jpg" width="9" height="9"></td>
+				                  <td width="162" class="sub_list">&nbsp; <a href="index.php?option=page&code=member_edit_info"  class="sub-menu-li">회원정보수정</a></td>
+				                </tr> 
+
+
+
+
+																
+								 
+					                <tr>
+					                  <td colspan="3"><img src="/media/images/css/v2_2008/sub_line.jpg" width="180" height="1"></td>
+					                </tr>
+																
+				                <tr>
+				                  <td height="28" width="9">&nbsp;</td>
+				                  <td width="9"><img src="/media/images/css/v2_2008/sub_icon.jpg" width="9" height="9"></td>
+				                  <td width="162" class="sub_list">&nbsp; <a href="index.php?option=page&code=member_edit_pwd"  class="sub-menu-li">비밀번호 수정</a></td>
+				                </tr> 
+
+
+
+
+																
+								 
+					                <tr>
+					                  <td colspan="3"><img src="/media/images/css/v2_2008/sub_line.jpg" width="180" height="1"></td>
+					                </tr>
+																
+				                <tr>
+				                  <td height="28" width="9">&nbsp;</td>
+				                  <td width="9"><img src="/media/images/css/v2_2008/sub_icon.jpg" width="9" height="9"></td>
+				                  <td width="162" class="sub_list">&nbsp; <a href="index.php?option=page&code=member_dis"  class="sub-menu-li">회원탈퇴</a></td>
+				                </tr> 
+
+
+
+
+												
+				 
+				
+				
+				
+ 
+                 
+                  <tr>
+                    <td colspan="3"><img src="/media/images/css/v2_2008/sub_bottom.jpg" width="180" height="23"></td>
+                  </tr>
+				   
+                </table>
+                
+	                </td>
+				 </tr>
+ 
+	            </table>
+
+
+		 		<div style="padding:5px;"></div>
+ <!--
+				<div><a href="index.php?code=gdteacher" ><img src="/media/images/css/v2_2008/sub_link_01.gif"  border="0" ></a></div>
+				 
+			 	<div style="padding:1px;"></div>
+-->			
+				<div><a href="index.php?code=map" ><img src="/media/images/css/v2_2008/sub_link_02.gif"  border="0" ></a></div>
+				 
+ <!-- 왼쪽메뉴 -->
+ 
+ 
+ 	
+		
+
+ 	
+ 	
+
+
+<div style="padding:50px 0px 0px 0px;"></div>
+ 
+
+ 
+  
+
+
+ 
+
+
+ 
+	 
+</div>  <div id="content">
+<hr />
+
+<SCRIPT LANGUAGE="JavaScript" src="/js/flash.js"></script>
+
+
+ 
+
+
+
+<script language="javascript" type="text/javascript">
+
+		function showsub( targetsub ) {
+			var z=1;
+			while ( z <= 5 )
+			{
+				var temp_hidden_number = "depth20" + z;
+				targetsubnumber = "document.getElementById(\"" +temp_hidden_number + "\")" ;
+				//alert(eval(targetsubnumber).style.display);
+				eval(targetsubnumber).style.display="none";
+				z = z + 1;
+			}
+
+			var targetsubnumber = "depth20" + targetsub;
+			targetsubnumber = "document.getElementById(\"" +targetsubnumber + "\")" ;
+			eval(targetsubnumber).style.display="block";
+			return 
+		}
+
+</script>
+
+<div style="width:760px;height:90px;overflow:hidden;" >
+	
+	 
+	<table cellpadding=0 cellspacing=0 border=0 width=760 height=90>
+		<tr>
+			<td height=10></td>
+		</tr>
+		<tr>
+			<td height=11>
+				<!--상단 오른쪽 메뉴 start-->
+				<table cellpadding=0 cellspacing=0 border=0 width=760>
+					<tr>
+						<td width=599></td>
+						<td width=43><a href="/"><img src="images/img/sub_sm_01.gif" border=0 width=43 height=11></a></td>
+						<td width=65><a href="/index.php?code=people"><img src="images/img/sub_sm_02.gif" border=0 width=65 height=11></a></td>
+						<td width=46><a href="/index.php?code=sitemap"><img src="images/img/sub_sm_03.gif" border=0 width=46 height=11></a></td>
+						<td width=7></td>
+					</tr>
+				</table>
+				<!--상단 오른쪽 메뉴 end-->
+			</td>
+		</tr>
+		<tr>
+			<td height=9></td>
+		</tr>
+		<tr>
+			<td valign=top height=38> 
+				
+
+					<div id="top-navigation">
+						<h3 class="hide">메인 메뉴</h3>
+							<ul class="depth1"> 
+
+											 
+
+								<div class="depth201" id="depth201">
+									<table cellpadding=0 cellspacing=0 border=0  >
+										<!--
+										<tr>
+											<td colspan=3 height=4><img src="images/img/sub_menu_ar01.gif"></td>
+										</tr>
+										-->
+										<tr>
+											 
+											<td width=14><img src="images/img/sub_menu_head.gif"></td>
+											<td  height="18" bgcolor="#008f1c" align="center" onmouseover="javascript:showsub(1);"  onmouseout="javascript:showsub(5);" >
+												
+												<div style="height:18px;overflow:hidden;" >
+													<div style="padding:1px 0px 0px 0px;" class="white">
+								<a href="index.php?option=page&code=intro" ><span class="white"><font style="letter-spacing:-0.1em;">인사말</font></span></a> | <a href="index.php?option=page&code=idea" ><span class="white"><font style="letter-spacing:-0.1em;">설립취지</font></span></a> | <a href="index.php?option=page&code=history" ><span class="white"><font style="letter-spacing:-0.1em;">걸어온길</font></span></a> | <a href="index.php?option=page&code=work" ><span class="white"><font style="letter-spacing:-0.1em;">사업</font></span></a> | <a href="index.php?option=page&code=system" ><span class="white"><font style="letter-spacing:-0.1em;">조직</font></span></a> | <a href="index.php?option=page&code=statute" ><span class="white"><font style="letter-spacing:-0.1em;">정관</font></span></a> | <a href="index.php?option=page&code=people" ><span class="white"><font style="letter-spacing:-0.1em;">사람들</font></span></a> | <a href="index.php?option=page&code=join_intro" ><span class="white"><font style="letter-spacing:-0.1em;">가입안내</font></span></a> | <a href="index.php?option=page&code=haesong" ><span class="white"><font style="letter-spacing:-0.1em;">해송</font></span></a> | <a href="index.php?option=page&code=rootnsae" ><span class="white"><font style="letter-spacing:-0.1em;">뿌리와새싹</font></span></a> | <a href="index.php?option=page&code=announce" ><span class="white"><font style="letter-spacing:-0.1em;">보육권리선언</font></span></a> | <a href="index.php?option=page&code=logo" ><span class="white"><font style="letter-spacing:-0.1em;">로고</font></span></a> | <a href="board.php?sort=mm" ><span class="white"><font style="letter-spacing:-0.1em;">언론속공동육아</font></span></a> | <a href="index.php?option=page&code=map" ><span class="white"><font style="letter-spacing:-0.1em;">약도</font></span></a>														</div>
+													</div>
+												</td>
+												<td width=16><img src="images/img/sub_menu_tail.gif"></td>
+												 
+											</tr>
+										</table>
+									</div> 
+															 
+
+								<div class="depth202" id="depth202">
+									<table cellpadding=0 cellspacing=0 border=0  >
+										<!--
+										<tr>
+											<td colspan=3 height=4><img src="images/img/sub_menu_ar01.gif"></td>
+										</tr>
+										-->
+										<tr>
+											 
+											<td width=14><img src="images/img/sub_menu_head.gif"></td>
+											<td  height="18" bgcolor="#008f1c" align="center" onmouseover="javascript:showsub(2);"  onmouseout="javascript:showsub(5);" >
+												
+												<div style="height:18px;overflow:hidden;" >
+													<div style="padding:1px 0px 0px 0px;" class="white">
+								<a href="board.php?sort=nursery" ><span class="white"><font style="letter-spacing:-0.1em;">부모협동어린이집</font></span></a> | <a href="board.php?sort=johapsetup" ><span class="white"><font style="letter-spacing:-0.1em;">공동육아협동조합</font></span></a> | <a href="board.php?sort=policy" ><span class="white"><font style="letter-spacing:-0.1em;">보육법령</font></span></a> | <a href="board.php?sort=teacher_edu" ><span class="white"><font style="letter-spacing:-0.1em;">교사교육</font></span></a> | <a href="board.php?sort=parent_edu" ><span class="white"><font style="letter-spacing:-0.1em;">부모교육</font></span></a> | <a href="board.php?sort=haldong" ><span class="white"><font style="letter-spacing:-0.1em;">어린이집교육활동</font></span></a> | <a href="board.php?sort=chodeung" ><span class="white"><font style="letter-spacing:-0.1em;">초등과정교육활동</font></span></a> | <a href="board.php?sort=afterschool" ><span class="white"><font style="letter-spacing:-0.1em;">방과후운영</font></span></a> | <a href="board.php?sort=form" ><span class="white"><font style="letter-spacing:-0.1em;">서식.자료</font></span></a> | <a href="board_public.php" ><span class="white"><font style="letter-spacing:-0.1em;">커뮤니티 자료실</font></span></a>														</div>
+													</div>
+												</td>
+												<td width=16><img src="images/img/sub_menu_tail.gif"></td>
+												 
+											</tr>
+										</table>
+									</div> 
+															 
+
+								<div class="depth203" id="depth203">
+									<table cellpadding=0 cellspacing=0 border=0  >
+										<!--
+										<tr>
+											<td colspan=3 height=4><img src="images/img/sub_menu_ar01.gif"></td>
+										</tr>
+										-->
+										<tr>
+											 
+											<td width=14><img src="images/img/sub_menu_head.gif"></td>
+											<td  height="18" bgcolor="#008f1c" align="center" onmouseover="javascript:showsub(3);"  onmouseout="javascript:showsub(5);" >
+												
+												<div style="height:18px;overflow:hidden;" >
+													<div style="padding:1px 0px 0px 0px;" class="white">
+								<a href="board.php?sort=e_gongdong" ><span class="white"><font style="letter-spacing:-0.1em;">e-공동육아</font></span></a> | <a href="board.php?sort=book" ><span class="white"><font style="letter-spacing:-0.1em;">회보</font></span></a> | <a href="index.php?option=page&code=ourbooks" ><span class="white"><font style="letter-spacing:-0.1em;">발간도서</font></span></a> | <a href="index.php?option=page&code=article_gongdong" ><span class="white"><font style="letter-spacing:-0.1em;">관련논문</font></span></a> | <a href="index.php?option=page&code=otherbooks" ><span class="white"><font style="letter-spacing:-0.1em;">관련도서</font></span></a>														</div>
+													</div>
+												</td>
+												<td width=16><img src="images/img/sub_menu_tail.gif"></td>
+												 
+											</tr>
+										</table>
+									</div> 
+															 
+
+								<div class="depth204" id="depth204">
+									<table cellpadding=0 cellspacing=0 border=0  >
+										<!--
+										<tr>
+											<td colspan=3 height=4><img src="images/img/sub_menu_ar01.gif"></td>
+										</tr>
+										-->
+										<tr>
+											 
+											<td width=14><img src="images/img/sub_menu_head.gif"></td>
+											<td  height="18" bgcolor="#008f1c" align="center" onmouseover="javascript:showsub(4);"  onmouseout="javascript:showsub(5);" >
+												
+												<div style="height:18px;overflow:hidden;" >
+													<div style="padding:1px 0px 0px 0px;" class="white">
+								<a href="board.php?sort=notice" ><span class="white"><font style="letter-spacing:-0.1em;">공지사항</font></span></a> | <a href="board.php?sort=edu_notice" ><span class="white"><font style="letter-spacing:-0.1em;">교육안내</font></span></a> | <a href="board.php?sort=johap" ><span class="white"><font style="letter-spacing:-0.1em;">조합원모집</font></span></a> | <a href="board.php?sort=teacher" ><span class="white"><font style="letter-spacing:-0.1em;">교사모집</font></span></a> | <a href="board.php?sort=ask" ><span class="white"><font style="letter-spacing:-0.1em;">무엇이든물어보세요</font></span></a> | <a href="board.php?sort=eboard" ><span class="white"><font style="letter-spacing:-0.1em;">알리고싶어요</font></span></a> | <a href="board.php?sort=photo" ><span class="white"><font style="letter-spacing:-0.1em;">포토게시판</font></span></a>														</div>
+													</div>
+												</td>
+												<td width=16><img src="images/img/sub_menu_tail.gif"></td>
+												 
+											</tr>
+										</table>
+									</div> 
+															 
+
+								<div class="depth205" id="depth205">
+									<table cellpadding=0 cellspacing=0 border=0  >
+										<!--
+										<tr>
+											<td colspan=3 height=4><img src="images/img/sub_menu_ar01.gif"></td>
+										</tr>
+										-->
+										<tr>
+											 
+											<td width=14><img src="images/img/sub_menu_head.gif"></td>
+											<td  height="18" bgcolor="#008f1c" align="center" onmouseover="javascript:showsub(5);"  onmouseout="javascript:showsub(5);" >
+												
+												<div style="height:18px;overflow:hidden;" >
+													<div style="padding:1px 0px 0px 0px;" class="white">
+																						</div>
+													</div>
+												</td>
+												<td width=16><img src="images/img/sub_menu_tail.gif"></td>
+												 
+											</tr>
+										</table>
+									</div> 
+								
+					 		</ul>
+					 </div>
+
+						<div style="display:none;">
+							<img src="images/img/sub_mm_01_on.gif" >
+							<img src="images/img/sub_mm_02_on.gif" >
+							<img src="images/img/sub_mm_03_on.gif" >
+							<img src="images/img/sub_mm_04_on.gif" >
+							<img src="images/img/sub_mm_05_on.gif" >
+						</div>
+
+					<!--메인메뉴 start-->
+					<table cellpadding=0 cellspacing=0 border=0 width=760>
+						<tr>
+							<td width=85><img src="images/img/sub_mm_img01.gif" width=85 height=38 border=0 ></td>
+							<td width=90><a href="index.php?option=page&code=intro" onfocus="javascript:showsub(1);" onmouseover="javascript:showsub(1);" ><img src="images/img/sub_mm_01.gif" width=90 height=38 border=0 onmouseover="javascript:this.src='images/img/sub_mm_01_on.gif';" onmouseout="javascript:this.src='images/img/sub_mm_01.gif';" ></a></td>
+							<td width=35><img src="images/img/sub_mm_img02.gif" width=35 height=38 border=0></td>
+							<td width=76><a href="board.php?sort=nursery" onfocus="javascript:showsub(2);" onmouseover="javascript:showsub(2);" ><img src="images/img/sub_mm_02.gif" width=76 height=38 border=0 onmouseover="javascript:this.src='images/img/sub_mm_02_on.gif';" onmouseout="javascript:this.src='images/img/sub_mm_02.gif';"></a></td>
+							<td width=35><img src="images/img/sub_mm_img03.gif" width=35 height=38 border=0></a></td>
+							<td width=69><a href="board.php?sort=e_gongdong" onfocus="javascript:showsub(3);" onmouseover="javascript:showsub(3);"  ><img src="images/img/sub_mm_03.gif" width=69 height=38 border=0 onmouseover="javascript:this.src='images/img/sub_mm_03_on.gif';" onmouseout="javascript:this.src='images/img/sub_mm_03.gif';"></a></td>
+							<td width=40><img src="images/img/sub_mm_img04.gif" width=40 height=38 border=0></a></td>
+							<td width=81><a href="board.php?sort=notice" onfocus="javascript:showsub(4);" onmouseover="javascript:showsub(4);" ><img src="images/img/sub_mm_04.gif" width=81 height=38 border=0 onmouseover="javascript:this.src='images/img/sub_mm_04_on.gif';" onmouseout="javascript:this.src='images/img/sub_mm_04.gif';"></a></td>
+							<td width=99><img src="images/img/sub_mm_img05.gif" width=99 height=38 border=0></a></td>
+							<td width=126><a href="/index.php?code=cafe" onfocus="javascript:showsub(5);" onmouseover="javascript:showsub(5);" ><img src="images/img/sub_mm_05.gif" width=126 height=38 border=0 onmouseover="javascript:this.src='images/img/sub_mm_05_on.gif';" onmouseout="javascript:this.src='images/img/sub_mm_05.gif';"></a></td>
+							<td width=24><img src="images/img/sub_mm_img06.gif" width=24 height=38 border=0></a></td>
+						</tr>
+					</table>
+					<!--메인메뉴 end-->
+			</td>
+		</tr>
+		<tr>
+			<td height=22 valign=top>
+	 
+		         
+			</td>
+		</tr>
+	</table>
+	
+	 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="z-index:-99;"><img src="/media/images/css/v2_2008/sub_image.jpg" border="0"></div>
+
+
+<map name="menu">
+	<area shape="rect" coords="596,6,632,21" href="/">
+	<area shape="rect" coords="641,3,679,23" href="index.php?code=login">
+	<area shape="rect" coords="691,4,736,23" href="index.php?code=sitemap">
+	<area shape="rect" coords="177,32,245,71" href="index.php?code=intro">
+	<area shape="rect" coords="275,30,341,71" href="board.php?sort=nursery">
+	<area shape="rect" coords="369,31,437,71" href="index.php?code=media">
+	<area shape="rect" coords="461,28,545,71" href="board.php?sort=notice">
+	<area shape="rect" coords="606,26,733,70" href="index.php?code=cafe">
+</map>
+
+								<!-- 본문 시작 -->
+
+									<table border="0" cellpadding="0" cellspacing="0" width="630" align=center >
+
+
+										<tr>
+											<td height=5></td>
+										</tr>
+
+ 
+
+										<tr>
+											<td>
+												
+											</td>
+										</tr>
+										<tr>
+											<td height=5></td>
+										</tr>
+										<tr>
+											<td>
+											
+											
+
+
+
+<body onLoad="load_cook();"  >
+
+
+
+
+<SCRIPT LANGUAGE="JavaScript" SRC="cookie.js">
+</SCRIPT>
+
+<P>&nbsp;</p>
+
+		
+<!-- 매직박스 시작-->
+<table align=center cellpadding=0 cellspacing=0 width=3><tr><td><img src=space.gif width=1 height=1></td><td><img src=space.gif width=1 height=1></td><td><img src=space.gif width=1 height=1></td><td bgcolor=#dddddd><img src=space.gif width=394 height=1></td><td><img src=space.gif width=1 height=1></td><td><img src=space.gif width=1 height=1></td><td><img src=space.gif width=1 height=1></td></tr><tr><td><img src=space.gif width=1 height=1></td><td bgcolor=#dddddd><img src=space.gif width=1 height=1></td><td bgcolor=#dddddd><img src=space.gif width=1 height=1></td><td bgcolor=#FFFFFF><img src=space.gif width=1 height=1></td><td bgcolor=#dddddd><img src=space.gif width=1 height=1></td><td bgcolor=#dddddd><img src=space.gif width=1 height=1></td><td><img src=space.gif width=1 height=1></td></tr><tr><td><img src=space.gif width=1 height=1></td><td bgcolor=#dddddd><img src=space.gif width=1 height=1></td><td bgcolor=#FFFFFF><img src=space.gif width=1 height=1></td><td bgcolor=#FFFFFF><img src=space.gif width=1 height=1></td><td bgcolor=#FFFFFF><img src=space.gif width=1 height=1></td><td bgcolor=#dddddd ><img src=space.gif width=1 height=1></td><td><img src=space.gif width=1 height=1></td></tr>
+
+<tr><td bgcolor=#dddddd><img src=space.gif width=1 height=1></td><td bgcolor=#FFFFFF><img src=space.gif width=1 height=1></td><td bgcolor=#FFFFFF><img src=space.gif width=1 height=1></td><td bgcolor=#FFFFFF valign=top >
+<!-- 매직박스 상단-->
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="350" align=center>
+
+
+<form method='post' action='/index.php?code=login' name=login>	
+	<input type="hidden" name="mode" value="login">	
+
+
+<input type=hidden name="gopage" value="http://cafe.gongdong.or.kr/cafe.php?code=sorinaneun"> 
+    <tr>
+        <td height=10></td>
+    </tr>
+    <tr>
+        <td>
+ 
+
+			<table align="center" border="0" cellpadding="0" cellspacing="0" width="100">
+				<tr>
+					<td height=10></td>
+				</tr>
+				<tr>
+					<td>
+						<table align="center" border="0" cellpadding="0" cellspacing="0" width="170">
+							<tr>
+								<td height=25>
+									<p align=right><span style="font-size:9pt;">아이디</span></p>
+								</td>
+								<td height=25>
+									<p align=left>&nbsp;&nbsp;<input type=text name="id" style="FONT-SIZE: 9pt; WIDTH: 100px" ></p>
+								</td>
+							</tr>
+							<tr>
+								<td height=25>
+									<p align=right><span style="font-size:9pt;">비밀번호</span></p>
+								</td>
+								<td height=25>
+									<p align=left>&nbsp;&nbsp;<input type=password name="pwd" style="FONT-SIZE: 9pt; WIDTH: 100px" ></p>
+								</td>
+							</tr>
+							<tr>
+								<td height=25>
+									<p align=right> </p>
+								</td>
+								<td height=25>
+									<p align=left>&nbsp;&nbsp;<INPUT onclick=cook_proc(); type=checkbox name=user_cook id="user_cook"><span style="font-size:9pt;"><label for="user_cook">아이디 저장하기</label></span></p>
+								</td>
+							</tr>
+						</table>
+						
+					</td>
+					<td valign=top>
+						<p><input type="image" SRC="images/bt_login2.gif" WIDTH="70" HEIGHT="46" BORDER=0 vspace=2 onclick=cook_proc(); ></a></p></form>
+					</td>
+				</tr>
+			</table>
+
+
+        </td>
+    </tr>
+ 
+    <tr>
+        <td>
+             
+        </td>
+    </tr></form>
+    <tr>
+        <td>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#cccccc" height=1></td>
+    </tr>
+    <tr>
+        <td> 
+
+			<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+
+				<tr>
+					<td height=95 class=black>
+						<p align=center><a href="index.php?code=member_regist"><IMG SRC="images/bt_registration.gif"  BORDER=0 ALT="회원가입"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.php?code=find_id_pw"><IMG SRC="images/bt_find_id.gif"  BORDER=0 ALT="아이디/비밀번호 찾기"></a></p>
+					</td>
+				</tr>
+			</table>
+		
+		
+		</td>
+    </tr>
+
+
+</table>
+
+
+
+
+		
+<!-- 매직박스 하단-->
+</td><td bgcolor=#FFFFFF><img src=space.gif width=1 height=1></td><td bgcolor=#FFFFFF><img src=space.gif width=1 height=1></td><td bgcolor=#dddddd><img src=space.gif width=1 height=1></td></tr>
+
+<tr><td><img src=space.gif width=1 height=1></td><td bgcolor=#dddddd><img src=space.gif width=1 height=1></td><td bgcolor=#FFFFFF><img src=space.gif width=1 height=1></td><td bgcolor=#FFFFFF><img src=space.gif width=1 height=1></td><td bgcolor=#FFFFFF><img src=space.gif width=1 height=1></td><td bgcolor=#dddddd><img src=space.gif width=1 height=1></td><td><img src=space.gif width=1 height=1></td></tr><tr><td><img src=space.gif width=1 height=1></td><td bgcolor=#dddddd><img src=space.gif width=1 height=1></td><td bgcolor=#dddddd><img src=space.gif width=1 height=1></td><td bgcolor=#FFFFFF><img src=space.gif width=1 height=1></td><td bgcolor=#dddddd><img src=space.gif width=1 height=1></td><td bgcolor=#dddddd><img src=space.gif width=1 height=1></td><td><img src=space.gif width=1 height=1></td></tr><tr><td><img src=space.gif width=1 height=1></td><td><img src=space.gif width=1 height=1></td><td><img src=space.gif width=1 height=1></td><td bgcolor=#dddddd><img src=space.gif width=1 height=1></td><td><img src=space.gif width=1 height=1></td><td><img src=space.gif width=1 height=1></td><td><img src=space.gif width=1 height=1></td></tr></table>
+<!-- 매직박스 끝-->
+
+											</td>
+										</tr>
+
+									</table>
+
+								<!-- 본문 끝 -->
+ 
+ 
+
+ 
+
+
+</div><hr />
+
+<div id="sub-right">
+
+	<h2 class="hide" >오른쪽</h2>
+  
+    
+ 
+  
+</div></div><hr />
+
+<div id="footer"  >
+	<h2 class="hide" >하단</h2>
+	
+	<div style="height:10px;"></div>
+  
+	<!-- footer -->
+	<table width="950" height="70" border="0" cellpadding="0" cellspacing="0" background="images/main/footer.jpg">
+	  <tr>
+		<td width="750"><img src="images/main/1.gif" width="750" height="70" border="0" usemap="#footer"></td>
+		<td width="200" align="right" valign="top" class="footer_td"></td>
+	  </tr>
+	</table>
+	<!-- footer 끝-->
+
+	<!-- FOOTER 맵주소 -->
+<map name="footer"><area shape="rect" coords="35,4,155,53" href="http://www.gongdong.or.kr" />
+<area shape="rect" coords="282,9,365,34" href="index.php?code=map" />
+<area shape="rect" coords="383,10,488,34" href="http://www.gongdong.or.kr/board.php?sort=e_gongdong&amp;sub_sort=&amp;page=&amp;startpage=&amp;keyfield=&amp;key_bs=&amp;p1=&amp;p2=&amp;p3=&amp;number=495517&amp;mode=view" />
+<area shape="rect" coords="502,8,599,33" href="index.php?code=private" />
+<area shape="rect" coords="612,8,741,31" href="index.php?code=noemail" />
+<area shape="rect" coords="571,34,701,51" href="mailto:gongdong@gongdong.or.kr" target="_blank" />
+</map>
+</div>
+
+	<div id="foot-address">
+		<h3 class="hide">연락처</h3>
+
+		<dl>
+			<dt>우편번호:</dt>
+			<dd></dd>
+			<dt>주소:</dt>
+			<dd>주소쓰는곳</dd> 
+			<dt>전화:</dt>
+			<dd>전화번호 쓰는곳</dd>
+			<dt>팩스:</dt>
+			<dd>펙스번호 쓰는곳</dd>  
+			<dt>이메일:</dt>
+			<dd>대표이메일@</dd>
+		</dl>
+		<p>COPYRIGHT 공동육아와 공동체교육. ALL RIGHT RESEARVED.</p>
+		<p>본 홈페이지에서는 이메일 주소가 자동수집되는 것을 거부하며, 이를 위반시 정보통신망법에 의하여 처벌됨을 유념하시기 바랍니다.</p>
+ 		
+	</div>	
+ 
+</div>
+
+<iframe src="memo.php" width=0 height=0 marginwidth=0 hspace=0 vspace=0 frameborder=0 scrolling=no></iframe>	
+</div>
+<!-- wrapper 끝 -->
+</body>
+</html>
+

@@ -11,8 +11,8 @@ import java.net.URL;
 import net.hayarobi.imgcrawler.domain.AttachFileInfo;
 import net.hayarobi.imgcrawler.domain.AttachFileInfo.AttachType;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -20,7 +20,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 public class FileDownloader {
-	private static Log log = LogFactory.getLog(FileDownloader.class);
+	private static Logger log = LoggerFactory.getLogger(FileDownloader.class);
 	
 	/**
 	 * 파일을 다운로드한다. parentPath는 반드시 존재하는 디렉토리여야한다. 

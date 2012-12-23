@@ -16,8 +16,8 @@ import net.hayarobi.imgcrawler.worker.BBSCrawler;
 import net.hayarobi.imgcrawler.worker.ViewSkipChecker;
 import net.hayarobi.imgcrawler.worker.ViewSkipCheckerFactory;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
@@ -28,7 +28,7 @@ import org.apache.http.params.HttpParams;
  */
 public class Main {
 	private static final int BBS_RETRY_CNT = 100;
-	private static Log log = LogFactory.getLog("Main.class");
+	private static Logger log = LoggerFactory.getLogger("Main.class");
 	private static CrawlerPathManager pathManager;
 
 	public static void main(String[] args) {
@@ -83,7 +83,7 @@ public class Main {
 				if (e.getMessage().endsWith("HTTP/1.1 500 Server Error") == false)
 					throw e;
 				else {
-					log.warn(e);
+					log.warn("", e);
 				}
 				System.out.println("retry crawling bbs type " + meta.getBBSDirName());
 				retrycnt++;

@@ -1,6 +1,8 @@
 package net.hayarobi.imgcrawler.parser;
 
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +17,8 @@ import net.htmlparser.jericho.Source;
  */
 public abstract class ListParser {
 
+	protected Charset charset = null;
+	
 	protected InputStream inputStream;
 	protected List<PageView> pvList;
 
@@ -25,6 +29,10 @@ public abstract class ListParser {
 
 	public ListParser() {
 		super();
+	}
+
+	public void setCharset(Charset charset) {
+		this.charset = charset;
 	}
 
 	public String getLastThreadId() {
@@ -56,7 +64,11 @@ public abstract class ListParser {
 	}
 
 	public boolean parseListPage() throws Exception {
-		Source source=new Source(inputStream);
+		Source source=null;
+		if( charset == null )
+			source=new Source(inputStream);
+		else
+			source = new Source(new InputStreamReader(inputStream, charset));
 		checkPageError(source);
 		
 		Element listArea = getListTable(source);
@@ -64,9 +76,11 @@ public abstract class ListParser {
 		List<Element> eleList = getItemElementList(listArea);
 		pvList = new ArrayList<PageView>();
 		for(Element ele : eleList ) {
-			PageView pv = new PageView();
 			// itemId추출
 			String itemId = extractItemId(ele);
+			if( isIgnoredItem(itemId) )
+				continue;
+			PageView pv = new PageView();
 			pv.setItemId(itemId);
 			int depthCount = extractViewDepth(ele);
 			if(depthCount==0) {
@@ -84,6 +98,10 @@ public abstract class ListParser {
 		checkNextPage(source);
 		
 		return true;
+	}
+	
+	protected boolean isIgnoredItem(String itemId) {
+		return false;
 	}
 
 	protected List<Element> getItemElementList(Element listArea) {
